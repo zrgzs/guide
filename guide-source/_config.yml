@@ -104,4 +104,8 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repo: "https://zrgzs.github.io/guide"
+  branch: gh-pages
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})"
+  token: "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"
