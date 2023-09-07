@@ -105,12 +105,12 @@ theme: landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: git
-    repo: https://zrgzs.github.io/guide
+    repo: git@github.com:zrgzs/guide.git
     branch: gh-pages
     message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})"
     token: ${HEXO_TOKEN}
   - type: git
-    repo: https://zrgzs.github.io/guide
+    repo: git@github.com:zrgzs/guide.git
     branch: src
     extend_dirs: /
     ignore_hidden: false
