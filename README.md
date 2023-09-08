@@ -24,4 +24,5 @@ https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/
    其中，`comment: false` 是必须的。`title` 和 `date` 也是必填的。`categories` 是分类目录，第一个是一级目录，以此类推。
    `categories` 的层次结构需要与其相对于 `_post` 文件夹的路径一致。
 4. 将已经写好的 md 格式的文档复制到 `guide-source/source/_posts`
-5. 运行 `hexo clean ;hexo g ;hexo d`，如果是 linux 平台，则需要使用 `hexo clean && hexo g && hexo d`
+5. 删除 `./guide-source/.deploy_git` 文件夹（不知道为什么，但是不删除直接部署会报错）
+6. 运行 `hexo clean ;hexo g ;hexo d`，如果是 linux 平台，则需要使用 `hexo clean && hexo g && hexo d`
