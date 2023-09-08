@@ -15,7 +15,7 @@ social:
   github: https://github.com/zrgzs || github || "#191717"
 
 favicon:
-  apple_touch_icon: /avatar.png
+  apple_touch_icon: https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png
 
 sidebar:
   # Sidebar Position.
