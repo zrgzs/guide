@@ -17,7 +17,7 @@ comment: false
 
 ### 5.6.1 概述
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220017.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220017.jpg)
 
 	对于这个图片肯定会非常熟悉，上图我们可以看做是一个文件系统，对于这样的结构我们称之为树形结构。在树形结构中可以通过调用某个方法来遍历整个树，当我们找到某个叶子节点后，就可以对叶子节点进行相关的操作。可以将这颗树理解成一个大的容器，容器里面包含很多的成员对象，这些成员对象即可是容器对象也可以是叶子对象。但是由于容器对象和叶子对象在功能上面的区别，使得我们在使用的过程中必须要区分容器对象和叶子对象，但是这样就会给客户带来不必要的麻烦，作为客户而已，它始终希望能够一致的对待容器对象和叶子对象。
 
@@ -41,11 +41,11 @@ comment: false
 
 如下图，我们在访问别的一些管理系统时，经常可以看到类似的菜单。一个菜单可以包含菜单项（菜单项是指不再包含其他内容的菜单条目），也可以包含带有其他菜单项的菜单，因此使用组合模式描述菜单就很恰当，我们的需求是针对一个菜单，打印出其包含的所有菜单以及菜单项的名称。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220019.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220019.jpg)
 
 要实现该案例，我们先画出类图：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220023.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220023.jpg)
 
 **代码实现：**
 
@@ -161,7 +161,7 @@ MenuItem是菜单项，不能再有子菜单，所以添加菜单，移除菜单
 - 
 安全组合模式
 在安全组合模式中，在抽象构件角色中没有声明任何用于管理成员对象的方法，而是在树枝节点 `Menu` 类中声明并实现这些方法。安全组合模式的缺点是不够透明，因为叶子构件和容器构件具有不同的方法，且容器构件中那些用于管理成员对象的方法没有在抽象构件类中定义，因此客户端不能完全针对抽象编程，必须有区别地对待叶子构件和容器构件。
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220025.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220025.jpg)
 
 
 
@@ -209,11 +209,11 @@ MenuItem是菜单项，不能再有子菜单，所以添加菜单，移除菜单
 
 下面的图片是众所周知的俄罗斯方块中的一个个方块，如果在俄罗斯方块这个游戏中，每个不同的方块都是一个实例对象，这些对象就要占用很多的内存空间，下面利用享元模式进行实现。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220028.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220028.jpg)
 
 **先来看类图：**
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220030.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220030.jpg)
 
 **代码如下：**
 
@@ -329,7 +329,7 @@ public class Demo {
 
 运行上面代码，结果如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220032.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220032.jpg)
 
 为什么第一个输出语句输出的是true，第二个输出语句输出的是false？通过反编译软件进行反编译，代码如下：
 
@@ -463,7 +463,7 @@ public final class Integer extends Number implements Comparable<Integer> {
 
 炒菜的步骤是固定的，分为倒油、热油、倒蔬菜、倒调料品、翻炒等步骤。现通过模板方法模式来用代码模拟。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220034.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220034.jpg)
 
 代码如下：
 
@@ -630,11 +630,11 @@ public abstract class InputStream implements Closeable {
 
 先看下面的图片，我们去旅游选择出行模式有很多种，可以骑自行车、可以坐汽车、可以坐火车、可以坐飞机。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220036.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220036.jpg)
 
 作为一个程序猿，开发需要选择一款开发工具，当然可以进行代码开发的工具有很多，可以选择Idea进行开发，也可以使用eclipse进行开发，也可以使用其他的一些开发工具。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220039.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220039.jpg)
 
 **定义：**
 
@@ -656,7 +656,7 @@ public abstract class InputStream implements Closeable {
 
 一家百货公司在定年度的促销活动。针对不同的节日（春节、中秋节、圣诞节）推出不同的促销活动，由促销员将促销活动展示给客户。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220041.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220041.jpg)
 
 代码如下：
 
@@ -835,7 +835,7 @@ class TimSort<T> {
 
 日常生活中，我们出去吃饭都会遇到下面的场景。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220044.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220044.jpg)
 
 **定义：**
 
@@ -864,7 +864,7 @@ class TimSort<T> {
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220047.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220047.jpg)
 
 代码如下：
 
@@ -1109,7 +1109,7 @@ public class Demo {
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220049.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220049.jpg)
 
 代码如下：
 

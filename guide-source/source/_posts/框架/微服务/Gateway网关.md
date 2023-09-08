@@ -10,7 +10,7 @@ comment: false
 
 
 ## 一、为什么需要网关
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220713.jpg)在SpringCloud中网关的实现包括两种：
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220713.jpg)在SpringCloud中网关的实现包括两种：
 
 - gateway
 - zuul
@@ -64,7 +64,7 @@ spring:
            predicates:  # 路由断言，也就是判断请求是否符合路由规则的条件
              - Path=/user/**  # 这个是按照路径匹配，只要以/user/开头就符合要求
 ```
-我们在postman中访问当前网关端口，只要与网关路由配置断言匹配即可访问。![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220716.jpg)执行流程如下：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220718.jpg)
+我们在postman中访问当前网关端口，只要与网关路由配置断言匹配即可访问。![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220716.jpg)执行流程如下：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220718.jpg)
 
 ### 总结：
 
@@ -84,7 +84,7 @@ spring:
 - filters：路由过滤器，处理请求或响应
 
 ### 路由断言工厂Route Predicate Factory
-我们在配置文件中写的断言规则只是字符串，这些字符串会被Predicate Factory读取并处理，转变为路由判断的条件例如Path=/user/**是按照路径匹配，这个规则是由org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory类来处理的像这样的断言工厂在SpringCloudGateway还有十几个![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220720.jpg)总结：PredicateFactory的作用是什么？
+我们在配置文件中写的断言规则只是字符串，这些字符串会被Predicate Factory读取并处理，转变为路由判断的条件例如Path=/user/**是按照路径匹配，这个规则是由org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory类来处理的像这样的断言工厂在SpringCloudGateway还有十几个![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220720.jpg)总结：PredicateFactory的作用是什么？
 
 - 读取用户定义的断言条件，对请求做出判断
 
@@ -93,7 +93,7 @@ Path=/user/**是什么含义？
 - 路径是以/user开头的就认为是符合的
 
 ## 四、过滤器工厂
-GatewayFilter是网关中提供的一种过滤器，可以对进入网关的请求和微服务返回的响应做处理：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220723.jpg)![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220726.jpg)如果要对所有的路由都生效，则可以将过滤器工厂写到default下。格式如下：(注意default-filters)
+GatewayFilter是网关中提供的一种过滤器，可以对进入网关的请求和微服务返回的响应做处理：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220723.jpg)![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220726.jpg)如果要对所有的路由都生效，则可以将过滤器工厂写到default下。格式如下：(注意default-filters)
 ```yaml
 server:
   port: 1313
@@ -151,7 +151,7 @@ public class AuthorizeFilter  implements GatewayFilter {
 ### 过滤器执行顺序
 请求进入网关会碰到三类过滤器：当前路由的过滤器、DefaultFilter、GlobalFilter请求路由后，会将当前路由过滤器和DefaultFilter、GlobalFilter，合并到一个过滤器链（集合）中，排序后依次执行每个过滤器
 
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220728.jpg)过滤器执行顺序每一个过滤器都必须指定一个int类型的order值，order值越小，优先级越高，执行顺序越靠前。GlobalFilter通过实现Ordered接口，或者添加@Order注解来指定order值，由我们自己指定路由过滤器和defaultFilter的order由Spring指定，默认是按照声明顺序从1递增。当过滤器的order值一样时，会按照 defaultFilter > 路由过滤器 > GlobalFilter的顺序执行。
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220728.jpg)过滤器执行顺序每一个过滤器都必须指定一个int类型的order值，order值越小，优先级越高，执行顺序越靠前。GlobalFilter通过实现Ordered接口，或者添加@Order注解来指定order值，由我们自己指定路由过滤器和defaultFilter的order由Spring指定，默认是按照声明顺序从1递增。当过滤器的order值一样时，会按照 defaultFilter > 路由过滤器 > GlobalFilter的顺序执行。
 
 ## 六、跨域问题
 跨域：域名不一致就是跨域，主要包括：

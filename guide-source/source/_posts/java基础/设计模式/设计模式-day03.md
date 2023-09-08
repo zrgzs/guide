@@ -53,7 +53,7 @@ Java中的代理按照代理类生成时机不同又分为静态代理和动态�
 
 如果要买火车票的话，需要去火车站买票，坐车到火车站，排队等一系列的操作，显然比较麻烦。而火车站在多个地方都有代售点，我们去代售点买票就方便很多了。这个例子其实就是典型的代理模式，火车站是目标对象，代售点是代理对象。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215948.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215948.jpg)
 
 代码如下：
 
@@ -452,7 +452,7 @@ jdk代理和CGLIB代理
 
 如果去欧洲国家去旅游的话，他们的插座如下图最左边，是欧洲标准。而我们使用的插头如下图最右边的。因此我们的笔记本电脑，手机在当地不能直接充电。所以就需要一个插座转换器，转换器第1面插入当地的插座，第2面供我们充电，这样使得我们的插头在当地能使用。生活中这样的例子很多，手机充电器（将220v转换为5v的电压），读卡器等，其实就是使用到了适配器模式。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215950.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215950.jpg)
 
 **定义：**
 
@@ -480,7 +480,7 @@ jdk代理和CGLIB代理
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215952.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215952.jpg)
 
 代码如下：
 
@@ -577,7 +577,7 @@ public class Client {
 
 我们使用对象适配器模式将读卡器的案例进行改写。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215954.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215954.jpg)
 
 代码如下：
 
@@ -648,7 +648,7 @@ public int read(char cbuf[], int offset, int length) throws IOException {
 
 如上代码中的sd（StreamDecoder类对象），在Sun的JDK实现中，实际的方法实现是对sun.nio.cs.StreamDecoder类的同名方法的调用封装。类结构图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215956.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215956.jpg)
 
 从上图可以看出：
 
@@ -701,7 +701,7 @@ public int read(char cbuf[], int offset, int length) throws IOException {
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215958.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215958.jpg)
 
 代码如下：
 
@@ -893,7 +893,7 @@ public class Demo {
 
 使用起来感觉确实像是装饰者模式，接下来看它们的结构：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220001.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220001.jpg)
 
 > 小结：
 
@@ -927,7 +927,7 @@ public class Demo {
 
 现在有一个需求，需要创建不同的图形，并且每个图形都有可能会有不同的颜色。我们可以利用继承的方式来设计类的关系：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220003.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220003.jpg)
 
 我们可以发现有很多的类，假如我们再增加一个形状或再增加一种颜色，就需要创建更多的类。
 
@@ -956,7 +956,7 @@ public class Demo {
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220005.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220005.jpg)
 
 代码如下：
 
@@ -1057,7 +1057,7 @@ public class Client {
 	
 	外观（Facade）模式是“迪米特法则”的典型应用
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220008.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220008.jpg)
 
 
 ### 5.5.2 结构
@@ -1074,7 +1074,7 @@ public class Client {
 
 小明的爷爷已经60岁了，一个人在家生活：每次都需要打开灯、打开电视、打开空调；睡觉时关闭灯、关闭电视、关闭空调；操作起来都比较麻烦。所以小明给爷爷买了智能音箱，可以通过语音直接控制这些智能家电的开启和关闭。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220010.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220010.jpg)
 
 代码如下：
 
@@ -1185,11 +1185,11 @@ public class Client {
 
 使用tomcat作为web容器时，接收浏览器发送过来的请求，tomcat会将请求信息封装成ServletRequest对象，如下图①处对象。但是大家想想ServletRequest是一个接口，它还有一个子接口HttpServletRequest，而我们知道该request对象肯定是一个HttpServletRequest对象的子实现类对象，到底是哪个类的对象呢？可以通过输出request对象，我们就会发现是一个名为RequestFacade的类的对象。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220012.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220012.jpg)
 
 RequestFacade类就使用了外观模式。先看结构图：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220014.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220014.jpg)
 
 **为什么在此处使用外观模式呢？**
 

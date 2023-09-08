@@ -25,4 +25,4 @@ comment: false
 
 
 ## 5、Redis 生成全局唯一ID
-基于redis单线程的特点生成全局唯一id，redis性能高，支持集群分片。为了增加ID的安全性，我们可以不直接使用Redis自增的数值，而是拼接一些其它信息：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220545.jpg)ID的组成部分：符号位：1bit，永远为0时间戳：31bit，以秒为单位，可以使用69年序列号：32bit，秒内的计数器，支持每秒产生2^32个不同ID实现：
+基于redis单线程的特点生成全局唯一id，redis性能高，支持集群分片。为了增加ID的安全性，我们可以不直接使用Redis自增的数值，而是拼接一些其它信息：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220545.jpg)ID的组成部分：符号位：1bit，永远为0时间戳：31bit，以秒为单位，可以使用69年序列号：32bit，秒内的计数器，支持每秒产生2^32个不同ID实现：

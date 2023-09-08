@@ -26,7 +26,7 @@ at com.hmdp.service.impl.UserServiceImpl$$EnhancerBySpringCGLIB$$c7a7fed4.login(
 意思是无法将Long类型转换为String类型，这是为什么呢？
 
 ## 2、出错原因：
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220415.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220415.jpg)
 
 ## 3、如何解决？
 
@@ -35,9 +35,9 @@ at com.hmdp.service.impl.UserServiceImpl$$EnhancerBySpringCGLIB$$c7a7fed4.login(
 ### 方案二：不使用hutool工具包，自己创建新的Map，类型都是String类型。
 
 ### 方案三：继续使用hutool工具包，并转换一下类型。
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220420.jpg)在CopyOptions中有个方法用于转换类型的:
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220420.jpg)在CopyOptions中有个方法用于转换类型的:
 
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220424.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220424.jpg)
 
 修改后的代码：
 

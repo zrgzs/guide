@@ -36,4 +36,4 @@ allprojects {
 
 5. IDEA 中的配置如下图
 
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220543.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220543.jpg)

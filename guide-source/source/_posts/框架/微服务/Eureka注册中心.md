@@ -24,7 +24,7 @@ comment: false
         return order;
     }
 ```
-每次的服务地址端口会都是相同的，但是如果以后我们使用集群的话，这样就会产生问题。如果有多个服务提供者，消费者该如何选择？消费者如何得知服务提供者的健康状况？![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220703.jpg)
+每次的服务地址端口会都是相同的，但是如果以后我们使用集群的话，这样就会产生问题。如果有多个服务提供者，消费者该如何选择？消费者如何得知服务提供者的健康状况？![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220703.jpg)
 
 ## Eureka详解
 eurekaService:服务端，注册中心
@@ -76,7 +76,7 @@ eureka:
 ```
 
 ##  报错
-同样的配置，这样我们启动时会报错，报错原因是连接被拒绝。**原因：是因为eureka默认会去检索服务，当我们只写了这么一个注册中心（eureka）而没有其他服务的时候，它去检索服务就会出现上述错误。所以需要添加配置 fetch-registry: false。当我们配置多个服务时，我们要去掉这个。****我们点击**![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220706.jpg)跳转的界面是：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220708.jpg)这里显示注册到Eureka中的实例。服务注册：1、创建项目引入依赖
+同样的配置，这样我们启动时会报错，报错原因是连接被拒绝。**原因：是因为eureka默认会去检索服务，当我们只写了这么一个注册中心（eureka）而没有其他服务的时候，它去检索服务就会出现上述错误。所以需要添加配置 fetch-registry: false。当我们配置多个服务时，我们要去掉这个。****我们点击**![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220706.jpg)跳转的界面是：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220708.jpg)这里显示注册到Eureka中的实例。服务注册：1、创建项目引入依赖
 ```java
  <!--注册eureka的客户端-->
         <dependency>
@@ -99,7 +99,7 @@ public RestTemplate restTemplate(){
     return new RestTemplate();
 }
 ```
-在拉取时，我们的url不能写死，我们需要写服务名称即可![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220710.jpg)这样我们配置多个服务时，我们依靠Eureka注册中心就能拉取相应的服务了
+在拉取时，我们的url不能写死，我们需要写服务名称即可![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220710.jpg)这样我们配置多个服务时，我们依靠Eureka注册中心就能拉取相应的服务了
 
 总结一波：1、搭建EurekaServer
 

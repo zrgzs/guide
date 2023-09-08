@@ -45,24 +45,24 @@ comment: false
 
 首先添加远程主机
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220242.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220242.jpg)
 
 点击右上角三个点新建：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220244.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220244.jpg)
 
 然后新建SSH配置
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220246.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220246.jpg)
 
 然后填写被挡住的地方：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220248.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220248.jpg)
 
 然后填写映射路径
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220251.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220251.jpg)
 
 然后工具中勾选自动上传
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220253.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220253.jpg)

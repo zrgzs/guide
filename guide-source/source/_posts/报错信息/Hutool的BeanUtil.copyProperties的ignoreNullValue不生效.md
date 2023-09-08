@@ -56,7 +56,7 @@ comment: false
 ```
 
 ## 2、出错原因
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220344.jpg)1、这是由于setFieldValueEditor优先级要高于ignoreNullValue导致前者首先被触发，因此出现空指针问题。需要在setFieldValueEditor中也需要判空。2、这么设计的原因主要是，如果原值确实是null，但是你想给一个默认值，在此前过滤掉就不合理了，而你的值编辑后转换为null，后置的判断就会过滤掉。
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220344.jpg)1、这是由于setFieldValueEditor优先级要高于ignoreNullValue导致前者首先被触发，因此出现空指针问题。需要在setFieldValueEditor中也需要判空。2、这么设计的原因主要是，如果原值确实是null，但是你想给一个默认值，在此前过滤掉就不合理了，而你的值编辑后转换为null，后置的判断就会过滤掉。
 
 ## 3、如何解决？
- 简单来说就是在setFieldValueEditor方法的时候,也进行判断一下空值![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220350.jpg)这样判空一下就可以了。
+ 简单来说就是在setFieldValueEditor方法的时候,也进行判断一下空值![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220350.jpg)这样判空一下就可以了。

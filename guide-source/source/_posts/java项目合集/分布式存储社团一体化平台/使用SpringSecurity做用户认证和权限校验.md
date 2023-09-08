@@ -27,7 +27,7 @@ Filter 可以在服务器作出响应前拦截用户请求，并在拦截后修�
 - 拦截请求：在 HttpServletRequest 到达 Servlet 之前进行拦截，查看和修改 HttpServletRequest 的 Header 和数据。
 - 拦截响应：在 HttpServletResponse 到达客户端之前完成拦截，查看和修改 HttpServletResponse 的 Header 和数据。
 
-过滤器链作为SpringSecurity的核心，我从网上找来一个图，可以很好的解释一下过滤器链的执行流程：![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220233.jpg)
+过滤器链作为SpringSecurity的核心，我从网上找来一个图，可以很好的解释一下过滤器链的执行流程：![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220233.jpg)
 
 ## SpringSecuity 部分过滤器的执行流程：
 
@@ -45,9 +45,9 @@ Filter 可以在服务器作出响应前拦截用户请求，并在拦截后修�
 
 我们可以随时获取SecurityContext上下文对象，这样我们可以更改其中的权限认证信息，这是很重要的，当时写社团在线平台就不知道这个想了好久。离大谱。
 
-SecurityContextHolder 用于存储安全上下文（SecurityContext）的信息。而如何保证用户信息的安全，Spring Security 采用“用户信息和线程绑定”的策略，SecurityContextHolder 默认采用 ThreadLocal 机制保存用户的 SecurityContext，在使用中可以通过 SecurityContextHolder 工具轻松获取用户安全上下文。这意味着，只要是针对某个使用者的逻辑执行都是在同一个线程中进行，Spring Security 会在用户登录时自动绑定认证信息到当前线程，在用户退出时也会自动清除当前线程的认证信息。![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220235.jpg)其中，getAuthentication() 返回认证信息，getPrincipal() 返回身份信息。 SecurityContext 是从 SecurityContextHolder 获得的。SecurityContext 包含一个 Authentication对象。
+SecurityContextHolder 用于存储安全上下文（SecurityContext）的信息。而如何保证用户信息的安全，Spring Security 采用“用户信息和线程绑定”的策略，SecurityContextHolder 默认采用 ThreadLocal 机制保存用户的 SecurityContext，在使用中可以通过 SecurityContextHolder 工具轻松获取用户安全上下文。这意味着，只要是针对某个使用者的逻辑执行都是在同一个线程中进行，Spring Security 会在用户登录时自动绑定认证信息到当前线程，在用户退出时也会自动清除当前线程的认证信息。![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220235.jpg)其中，getAuthentication() 返回认证信息，getPrincipal() 返回身份信息。 SecurityContext 是从 SecurityContextHolder 获得的。SecurityContext 包含一个 Authentication对象。
 
-## SpringSecurity的认证流程![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220237.jpg)
+## SpringSecurity的认证流程![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220237.jpg)
 根据这张图，这样来看我的代码，就能很清晰了，我们需要实现UserDetailsSerivce的loadUserByUsername()方法，我们在这个方法里面进行查询数据库，判断用户是否存在来进行登录认证操作，同时我们的返回的UserDetails实体类是Security框架自带的，我们可以继承他，然后返回我们自己的实体类，注意返回的UserDetails.
 
 ### 官方话如下：
@@ -75,4 +75,4 @@ SecurityContextHolder 用于存储安全上下文（SecurityContext）的信息�
 4. DaoAuthenticationProvider 使用 PasswordEncoder 验证上一步返回的 UserDetails 中的用户密码。
 5. 当身份验证成功， Authentication 返回一个已认证的 UsernamePasswordAuthenticationToken ，其中包含 UserDetailsService 返回的 UserDetails 信息。最终，认证成功的 UsernamePasswordAuthenticationToken 添加到 SecurityContextHolder 完成账号密码的身份认证。
 
-看下这图就了解差不多了：![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220239.jpg)
+看下这图就了解差不多了：![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220239.jpg)

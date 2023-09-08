@@ -10,15 +10,15 @@ comment: false
 
 
 ## 为何Ribbon可以做到负载均衡（原理）？
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220847.jpg)发送请求：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220850.jpg)继续debug会进入到LoadBalancerInterceptor拦截器中，我们会发现在拦截请求中实质上是获取了URI，获取了主机名称，后将主机名称传给了RibbonLoadBalanceIacerClient,负载均衡客户端会继续执行![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220852.jpg)之后进入到execute方法中，通过服务ID，会在Eureka中找到ID相同的服务封装成List。（RibbonLoadBalancerClient）getLoadBalancer是在根据服务名称找Eureka的服务名称来拉取服务的，继续进入getServer方法中，![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220855.jpg)![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220859.jpg)到这里一步，我们已经拉取到服务列表了，这样我们就可以开始做负载均衡了，我们可以看到使用了一个叫rule的choose方法来选择![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220901.jpg)rule是什么呢？![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220903.jpg)通过IRule来决定选择负载均衡![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220906.jpg)执行完成rule的choose之后，我们就找到了这个服务的ip和端口号了![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220908.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220847.jpg)发送请求：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220850.jpg)继续debug会进入到LoadBalancerInterceptor拦截器中，我们会发现在拦截请求中实质上是获取了URI，获取了主机名称，后将主机名称传给了RibbonLoadBalanceIacerClient,负载均衡客户端会继续执行![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220852.jpg)之后进入到execute方法中，通过服务ID，会在Eureka中找到ID相同的服务封装成List。（RibbonLoadBalancerClient）getLoadBalancer是在根据服务名称找Eureka的服务名称来拉取服务的，继续进入getServer方法中，![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220855.jpg)![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220859.jpg)到这里一步，我们已经拉取到服务列表了，这样我们就可以开始做负载均衡了，我们可以看到使用了一个叫rule的choose方法来选择![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220901.jpg)rule是什么呢？![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220903.jpg)通过IRule来决定选择负载均衡![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220906.jpg)执行完成rule的choose之后，我们就找到了这个服务的ip和端口号了![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220908.jpg)
 
-实质上，我们的请求会被一个叫做LoadBalanceInterceptor负载均衡拦截器拦截，后将服务的名称交给RibbonLoadBalcaneClient，然后将url的服务ID交给DynamicServiceListLoadBalance去拉取服务信息，然后通过IRule来做负载均衡。![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220910.jpg)
+实质上，我们的请求会被一个叫做LoadBalanceInterceptor负载均衡拦截器拦截，后将服务的名称交给RibbonLoadBalcaneClient，然后将url的服务ID交给DynamicServiceListLoadBalance去拉取服务信息，然后通过IRule来做负载均衡。![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220910.jpg)
 
 
 ## 配置Ribbon负载均衡
 
 ### Ribbon负载均衡策略
-Ribbon的负载均衡规则是一个叫做IRule的接口来定义的，每一个子接口都是一种规则：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220913.jpg)
+Ribbon的负载均衡规则是一个叫做IRule的接口来定义的，每一个子接口都是一种规则：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220913.jpg)
 
 
 ### 负载均衡策略

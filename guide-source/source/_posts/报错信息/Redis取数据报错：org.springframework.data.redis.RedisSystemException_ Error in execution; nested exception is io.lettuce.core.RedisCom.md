@@ -62,10 +62,10 @@ comment: false
         return r;
     }
 ```
-但是在取数据的时候就报错:![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220358.jpg)
+但是在取数据的时候就报错:![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220358.jpg)
 
 ## 2、问题原因
-原来是redis中在已经存储过String类型的了![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220401.jpg)在取数据转换成Map就会报错了呗。
+原来是redis中在已经存储过String类型的了![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220401.jpg)在取数据转换成Map就会报错了呗。
 
 ## 3、解决方式：
 ①删除redis中已经存在的类型不一致的KEY,②转换成类型一致的呗

@@ -9,7 +9,7 @@ comment: false
 
 
 # 2.2 运行时数据区
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220316.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220316.jpg)
 
 # 2.2.1 程序计数器
 > 是当前线程所执行的字节码的行号指示器，字节码解释器通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。
@@ -223,7 +223,7 @@ comment: false
 | 偏向线程 ID、偏向时间戳、对象分代年龄 | 01 | 可偏向 |
 
 - 上表不够明确，经过查阅资料找到一张更好的表格（已经向作者大大提交了issue了）
-- ![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220319.jpg)
+- ![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220319.jpg)
 - 这里有个题外话，对运行时的对象头进行分析可以使用 `jol-core` 类库，具体使用方法自行搜索。
 > 对象头的另外一部分是类型指针，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。并不是所有的虚拟机实现都必须在对象数据上保留类型指针，换句话说，查找对象的元数据信息并不一定要经过对象本身，这点我们会在下一节具体讨论。此外，如果对象是一个Java数组，那在对象头中还必须有一块用于记录数组长度的数据，因为虚拟机可以通过普通Java对象的元数据信息确定Java对象的大小，但是如果数组的长度是不确定的，将无法通过元数据中的信息推断出数组的大小。
 
@@ -261,7 +261,7 @@ comment: false
 java version "1.8.0_351"Java(TM) SE Runtime Environment (build 1.8.0_351-b10)Java HotSpot(TM) 64-Bit Server VM (build 25.351-b10, mixed mode)
 
 ##### JVM 参数默认值
-通过命令 `java -XX:+PrintFlagsFinal`  查看参数的默认值可以发现 CompactFields 确实默认为 true，但是它似乎没有作用。![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220323.jpg)
+通过命令 `java -XX:+PrintFlagsFinal`  查看参数的默认值可以发现 CompactFields 确实默认为 true，但是它似乎没有作用。![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220323.jpg)
 
 ##### IDE 环境
 IntelliJ IDEA 2023.1 (Ultimate Edition)Build #IU-231.8109.175, built on March 28, 2023For educational use only.Runtime version: 17.0.6+10-b829.5 amd64VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.Windows 10.0GC: G1 Young Generation, G1 Old GenerationMemory: 2016MCores: 12Registry:debugger.new.tool.window.layout=truedebugger.valueTooltipAutoShowOnSelection=trueide.experimental.ui=true
@@ -341,7 +341,7 @@ public class T {
 > - 如果使用句柄访问的话，Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息，其结构如图2-2所示。 
 > - 如果使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销，如图2-3所示。
 
-详情见图：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220325.jpg)![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220328.jpg)
+详情见图：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220325.jpg)![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220328.jpg)
 > 这两种对象访问方式各有优势，使用句柄来访问的最大好处就是reference中存储的是稳定句柄地址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而reference本身不需要被修改。
 > 使用直接指针来访问最大的好处就是速度更快，它节省了一次指针定位的时间开销，由于对象访问在Java中非常频繁，因此这类开销积少成多也是一项极为可观的执行成本，就本书讨论的主要虚拟机HotSpot而言，它主要使用第二种方式进行对象访问（有例外情况，如果使用了Shenandoah收集器的话也会有一次额外的转发，具体可参见第3章），但从整个软件开发的范围来看，在各种语言、框架中使用句柄来访问的情况也十分常见。
 

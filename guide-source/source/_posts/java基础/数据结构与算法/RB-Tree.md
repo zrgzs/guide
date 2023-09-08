@@ -26,28 +26,28 @@ comment: false
 4. 每个红色结点的两个子结点都是黑色。（从每个叶子到根的所有路径上不能有两个连续的红色结点）
 5. 从任一结点到其每个叶子的所有路径都包含相同数目的黑色结点。
 
-**关于特征原理解释，详见：**[1-红黑树前置知识-二叉排序树常见操作详解_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV135411h7wJ?p=1)由上视频可知，一颗红黑树对应着唯一一颗 2-3-4树，一颗 2-3-4树对应多颗红黑树。两者结点转换关系如下：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215622.jpg)
+**关于特征原理解释，详见：**[1-红黑树前置知识-二叉排序树常见操作详解_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV135411h7wJ?p=1)由上视频可知，一颗红黑树对应着唯一一颗 2-3-4树，一颗 2-3-4树对应多颗红黑树。两者结点转换关系如下：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215622.jpg)
 
 ## 3. 插入（结合 2-3-4 Tree 进行理解）
-这里我们通过顺序插入** {50, 60, 70, 80, 90, 100} **来进行理解下图都按照以下结构：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215624.jpg)
+这里我们通过顺序插入** {50, 60, 70, 80, 90, 100} **来进行理解下图都按照以下结构：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215624.jpg)
 
 ### 3.1 插入 50
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215626.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215626.jpg)
 
 ### 3.2 插入 60
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215628.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215628.jpg)
 
 ### 3.3 插入 70
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215630.jpg)此时插入70后需要左旋。
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215630.jpg)此时插入70后需要左旋。
 
 ### 3.4 插入 80
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215632.jpg)此时直接改变颜色即可
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215632.jpg)此时直接改变颜色即可
 
 ### 3.5 插入 90
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215634.jpg)需要左旋
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215634.jpg)需要左旋
 
 ### 3.6 插入 100
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215637.jpg)此时，若使用 AVL 树存储数据，那么就要进行一次左旋，而红黑树利用改变结点颜色避免了一次左旋，树也差不多是平衡的。
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215637.jpg)此时，若使用 AVL 树存储数据，那么就要进行一次左旋，而红黑树利用改变结点颜色避免了一次左旋，树也差不多是平衡的。
 
 ### 结论
 观察上述插入过程，可以发现：

@@ -42,12 +42,12 @@ comment: false
 ### 图示：
 > 我们通过顺序插入1 - 17 来学习结点的分裂过程
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215610.jpg)看不懂上述题解的，很正常，我第一次也没看懂，看懂了的那么恭喜你可以跳过下面这一小部分了。
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215610.jpg)看不懂上述题解的，很正常，我第一次也没看懂，看懂了的那么恭喜你可以跳过下面这一小部分了。
 
 ### 详细分析
 
 #### 情况一：
-首先分析一下最简单的情况：分裂根节点![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215612.jpg)**详细描述：**由于插入的键值5，导致结点长度超过了上限。故将其拆分为三部分：左节点、中间结点（即新的根节点）、右节点。左节点的键值为中间键值的左边的所有键值，右节点同理，然后使其中间结点中键值3的两侧子结点依次为 左节点、右节点。然后将中间结点赋值给根结点，完成分裂。**问答：**
+首先分析一下最简单的情况：分裂根节点![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215612.jpg)**详细描述：**由于插入的键值5，导致结点长度超过了上限。故将其拆分为三部分：左节点、中间结点（即新的根节点）、右节点。左节点的键值为中间键值的左边的所有键值，右节点同理，然后使其中间结点中键值3的两侧子结点依次为 左节点、右节点。然后将中间结点赋值给根结点，完成分裂。**问答：**
 
 - 结点长度超过了上限 是什么？
    - 由于示例是5阶树，所以每个结点最多有 5 - 1 个键值
@@ -55,10 +55,10 @@ comment: false
    - 因为B树是一颗有序的多路平衡查找树，所以为了使其有序且平衡，这里选择中间结点为父结点
 
 #### 情况二：
-分裂边上的叶子节点![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215614.jpg)
+分裂边上的叶子节点![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215614.jpg)
 
 #### 情况三：
-分裂中间的叶子节点![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215616.jpg)这里要注意的就是，在递归的过程中，需要记录一下当前结点在父结点的第几个索引。
+分裂中间的叶子节点![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215616.jpg)这里要注意的就是，在递归的过程中，需要记录一下当前结点在父结点的第几个索引。
 
 ### 代码实现
 通过上述分析，一个结点需要包含以下元素：
@@ -66,7 +66,7 @@ comment: false
 - 一个存放键值的数组
 - 一个存放子结点引用的数组
 
-还需要分析一下键值和键值两端的引用的索引关系![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215618.jpg)由图可见，假设键值的索引为 n，那么其左侧的子结点引用也为 n，右侧的子结点引用为 n + 1Node类设计好了，还有BalanceTree类，BalanceTree类暂时来说需要的就是该B树的阶数，所以构造器应该有一个参数下面就可以进行代码实现了
+还需要分析一下键值和键值两端的引用的索引关系![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215618.jpg)由图可见，假设键值的索引为 n，那么其左侧的子结点引用也为 n，右侧的子结点引用为 n + 1Node类设计好了，还有BalanceTree类，BalanceTree类暂时来说需要的就是该B树的阶数，所以构造器应该有一个参数下面就可以进行代码实现了
 ```java
 package _09_tree;
 
@@ -331,7 +331,7 @@ public class BalanceTree<T extends Comparable<T>> {
    - 删除内部节点的关键字可转换为删除叶子节点的关键字。即首先判断是否为叶子节点，否：则将子结点的关键字上移并覆盖当前的待删除关键字，然后继续递归删除子结点中上移的那个关键字。然后继续判断。。。
 
 ### 图示：
-下图是一个5阶B树，我们通过删除15、14、17、5四个键，来观察删除过程（基本涵盖所有情况）。![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215620.jpg)
+下图是一个5阶B树，我们通过删除15、14、17、5四个键，来观察删除过程（基本涵盖所有情况）。![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215620.jpg)
 
 ### 详细描述：
 详见代码

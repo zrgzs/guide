@@ -46,7 +46,7 @@ public Order queryOrderById(Long orderId) {
 ```
 
 ### 添加@EnableFeignClients注解（开关）
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220730.jpg)注意：在主类上开启EnableFeignClients注解，那么我们的程序将会自动扫描clsspath下面所有被Feignclient注解类，（value值为服务名称）打上该注解的bean（一般是接口，生成代理类当成bean）,会注入到spring的ioc容器中，最后通过处理器一系列复杂的操作，最后给我们的服务端发送一个http的请求。
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220730.jpg)注意：在主类上开启EnableFeignClients注解，那么我们的程序将会自动扫描clsspath下面所有被Feignclient注解类，（value值为服务名称）打上该注解的bean（一般是接口，生成代理类当成bean）,会注入到spring的ioc容器中，最后通过处理器一系列复杂的操作，最后给我们的服务端发送一个http的请求。
 
 ### 编写FeignClient接口
 例如：
@@ -104,7 +104,7 @@ feign:
        userservice: # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置
         logger-level: full  # 配置为FULL格式的
 ```
-FULL格式：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220733.jpg)java代码的方式配置：首先创建一个配置类，来创建bean;
+FULL格式：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220733.jpg)java代码的方式配置：首先创建一个配置类，来创建bean;
 ```java
 public class FeignClientConfig {
 
@@ -174,5 +174,5 @@ feign:
 
 
 ## Feign的最佳实战（我感觉这样好一些）：
-将FeignClient抽取为独立模块，并且把接口有关的POJO、默认的Feign配置都放到这个模块中，提供给所有消费者使用![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220735.jpg)
+将FeignClient抽取为独立模块，并且把接口有关的POJO、默认的Feign配置都放到这个模块中，提供给所有消费者使用![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220735.jpg)
 

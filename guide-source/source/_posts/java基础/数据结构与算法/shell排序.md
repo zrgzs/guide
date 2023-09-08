@@ -26,21 +26,21 @@ comment: false
 
 第1趟: (gap=4)
 
-![alg-sort-shell-1.jpg](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215639.jpg)
+![alg-sort-shell-1.jpg](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215639.jpg)
 
 
 当gap=4时,意味着将数列分为4个组: {80,20},{30,10},{60,50},{40,70}。 对应数列: {80,30,60,40,20,10,50,70} 对这4个组分别进行排序，排序结果: {20,80},{10,30},{50,60},{40,70}。 对应数列:
 
 第2趟: (gap=2)
 
-![alg-sort-shell-2.jpg](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215641.jpg)
+![alg-sort-shell-2.jpg](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215641.jpg)
 
 
 当gap=2时,意味着将数列分为2个组: {20,50,80,60}, {10,40,30,70}。 对应数列: {20,10,50,40,80,30,60,70} 注意: {20,50,80,60}实际上有两个有序的数列{20,80}和{50,60}组成。 {10,40,30,70}实际上有两个有序的数列{10,30}和{40,70}组成。 对这2个组分别进行排序，排序结果: {20,50,60,80}, {10,30,40,70}。 对应数列:
 
 第3趟: (gap=1)
 
-![alg-sort-shell-3.jpg](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907215644.jpg)
+![alg-sort-shell-3.jpg](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215644.jpg)
 
 
 当gap=1时,意味着将数列分为1个组: {20,10,50,30,60,40,80,70} 注意: {20,10,50,30,60,40,80,70}实际上有两个有序的数列{20,50,60,80}和{10,30,40,70}组成。 对这1个组分别进行排序，排序结果:

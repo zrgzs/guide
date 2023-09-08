@@ -8,4 +8,4 @@ author: wspstart
 comment: false
 ---
 
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220231.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220231.jpg)

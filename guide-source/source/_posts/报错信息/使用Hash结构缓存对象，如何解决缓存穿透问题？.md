@@ -11,7 +11,7 @@ comment: false
 ## 1、问题描述
 了解了缓存穿透问题后，我就想着使用hash结构存储对象。如果用户请求的ID不存在的时候，需要在redis缓存中缓存NULL值，这样显然是不可行的，因为使用通过entities返回的类型任然是Map类型，不是null。
 
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220406.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220406.jpg)
 
 StringRedisTemplate会创建一个空Map，使用无法通过类似string结构的 ！= null 来判断数据是否在缓存中。
 
@@ -55,4 +55,4 @@ StringRedisTemplate会创建一个空Map，使用无法通过类似string结构�
         return Result.ok(shop);
     }
 ```
-通过hutool的BeanUtil.isEmpty(Object obj)来判断实体的属性是否全部为空。![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220411.jpg)
+通过hutool的BeanUtil.isEmpty(Object obj)来判断实体的属性是否全部为空。![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220411.jpg)

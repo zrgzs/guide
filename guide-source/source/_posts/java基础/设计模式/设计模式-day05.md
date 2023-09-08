@@ -21,7 +21,7 @@ comment: false
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220052.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220052.jpg)
 
 代码如下：
 
@@ -174,7 +174,7 @@ public class Client {
 
 对上述电梯的案例使用状态模式进行改进。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220054.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220054.jpg)
 
 代码如下：
 
@@ -431,7 +431,7 @@ public class Client {
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220056.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220056.jpg)
 
 代码如下：
 
@@ -646,7 +646,7 @@ public class Client {
 
 如果引入中介者模式，那么同事类之间的关系将变为星型结构，从下右图中可以看到，任何一个类的变动，只会影响的类本身，以及中介者，这样就减小了系统的耦合。一个好的设计，必定不会把所有的对象关系处理逻辑封装在本类中，而是使用一个专门的类来管理那些不属于自己的行为。
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220059.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220059.jpg)
 
 **定义：**
 
@@ -679,7 +679,7 @@ public class Client {
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220102.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220102.jpg)
 
 代码如下：
 
@@ -848,7 +848,7 @@ public class Client {
 
 【例】定义一个可以存储学生对象的容器对象，将遍历该容器的功能交由迭代器实现，涉及到的类如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220104.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220104.jpg)
 
 代码如下：
 
@@ -1043,7 +1043,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220107.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220107.jpg)
 
 代码如下：
 
@@ -1289,7 +1289,7 @@ public class Client {
 
 运行结果：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220109.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220109.jpg)
 
 这个结果可能出乎一些人的意料了，为什么呢？
 
@@ -1352,7 +1352,7 @@ public class Client {
 
 运行结果如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220110.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220110.jpg)
 
 **双分派实现动态绑定的本质，就是在重载方法委派的前面加上了继承体系中覆盖的环节，由于覆盖是动态的，所以重载就是动态的了。**
 
@@ -1400,7 +1400,7 @@ public class Client {
 
 备忘录角色对任何对象都提供一个接口，即宽接口，备忘录角色的内部所存储的状态就对所有对象公开。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220113.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220113.jpg)
 
 代码如下：
 
@@ -1554,7 +1554,7 @@ public class Client {
 
 将 `RoleStateMemento` 设为 `GameRole` 的内部类，从而将 `RoleStateMemento` 对象封装在 `GameRole` 里面；在外面提供一个标识接口 `Memento` 给 `RoleStateCaretaker` 及其他对象使用。这样 `GameRole` 类看到的是 `RoleStateMemento` 所有的接口，而`RoleStateCaretaker`  及其他对象看到的仅仅是标识接口 `Memento` 所暴露出来的接口，从而维护了封装型。类图如下：
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220115.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220115.jpg)
 
 代码如下：
 

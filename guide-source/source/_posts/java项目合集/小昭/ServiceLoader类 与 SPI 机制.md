@@ -298,7 +298,7 @@ public class ServiceLoaderDemo {
 }
 ```
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220255.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220255.jpg)
 
 
 ## Dubbo SPI例子
@@ -390,7 +390,7 @@ watering finished
 Process finished with exit code 0
 ```
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220258.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220258.jpg)
 
 
 ## JDK 和 Dubbo SPI简单对比
@@ -871,4 +871,4 @@ loadClass()方法主要作用是对子类进行划分，这里主要划分成了
 
 ## ExtensionLoader加载流程图
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220300.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220300.jpg)

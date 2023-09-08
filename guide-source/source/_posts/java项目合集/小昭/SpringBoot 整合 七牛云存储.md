@@ -211,7 +211,7 @@ region 在配置文件中写的是 字符串，而要根据配置文件中的字
 
 首先看一下类图
 
-![](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220304.jpg)
+![](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220304.jpg)
 
 `RegionFactory` 中又两个抽象方法：
 

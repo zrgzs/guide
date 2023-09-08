@@ -7,7 +7,7 @@ author: wspstart
 comment: false
 ---
 
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907221033.jpg)
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221033.jpg)
 
 面对这个图，让我们先从承上启下的DTO开始入手
 

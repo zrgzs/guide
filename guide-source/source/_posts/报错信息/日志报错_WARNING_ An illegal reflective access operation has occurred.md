@@ -26,7 +26,7 @@ WARNING: All illegal access operations will be denied in a future release
 ## 3、解决问题：
 
 ### 1、方案一
-降低项目使用的JDK版本，从jdk11->jdk8就可以了。![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220427.jpg)
+降低项目使用的JDK版本，从jdk11->jdk8就可以了。![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220427.jpg)
 
 ### 2、方案二
  **使用 --illegal-access 参数****通过阅读控制的警告信息，我们能发现：	**
@@ -44,7 +44,7 @@ WARNING: All illegal access operations will be denied in a future release
 ```java
 参数 --add-opens  java.base/java.base模块内的jar包名 = ALL-UNNAMED 
 ```
-![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220430.jpg)这样修改并不是长久之计：这仅是一种临时解决方案，不建议在生产环境中长期使用。
+![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220430.jpg)这样修改并不是长久之计：这仅是一种临时解决方案，不建议在生产环境中长期使用。
 
 3、方案三按照模块化开发的方案来解决，等我学会了模块化开发我再来补充 // TODO
 

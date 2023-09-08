@@ -24,7 +24,7 @@ CREATE TABLE `tb_blog`  (
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 ```
-执行这段语句报错,报错信息为：![image.png](https://raw.githubusercontent.com/zrgzs/images/main/images/20230907220353.jpg)这个报错是由于MySQL的严格模式导致的，解决方式：在命令行中执行sql_mode:
+执行这段语句报错,报错信息为：![image.png](https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220353.jpg)这个报错是由于MySQL的严格模式导致的，解决方式：在命令行中执行sql_mode:
 ```sql
 SET SESSION sql_mode ='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 ```
