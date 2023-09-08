@@ -301,3 +301,9 @@ vendors:
     valine: gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js
     copy_tex: npm/katex@0.12.0/dist/contrib/copy-tex.min.js
     chart: npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js
+
+author:
+  on: true #true：开启多作者模式
+  authors:
+    author1: lx0815
+    author2: wspstart
