@@ -1,70 +1,4 @@
-alternate: 卓软信息工作室
-
-
-#可以修改成 //cdn.jsdelivr.net/gh/您的github用户名/您的项目名@latest/ 这种形式，以使用 jsDelivr 进行加速。
-statics: /
-# 静态文件所处目录的实际目录名，这些一般不改。
-css: css
-js: js
-images: images
-# 夜间模式
-darkmode: true
-#默认情况下，再次打开页面时，会自动滚动到上次浏览的位置。
-#这个选项设为 false 时将停用此功能。
-auto_scroll: false
-# 单击页面的烟花效果配置如下
-fireworks:
-  enable: true # 是否启用
-  color: # 烟花颜色
-    - "rgba(255,182,185,.9)"
-    - "rgba(250,227,217,.9)"
-    - "rgba(187,222,214,.9)"
-    - "rgba(138,198,209,.9)"
-# 此功能基本参考 NexT。
-font:
-  enable: true
-  # Font options:
-  # `external: true` will load this font family from `host` above.
-  # `family: Times New Roman`. Without any quotes.
-  # `size: x.x`. Use `em` as unit. Default: 1 (16px)
-
-  # Global font settings used for all elements inside <body>.
-  global:
-    external: true
-    family: Mulish
-    size:
-
-  # Font settings for alternate title.
-  logo:
-    external: true
-    family: Fredericka the Great
-    size: 3.5
-
-  # Font settings for site title.
-  title:
-    external: true
-    family: Noto Serif JP
-    size: 2.5
-
-  # Font settings for headlines (<h1> to <h6>).
-  headings:
-    external: true
-    family: Noto Serif SC
-    size:
-
-  # Font settings for posts.
-  posts:
-    external: true
-    family:
-
-  # Font settings for <code> and code blocks.
-  codes:
-    external: true
-    family: Inconsolata
-
-# project of https://www.iconfont.cn/
-# //at.alicdn.com/t/font_1832207_c8i9n1ulxlt.css => 1832207_c8i9n1ulxlt
-iconfont: "1832207_c8i9n1ulxlt"
+alternate:
 
 menu:
   home: / || home
@@ -78,27 +12,17 @@ menu:
   # links: /links/ || magic
 
 social:
-  github: https://github.com/yourname || github || "#191717"
-  #google: https://plus.google.com/yourname || google
-#  twitter: https://twitter.com/yourname || twitter || "#00aff0"
-#  zhihu: https://www.zhihu.com/people/yourname || zhihu || "#1e88e5"
-#  music: https://music.163.com/#/user/home?id=yourid || cloud-music || "#e60026"
-#  weibo: https://weibo.com/yourname || weibo || "#ea716e"
-#  about: https://about.me/yourname || address-card || "#3b5998"
-  #email: mailto:yourname@mail.com || envelope || "#55acd5"
-  #facebook: https://www.facebook.com/yourname || facebook
-  #stackoverflow: https://stackoverflow.com/yourname || stack-overflow
-  #youtube: https://youtube.com/yourname || youtube
-  #instagram: https://instagram.com/yourname || instagram
-  #skype: skype:yourname?call|chat || skype
-  #douban: https://www.douban.com/people/yourname/ || douban
+  github: https://github.com/zrgzs || github || "#191717"
+
+favicon:
+  apple_touch_icon: /avatar.png
 
 sidebar:
   # Sidebar Position.
   position: left
   #position: right
   # Replace the default avatar image and set the url here.
-  avatar: avatar.jpg
+  avatar: avatar.png
 widgets:
   random_posts: true # 显示随机文章
   recent_comments: false # 显示最近评论
@@ -110,3 +34,8 @@ footer:
 # 文章界面统计
 post:
   count: true
+
+# 打赏
+reward:
+  # If true, reward will be displayed in every article by default.
+  enable: false
