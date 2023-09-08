@@ -1,3 +1,4 @@
 # hexo
 public/
-/guide-source/node_modules/
+node_modules
+.idea
