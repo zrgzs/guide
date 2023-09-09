@@ -1,5 +1,5 @@
 ---
-title: @Valid 和 @Validated 的底层原理
+title: "@Valid 和 @Validated 的底层原理"
 date: 2023-09-07 17:59:14
 categories:
 - java项目合集
