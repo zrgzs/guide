@@ -3,10 +3,11 @@ alternate:
 menu:
   home: / || home
   about: /about/ || user
-  posts:
-    default: / || feather
-    archives: /archives/ || list-alt
-    categories: /categories/ || th
+#  posts:
+#    default: / || feather
+  archives: /archives/ || list-alt
+  categories: /categories/ || th
+  join-us: /join-us/ || qq
 #    tags: /tags/ || tags
   # friends: /friends/ || heart
   # links: /links/ || magic

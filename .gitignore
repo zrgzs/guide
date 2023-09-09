@@ -1,4 +1,5 @@
 # hexo
-public/
+public
 node_modules
 .idea
+.deploy_git
