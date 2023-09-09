@@ -2,12 +2,12 @@ alternate:
 
 menu:
   home: / || home
-  about: /about/ || user
 #  posts:
 #    default: / || feather
-  archives: /archives/ || list-alt
+#  archives: /archives/ || list-alt
   categories: /categories/ || th
   join-us: /join-us/ || qq
+  about: /about/ || user
 #    tags: /tags/ || tags
   # friends: /friends/ || heart
   # links: /links/ || magic
