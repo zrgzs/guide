@@ -1,5 +1,5 @@
 ---
-title: @SuppressWarnings
+title: "@SuppressWarnings"
 date: 2023-09-07 17:59:14
 categories:
 - java基础

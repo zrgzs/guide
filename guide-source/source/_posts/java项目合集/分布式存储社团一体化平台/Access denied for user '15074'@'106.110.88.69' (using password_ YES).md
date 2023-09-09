@@ -1,5 +1,5 @@
 ---
-title: Access denied for user '15074'@'106.110.88.69' (using password_ YES)
+title: "Access denied for user '15074'@'106.110.88.69' (using password_ YES)"
 date: 2023-09-07 17:59:14
 categories:
 - java项目合集
