@@ -14,8 +14,8 @@ js: js
 images: images
 
 # themes/shoka/source/images/***
-favicon:
-  apple_touch_icon: /apple-touch-icon.png
+#favicon:
+#  apple_touch_icon: /apple-touch-icon.png
   #safari_pinned_tab: /logo.svg
   #android_manifest: /manifest.json
   #ms_browserconfig: /browserconfig.xml
