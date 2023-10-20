@@ -1,0 +1,516 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9Redis%E5%92%8CSession%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/">
+
+
+
+  <title>
+谈谈你对Redis和Session的理解？ - 面试问题 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">谈谈你对Redis和Session的理解？
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>723</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>1 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>wspstart</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-59.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-79.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-20.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-40.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-3.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-50.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" itemprop="item" rel="index" title="分类于 面试问题"><span itemprop="name">面试问题</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9Redis%E5%92%8CSession%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>它们通常在 Web 应用程序中用于会话管理和数据存储。Redis 是一个开源的高性能键值存储系统，它以内存为主要存储介质，并支持持久化到磁盘。Redis 具有快速的读写速度、丰富的数据结构和灵活的功能，使其在各种应用场景下得到广泛应用。它不仅可以用作缓存系统，还可以作为会话存储、消息队列、计数器等多种用途。在会话管理方面，Redis 可用作分布式会话存储。传统的会话（Session）是一种用于在 Web 应用程序中跟踪用户状态的机制。当用户访问网站时，服务器会为每个用户创建一个会话，并分配一个唯一的会话标识符（通常是会话 ID）。服务器会将会话数据存储在内存中，以便在后续的请求中可以访问和更新。然而，在分布式环境中，会话数据的共享和一致性成为一个挑战。不同的服务器无法直接共享会话数据，导致用户在不同服务器之间会话状态不一致。这时，使用 Redis 作为会话存储可以解决这个问题。服务器将会话数据存储在 Redis 的内存中，各个服务器可以共享和访问相同的会话数据，实现会话的共享和一致性。Session 是一个抽象概念，用于表示在 Web 应用程序中跟踪用户状态的机制。它通常由服务器来创建和管理，并用于存储用户相关的数据。Session 数据可以包含用户的身份验证信息、用户设置、购物车数据等。传统的 Session 管理方式将会话数据存储在服务器的内存中，但在分布式环境中存在共享和一致性的问题。而使用 Redis 作为会话存储，可以实现分布式环境下的会话共享和一致性。最后：Redis 是一个高性能的键值存储系统，而 Session 是用于管理用户会话状态的概念。通过使用 Redis 作为会话存储，可以获得高性能、可扩展性、共享性和持久化支持等优势，提升会话管理的效率和可靠性。</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>wspstart <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9Redis%E5%92%8CSession%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/" title="谈谈你对Redis和Session的理解？">https://zrgzs.github.io/guide/2023/09/07/面试问题/谈谈你对Redis和Session的理解？/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/Gradle%20%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-9.jpg" title="Gradle 的初步使用">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 构建工具</span>
+  <h3>Gradle 的初步使用</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/VO%EF%BC%8CBO%EF%BC%8CPO%EF%BC%8CDO%EF%BC%8CDTO%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-37.jpg" title="VO，BO，PO，DO，DTO的区别">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 面试问题</span>
+  <h3>VO，BO，PO，DO，DTO的区别</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/Session%E5%92%8CCookie%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" rel="bookmark" title="Session和Cookie的区别？">Session和Cookie的区别？</a></li><li><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E6%8B%A6%E6%88%AA%E5%99%A8%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%81Servlet%EF%BC%9F/" rel="bookmark" title="简要说明一下什么是拦截器、过滤器、Servlet？">简要说明一下什么是拦截器、过滤器、Servlet？</a></li><li><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/VO%EF%BC%8CBO%EF%BC%8CPO%EF%BC%8CDO%EF%BC%8CDTO%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="bookmark" title="VO，BO，PO，DO，DTO的区别">VO，BO，PO，DO，DTO的区别</a></li><li class="active"><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9Redis%E5%92%8CSession%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/" rel="bookmark" title="谈谈你对Redis和Session的理解？">谈谈你对Redis和Session的理解？</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/Gradle%20%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/VO%EF%BC%8CBO%EF%BC%8CPO%EF%BC%8CDO%EF%BC%8CDTO%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/Linux%E8%BF%90%E7%BB%B4/" title="分类于 Linux运维">Linux运维</a>
+</div>
+
+    <span><a href="/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/" title="CentOS 环境安装">CentOS 环境安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/%E4%BB%8E0%E5%88%B0N%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%89/" title="从0到N搭建微服务项目（保姆级教程）">从0到N搭建微服务项目（保姆级教程）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="Eureka注册中心">Eureka注册中心</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E6%8B%A6%E6%88%AA%E5%99%A8%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%81Servlet%EF%BC%9F/" title="简要说明一下什么是拦截器、过滤器、Servlet？">简要说明一下什么是拦截器、过滤器、Servlet？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/README/" title="README">README</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/other/" title="分类于 other">other</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/other/%E5%88%AB%E4%BA%BA%E5%AE%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="别人家的学习笔记">别人家的学习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="Nacos注册中心">Nacos注册中心</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/" title="分类于 冷知识合集">冷知识合集</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81/" title="原码反码补码">原码反码补码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9Redis%E5%92%8CSession%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/" title="谈谈你对Redis和Session的理解？">谈谈你对Redis和Session的理解？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/shell%E6%8E%92%E5%BA%8F/" title="shell排序">shell排序</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/面试问题/谈谈你对Redis和Session的理解？/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

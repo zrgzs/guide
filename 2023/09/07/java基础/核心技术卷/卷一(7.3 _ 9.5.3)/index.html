@@ -1,0 +1,1078 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(7.3%20_%209.5.3)/">
+
+
+
+  <title>
+卷一(7.3 _ 9.5.3) - 核心技术卷 - java基础 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">卷一(7.3 _ 9.5.3)
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>21k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>19 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>lx0815</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-41.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-64.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-82.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-24.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-96.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-21.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" itemprop="item" rel="index" title="分类于 java基础"><span itemprop="name">java基础</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/" itemprop="item" rel="index" title="分类于 核心技术卷"><span itemprop="name">核心技术卷</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(7.3%20_%209.5.3)/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="73-使用异常的技巧"><a class="markdownIt-Anchor" href="#73-使用异常的技巧">#</a> 7.3 - 使用异常的技巧</h1>
+<ol>
+<li><strong>异常处理不能代替简单的测试。</strong>
+<ul>
+<li>捕获异常所花费的时间远远超过了简单的测试。</li>
+</ul>
+</li>
+<li><strong>不要过分的细化异常</strong>
+<ul>
+<li>尽量将多条语句包含在一个 try-catch 里，然后使用多个 catch 子句，而不是每一条语句都增加一个 try-catch。</li>
+</ul>
+</li>
+<li><strong>充分利用异常层次结构</strong></li>
+<li><strong>不要压制异常</strong></li>
+<li><strong>在检测错误时，” 苛刻 “要比放任更好</strong></li>
+<li><strong>不要羞于传递异常</strong>
+<ol>
+<li>可以归纳为：早抛出，晚捕获。类似于 Web 项目中 DAO 层的异常需要抛到 Service 层进行处理</li>
+</ol>
+</li>
+</ol>
+<h1 id="741-assert-之断言"><a class="markdownIt-Anchor" href="#741-assert-之断言">#</a> 7.4.1 - assert 之断言</h1>
+<ul>
+<li><code>assert condition</code></li>
+<li><code>assert condition : expression</code></li>
+</ul>
+<blockquote>
+<p>这两个语句都会计算条件，如果结果为 false ，则抛出一个 AssertionError 异常。在第二个语句中，表达式将传入 AssertError 对象的构造器，并转换为一个消息字符串。</p>
+</blockquote>
+<h1 id="742-断言的开启和禁用"><a class="markdownIt-Anchor" href="#742-断言的开启和禁用">#</a> 7.4.2 - 断言的开启和禁用</h1>
+<ul>
+<li>断言默认是关闭的，可以通过以下方式来开启断言：（启用或禁用断言是类加载器的功能，所以不需要重新编译）
+<ul>
+<li>运行时用  <code>-enableassertions</code>  或  <code>-ea</code>  选项启用断言。如： <code>java -enableassertions MyApp</code></li>
+<li>也可以在某个类中或整个包中启用断言。例如： <code>java -ea:MyClass -ea:com.mycompany.mylib MyApp</code>  ，这条命令将为 MyClass 类以及 com.mycompany.mylib 包和他的子包中的所有类打开断言。选项 -ea 将打开无名包中所有类的断言。</li>
+<li>也可以使用  <code>-diableassertions</code>  或  <code>-da</code>  在某个特定类和包中禁用断言。</li>
+</ul>
+</li>
+<li><strong>通过类加载器的方法来开启或禁用断言：</strong>
+<ul>
+<li><code>**public void setDefaultAssertionStatus(boolean enabled)**</code>
+<ul>
+<li>设置此类加载器的默认断言状态。此设置确定由此类加载器加载并在将来初始化的类是否默认启用或禁用断言。通过调用  <code>setPackageAssertionStatus(String, boolean)</code>  或  <code>setClassAssertionStatus(String, boolean)</code>  可以在每个包或每个类的基础上覆盖此设置。</li>
+<li>参形：enabled - 如果此类加载器加载的类今后将默认启用断言，则为 true ；如果默认情况下禁用断言，则为 false。</li>
+</ul>
+</li>
+<li><code>**public void setClassAssertionStatus(String className, boolean enabled)**</code>
+<ul>
+<li>为此类加载器中的命名顶级类和其中包含的任何嵌套类设置所需的断言状态。此设置优先于类加载器的默认断言状态，以及任何适用的每个包的默认值。如果命名类已经初始化，则此方法无效。 （一旦一个类被初始化，它的断言状态就不能改变。）如果命名类不是顶级类，则此调用不会影响任何类的实际断言状态。</li>
+<li>参形：className – 要设置其断言状态的顶级类的完全限定类名。enabled - 如果命名类在初始化时（并且如果）启用断言，则为 true ，如果类要禁用断言，则为 false。</li>
+</ul>
+</li>
+<li><code>**public void setPackageAssertionStatus(String packageName, boolean enabled) &#123;**</code>
+<ul>
+<li>设置命名包的包默认断言状态。包默认断言状态决定了将来初始化的属于指定包或其任何 “子包” 的类的断言状态。名为 p 的包的子包是名称以 “ p. ” 开头的任何包。例如 javax.swing.text 是 javax.swing 的子包， java.util 和 java.lang.reflect 都是 java 的子包。如果多个包默认值适用于给定类，则属于最特定包的包默认值优先于其他包。例如，如果 javax.lang 和 javax.lang.reflect 都有与之关联的包默认值，则后一个包默认值适用于 javax.lang.reflect 中的类。包默认值优先于类加载器的默认断言状态，并且可以通过调用 setClassAssertionStatus (String, boolean) 在每个类的基础上被覆盖。</li>
+<li>参形：packageName – 要设置其包默认断言状态的包的名称。空值表示 “当前” 的未命名包（请参阅 The Java™ Language Specification 的第 7.4.2 节。）enabled –如果类加载器加载并属于命名包或其任何子包的类默认启用断言，则为 true，如果默认禁用断言，则为 false 。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="注"><a class="markdownIt-Anchor" href="#注">#</a> 注：</h2>
+<ul>
+<li>断言关闭了也会被编译进 class 文件，只是不起作用。不知道为啥。开启断言和未开启断言的程序在编译后的字节码文件也看不出区别。</li>
+</ul>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215722.jpg" alt=""></p>
+<h1 id="743-使用断言完成参数检查"><a class="markdownIt-Anchor" href="#743-使用断言完成参数检查">#</a> 7.4.3 - 使用断言完成参数检查</h1>
+<blockquote>
+<p>在 Java 中，给出了 3 种处理系统错误的机制：</p>
+<ul>
+<li>抛出一个异常</li>
+<li>日志</li>
+<li>使用断言</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>什么时候应该使用断言呢？</p>
+<ul>
+<li>断言失败是致命的、不可恢复的错误。</li>
+<li><strong>断言检查只是在开发和测试阶段打开</strong>（这种做法有时候被戏称为 “在靠进海岸时穿上救生衣，但在海里就把救生衣抛掉）。</li>
+<li><strong>断言只应该用于在测试阶段确定程序内部错误的位置。</strong></li>
+</ul>
+</blockquote>
+<h1 id="84-类型变量的限定"><a class="markdownIt-Anchor" href="#84-类型变量的限定">#</a> 8.4 - 类型变量的限定</h1>
+<ul>
+<li><code>&lt;T extends Comparable&gt;</code>  ：表示类型变量 T 必须是 Comparable 的实现类。 如果有多个，用 &amp; 连接。</li>
+</ul>
+<h1 id="851-类型擦除"><a class="markdownIt-Anchor" href="#851-类型擦除">#</a> 8.5.1 - 类型擦除</h1>
+<blockquote>
+<p>虚拟机没有泛型类型对象 —— 所有对象都属于普通类。</p>
+</blockquote>
+<ul>
+<li>所以类型变量会被<strong>擦除</strong>，并替换为其 <strong>限定类型</strong>，对于<strong>无限定类型的变量则替换为 Object。</strong></li>
+<li>假设限定类型有多个，例如： <code>public class Interval&lt;T extends Comparable &amp; Serializable&gt; implement Serializable &#123;//...&#125;</code>  。
+<ul>
+<li>这种情况下会用 Comparable 替换掉 T</li>
+<li>所以为了提高效率，应该将标签接口（即没有方法的接口）放在限定列表的末尾。</li>
+</ul>
+</li>
+</ul>
+<h1 id="852-类型擦除的额外处理"><a class="markdownIt-Anchor" href="#852-类型擦除的额外处理">#</a> 8.5.2 - 类型擦除的额外处理</h1>
+<p>编译器会自动在字节码文件种为 类型擦除之后的代码中适当的插入强制类型转换。</p>
+<h1 id="853-转换泛型方法"><a class="markdownIt-Anchor" href="#853-转换泛型方法">#</a> 8.5.3 - 转换泛型方法</h1>
+<h2 id="考虑一个场景"><a class="markdownIt-Anchor" href="#考虑一个场景">#</a> 考虑一个场景：</h2>
+<p>当父类中有一个泛型方法（参数为泛型），而子类重写了这个方法。那么编译后，由于类型擦除，父类中的泛型参数会被修改为 Object，所以此时子类中会有两个同名的方法。</p>
+<h3 id="代码如下"><a class="markdownIt-Anchor" href="#代码如下">#</a> 代码如下：</h3>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">fanxing</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Method</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="7"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="8"></td><td><pre> * @date: 2022/5/19</pre></td></tr><tr><td data-num="9"></td><td><pre> * @description:</pre></td></tr><tr><td data-num="10"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="11"></td><td><pre> */</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">FanXing01</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">T</span> t<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"01 : "</span> <span class="token operator">+</span> t<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">FanXing02</span> <span class="token keyword">extends</span> <span class="token class-name">FanXing01</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"02 : "</span> <span class="token operator">+</span> s<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Father</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Father"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Son"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="39"></td><td><pre></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token class-name">Method</span><span class="token punctuation">[</span><span class="token punctuation">]</span> methods1 <span class="token operator">=</span> <span class="token class-name">FanXing02</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Method</span> method <span class="token operator">:</span> methods1<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" : "</span> <span class="token operator">+</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getGenericParameterTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"_____________________"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>        <span class="token class-name">Method</span><span class="token punctuation">[</span><span class="token punctuation">]</span> methods2 <span class="token operator">=</span> <span class="token class-name">Son</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Method</span> method <span class="token operator">:</span> methods2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" : "</span> <span class="token operator">+</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getGenericParameterTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="54"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="运行结果"><a class="markdownIt-Anchor" href="#运行结果">#</a> 运行结果：</h3>
+<pre><code>test : [class java.lang.String]
+test : [class java.lang.Object]
+wait : []
+wait : [long, int]
+wait : [long]
+equals : [class java.lang.Object]
+toString : []
+hashCode : []
+getClass : []
+notify : []
+notifyAll : []
+_____________________
+test : [class java.lang.String]
+wait : []
+wait : [long, int]
+wait : [long]
+equals : [class java.lang.Object]
+toString : []
+hashCode : []
+getClass : []
+notify : []
+notifyAll : []
+</code></pre>
+<h3 id="代码截图"><a class="markdownIt-Anchor" href="#代码截图">#</a> 代码截图：</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215724.jpg" alt=""></p>
+<h3 id="说明"><a class="markdownIt-Anchor" href="#说明">#</a> 说明：</h3>
+<p>可以看到，泛型类的子类重写父类的反方法之后，子类会有两个 test 方法，这感觉更像是重载并非重写。这就是类型擦除与多态发生了冲突。为了解决这个问题，编译器会在 FanXIng002 中生成一个<strong>桥方法。</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215727.jpg" alt=""></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215730.jpg" alt=""></p>
+<p><strong>此方法就是编译器生成的桥方法。</strong></p>
+<h2 id="那么再考虑一个场景"><a class="markdownIt-Anchor" href="#那么再考虑一个场景">#</a> 那么再考虑一个场景：</h2>
+<p>还是类似的，父类中的方法里面，返回值是泛型，那么子类覆盖这个方法会发生什么？父类的泛型擦除了变成 Object，子类覆盖的方法名和方法参数将和父类一模一样，只是返回值不同。</p>
+<p><a name="a29e1c5e-1"></a></p>
+<h3 id="代码如下-2"><a class="markdownIt-Anchor" href="#代码如下-2">#</a> 代码如下：</h3>
+<p>较上个代码片段增加了两个 get ()</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">fanxing</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Method</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="7"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="8"></td><td><pre> * @date: 2022/5/19</pre></td></tr><tr><td data-num="9"></td><td><pre> * @description:</pre></td></tr><tr><td data-num="10"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="11"></td><td><pre> */</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">FanXing01</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">T</span> t<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">T</span> t<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span>t <span class="token operator">=</span> t<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"01 : "</span> <span class="token operator">+</span> t<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">T</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token keyword">return</span> t<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">FanXing02</span> <span class="token keyword">extends</span> <span class="token class-name">FanXing01</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"02 : "</span> <span class="token operator">+</span> s<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token keyword">return</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="39"></td><td><pre></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Father</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Father"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="44"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="45"></td><td><pre></pre></td></tr><tr><td data-num="46"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Son"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>        <span class="token class-name">Method</span><span class="token punctuation">[</span><span class="token punctuation">]</span> methods1 <span class="token operator">=</span> <span class="token class-name">FanXing02</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Method</span> method <span class="token operator">:</span> methods1<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" : return "</span> <span class="token operator">+</span> method<span class="token punctuation">.</span><span class="token function">getReturnType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"  "</span> <span class="token operator">+</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getGenericParameterTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="59"></td><td><pre></pre></td></tr><tr><td data-num="60"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"_____________________"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="61"></td><td><pre></pre></td></tr><tr><td data-num="62"></td><td><pre>        <span class="token class-name">Method</span><span class="token punctuation">[</span><span class="token punctuation">]</span> methods2 <span class="token operator">=</span> <span class="token class-name">Son</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Method</span> method <span class="token operator">:</span> methods2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" : "</span> <span class="token operator">+</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getGenericParameterTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><a name="d3ca7e34-1"></a></p>
+<h3 id="运行结果-2"><a class="markdownIt-Anchor" href="#运行结果-2">#</a> 运行结果：</h3>
+<pre><code>get : return class java.lang.Object  []
+get : return class java.lang.String  []
+test : return void  [class java.lang.String]
+test : return void  [class java.lang.Object]
+wait : return void  []
+wait : return void  [long, int]
+wait : return void  [long]
+equals : return boolean  [class java.lang.Object]
+toString : return class java.lang.String  []
+hashCode : return int  []
+getClass : return class java.lang.Class  []
+notify : return void  []
+notifyAll : return void  []
+_____________________
+test : [class java.lang.String]
+wait : []
+wait : [long, int]
+wait : [long]
+equals : [class java.lang.Object]
+toString : []
+hashCode : []
+getClass : []
+notify : []
+notifyAll : []
+</code></pre>
+<p><a name="6e5b9607-1"></a></p>
+<h3 id="说明-2"><a class="markdownIt-Anchor" href="#说明-2">#</a> 说明：</h3>
+<p>可以看到，此时 子类中有两个方法签名相同的方法，只是返回值不同。</p>
+<blockquote>
+<p>这样的方法是不合法的，但在虚拟机中，会由参数类型和返回类型共同指定一个方法。因此，编译器可以为两个仅返回类型不同的方法生成字节码，虚拟机能够争取恶的处理这种情况。</p>
+</blockquote>
+<p><a name="b88918dc-1"></a></p>
+<h2 id="注-2"><a class="markdownIt-Anchor" href="#注-2">#</a> 注：</h2>
+<blockquote>
+<p>桥方法不仅用于泛型类型。一个方法覆盖另一个方法时可以指定一个更严格的返回类型，这是合法的。</p>
+</blockquote>
+<p>看来这就是桥方法的作用了？</p>
+<blockquote>
+<p>Object.clone () 和 Employee.clone () 方法呗成为有协变的返回类型。实际上，Employee 方法有两个克隆方法：</p>
+<p>Employee clone () // 自定义的 clone 方法</p>
+<p>Object clone () // 编译器生成的桥方法，继承自 Object.clone ()</p>
+</blockquote>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结：</h2>
+<ul>
+<li>Java 中重写父类的方法分两种情况：
+<ul>
+<li>方法返回值类型比父类更严格：编译器自动生成一个<strong>桥方法</strong>去真正重写父类的方法，并调用被 @Override 标注的 ” 重写 “ 的方法。</li>
+<li>方法返回值和父类相同：直接重写，没有需要强调的。</li>
+</ul>
+</li>
+</ul>
+<h1 id="86-限制与局限性"><a class="markdownIt-Anchor" href="#86-限制与局限性">#</a> 8.6 - 限制与局限性</h1>
+<h2 id="861-不能使用基本类型实例化类型参数"><a class="markdownIt-Anchor" href="#861-不能使用基本类型实例化类型参数">#</a> 8.6.1 - 不能使用基本类型实例化类型参数</h2>
+<ul>
+<li>因为泛型擦除后是 Object，而 Object 不能存储八种基本数据类型。</li>
+</ul>
+<h2 id="862-运行时类型查询只适用于原始类型"><a class="markdownIt-Anchor" href="#862-运行时类型查询只适用于原始类型">#</a> 8.6.2 - 运行时类型查询只适用于原始类型</h2>
+<p><code>if (a instanceof Pair&lt;String&gt;)</code>  // <strong>ERROR</strong></p>
+<p><code>if (a instanceof Pair&lt;T&gt;)</code>  // <strong>ERROR</strong></p>
+<h2 id="863-不能创建参数化类型的数组"><a class="markdownIt-Anchor" href="#863-不能创建参数化类型的数组">#</a> 8.6.3 - 不能创建参数化类型的数组</h2>
+<p><code>Pair&lt;String&gt;[] table = new Pair&lt;&gt;[];</code>  // <strong>ERROR</strong></p>
+<ul>
+<li>但是可以另辟蹊径： <code>FanXing01&lt;String&gt;[] fanXing01s = (FanXing01&lt;String&gt;[]) new FanXing01&lt;?&gt;[10];</code>  但结果将是不安全的，例如： <code>var table = (Pair&lt;String&gt;[]) new Pair&lt;?&gt;[]&#123;new Pair&lt;Integer&gt;(1, 2), new Pair&lt;String&gt;(&quot;1&quot;, &quot;2&quot;)&#125;;</code>  将对象显示声明在数组中只是为了方便，实际情况中很有可能接收到类型参数不一样的 Pair 对象，那时就将收获一个类型转换异常。</li>
+</ul>
+<h2 id="865-不能直接实例化类型变量"><a class="markdownIt-Anchor" href="#865-不能直接实例化类型变量">#</a> 8.6.5 - 不能直接实例化类型变量</h2>
+<ul>
+<li><code>T t = new T();</code>  // <strong>ERROR</strong></li>
+<li>间接方法：
+<ul>
+<li>让调用者提供一个构造器表达式，例如： <code>Pair&lt;String&gt; p = Pair.makePair(String::new);</code>  ，其中 makePair 方法接收一个 Suppliers<T>，这是一个函数式接口。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token class-name">Pair</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token function">makePair</span><span class="token punctuation">(</span><span class="token class-name">Supplier</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> constr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Pair</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>constr<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> constr<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>反射创建对象。</li>
+</ul>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token class-name">Pair</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token function">makePair</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> cl<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Par</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>cl<span class="token punctuation">.</span><span class="token function">getConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cl<span class="token punctuation">.</span><span class="token function">getConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="866-不能直接构造泛型数组"><a class="markdownIt-Anchor" href="#866-不能直接构造泛型数组">#</a> 8.6.6 - 不能直接构造泛型数组</h2>
+<p><code>T[] t = new T[2]</code>  // <strong>ERROR</strong></p>
+<ul>
+<li>构造泛型数组的间接方法：
+<ul>
+<li>让用户提供一个数组构造器表达式： <code>String[] names2 = ArrayAlg.minmax(String[]::new, &quot;ABC&quot;, &quot;BCD&quot;);</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">pair2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span></span><span class="token class-name">IntFunction</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="7"></td><td><pre> * @author Cay Horstmann</pre></td></tr><tr><td data-num="8"></td><td><pre> * @version 1.02 2015-06-21</pre></td></tr><tr><td data-num="9"></td><td><pre> */</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PairTest2</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> names1 <span class="token operator">=</span> <span class="token class-name">ArrayAlg</span><span class="token punctuation">.</span><span class="token function">minmax</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IntFunction</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token keyword">public</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span>value<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">"ABC"</span><span class="token punctuation">,</span> <span class="token string">"BCD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> names2 <span class="token operator">=</span> <span class="token class-name">ArrayAlg</span><span class="token punctuation">.</span><span class="token function">minmax</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">,</span> <span class="token string">"ABC"</span><span class="token punctuation">,</span> <span class="token string">"BCD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>names1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>names2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">ArrayAlg</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="30"></td><td><pre>     * 获取类型为 T 的对象数组的最小值和最大值。</pre></td></tr><tr><td data-num="31"></td><td><pre>     *</pre></td></tr><tr><td data-num="32"></td><td><pre>     * @param a T 类型的对象数组</pre></td></tr><tr><td data-num="33"></td><td><pre>     * @return 具有最小值和最大值的对，如果 a 为 null 或为空，则为 null</pre></td></tr><tr><td data-num="34"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span> <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token punctuation">></span></span> <span class="token class-name">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">minmax</span><span class="token punctuation">(</span><span class="token class-name">IntFunction</span><span class="token operator">&lt;</span><span class="token class-name">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> constr<span class="token punctuation">,</span> <span class="token class-name">T</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> a<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token keyword">var</span> result <span class="token operator">=</span> constr<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        result <span class="token operator">=</span> a<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> result<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>使用传统的反射创建对象： <code>Array.newInstance(a.getClass().getComponentType(), 2);</code></li>
+</ul>
+<h2 id="867-泛型类的静态上下文中类型变量无效"><a class="markdownIt-Anchor" href="#867-泛型类的静态上下文中类型变量无效">#</a> 8.6.7 - 泛型类的静态上下文中类型变量无效</h2>
+<ul>
+<li>原因：在 java 中泛型只是一个占位符，必须在传递类型后才能使用。就泛型类而言，<strong>类实例化时才能传递真正的类型参数，由于静态方法的加载先于类的实例化</strong>，也就是说类中的泛型还没有传递真正的类型参数时，静态方法就已经加载完成。显然，静态方法不能使用 / 访问泛型类中的泛型。这和静态方法不能调用普通方法 / 访问普通变量类似，都是因为静态申明与非静态申明的生命周期不同。</li>
+</ul>
+<h2 id="868-不能抛出或捕获泛型类的实例"><a class="markdownIt-Anchor" href="#868-不能抛出或捕获泛型类的实例">#</a> 8.6.8 - 不能抛出或捕获泛型类的实例</h2>
+<ul>
+<li>假设当前我们有两个类 —— SomeException<Integer> 类和 SomeException<String> 类，它们都是继承自 Throwable 类的。代码中的 doSomeStuff () 方法可能是抛出 SomeException<Integer> 异常或 SomeException<String> 异常。我们针对不同的异常做出不同的逻辑操作。这样看似完全没有问题。但是熟悉泛型的小伙伴都知道，还有一种叫做类型擦除机制的存在，何为类型擦除？此处不扩展了。通俗点说：java 中不存在泛型代码，泛型代码是写给我们看的，编译器会将泛型代码转换成普通类代码。所以无论是 SomeException<Integer> 或者是 SomeException<String> 经过编译器的类型擦除后都将会变成 SomeException。故上述代码是不可以运行的，因为当代码抛出异常时编译器是无法判断走哪个 catch 分支的，所以 java 为了避免这样的问题出现，故泛型类是无法继承自 Throwable 类的。</li>
+<li>作者：陈皮的柚子链接：<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC82ODQ0OTA0MTU3OTg4NTE5OTQ0">https://juejin.cn/post/6844904157988519944</span> 来源：稀土掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</li>
+</ul>
+<h2 id="8610-注意泛型擦除后的冲突"><a class="markdownIt-Anchor" href="#8610-注意泛型擦除后的冲突">#</a> 8.6.10 - 注意泛型擦除后的冲突</h2>
+<p>先来看一个示例：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Pair</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token keyword">public</span> <span class="token keyword">boolean</span> equals <span class="token punctuation">(</span><span class="token class-name">T</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//...</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	</pre></td></tr><tr><td data-num="4"></td><td><pre>	<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>考虑一个  <code>Pair&lt;String&gt;</code>  ，从概念上来讲，它有两个 equals 方法： <code>boolean equals(String)</code>  和  <code>boolean equals(Object)</code></p>
+<p>但其实类型擦除后会变成： <code>boolean equals(Object)</code>  ，所以会和 Object 的 equals 冲突。</p>
+<ul>
+<li>为什么冲突？
+<ul>
+<li>因为两个方法的方法签名不同，不是重写关系。而 T 擦除后变成 Object 就和父类中的发生了冲突。</li>
+</ul>
+</li>
+<li>如何补救？
+<ul>
+<li>重新命名引发冲突的方法。</li>
+</ul>
+</li>
+</ul>
+<p>除此之外。</p>
+<blockquote>
+<p>泛型规范说明还引用了另一个原则：” 为了支持擦除转换，我们要施加一个限制：倘若两个接口类型是同意接口的不同参数化，一个类或类型变量就不能同时作为这两个接口类型的子类。“例如，下述代码是非法的：</p>
+<p><code>Comparable&lt;Employee&gt;</code>  和  <code>Comparable&lt;Manager&gt;</code>  就是同一接口的不同参数化。</p>
+</blockquote>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Employee</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Manager</span> <span class="token keyword">extends</span> <span class="token class-name">Employe</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Manager</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>这可能会与合成的桥方法产生冲突，桥方法中会进行强制类型转换，所以不能在一个桥方法中使其转换为两个类型。</li>
+</ul>
+<h1 id="913-迭代器"><a class="markdownIt-Anchor" href="#913-迭代器">#</a> 9.1.3 - 迭代器</h1>
+<blockquote>
+<p>可以认为 Java 迭代器位于两个元素之间。当调用 next 时，迭代器就越过下一个元素，并返回刚刚越过的那个元素的引用。</p>
+</blockquote>
+<p><strong>注：</strong></p>
+<ul>
+<li>InputStream 的 read 方法也是类似的。</li>
+<li>调用 remove 之前没有调用 next 将是不合法的。</li>
+</ul>
+<h1 id="93-java-库中的具体集合"><a class="markdownIt-Anchor" href="#93-java-库中的具体集合">#</a> 9.3 - Java 库中的具体集合</h1>
+<table>
+<thead>
+<tr>
+<th>集合类型（数据结构）</th>
+<th>描述</th>
+<th>参见</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ArrayList</strong></td>
+<td>可以动态增长和缩减的一个索引序列</td>
+<td>9.3.2 节</td>
+</tr>
+<tr>
+<td><strong>LinkedList</strong></td>
+<td>可以在任何位置高效插入和删除的一个有序序列</td>
+<td>9.3.1 节</td>
+</tr>
+<tr>
+<td><strong>ArrayDeque</strong></td>
+<td>实现为循环数组的一个双端队列</td>
+<td>9.3.5 节</td>
+</tr>
+<tr>
+<td><strong>HashSet</strong></td>
+<td>没有重复元素的一个无序集合</td>
+<td>9.3.2 节</td>
+</tr>
+<tr>
+<td><strong>TreeSet</strong></td>
+<td>一个有序集</td>
+<td>9.3.4 节</td>
+</tr>
+<tr>
+<td>EnumSet</td>
+<td>一个包含枚举类型值的集</td>
+<td>9.4.6 节</td>
+</tr>
+<tr>
+<td><strong>LinkedHashSet</strong></td>
+<td>一个可以记住元素插入次序的集</td>
+<td>9.4.5 节</td>
+</tr>
+<tr>
+<td>PriorityQueue</td>
+<td>允许高效删除最小元素的一个集合</td>
+<td>9.3.6 节</td>
+</tr>
+<tr>
+<td><strong>HashMap</strong></td>
+<td>存储 键值对 的一个数据结构</td>
+<td>9.4.4 节</td>
+</tr>
+<tr>
+<td><strong>TreeMap</strong></td>
+<td>键有序的一个映射</td>
+<td>9.4 节</td>
+</tr>
+<tr>
+<td>EnumMap</td>
+<td>键属于枚举的一个映射</td>
+<td>9.4.6 节</td>
+</tr>
+<tr>
+<td><strong>LinkedHashMap</strong></td>
+<td>可以记住 键值对 添加次序的一个集合</td>
+<td>9.4.5 节</td>
+</tr>
+<tr>
+<td><strong>WeakHashMap</strong></td>
+<td>值不会在别处使用时就可以被垃圾回收的一个映射</td>
+<td>9.4.4 节</td>
+</tr>
+<tr>
+<td>IdentityHashMap</td>
+<td>用 == 而不是用 equals 比较键的一个映射</td>
+<td>9.4.7 节</td>
+</tr>
+</tbody>
+</table>
+<p>值得一提的是：</p>
+<blockquote>
+<p>在 Java 程序设计语言中，所有的链表实际上都是双向链接的 —— 即每个链接还存放着其前驱的引用。</p>
+</blockquote>
+<h1 id="931-iterator-的好兄弟-listiterator"><a class="markdownIt-Anchor" href="#931-iterator-的好兄弟-listiterator">#</a> 9.3.1 - Iterator 的好兄弟 ListIterator</h1>
+<blockquote>
+<p>ListIterator 有两个方法可以用来反向遍历链表。</p>
+<p><code>E previous()</code></p>
+<p><code>boolean hasPrevious()</code></p>
+<p>与 next 一样，previous 方法返回越过的对象。</p>
+</blockquote>
+<p><strong>注：</strong></p>
+<ul>
+<li>ListIterator 的 void add (E e)
+<ul>
+<li>将指定元素插入列表（可选操作）。该元素被插入到 next 将返回的元素（如果有）之前，以及在 previous 将返回的元素（如果有）之后。 （如果列表不包含任何元素，则新元素将成为列表中的唯一元素。）新元素插入到隐式光标之前：对 next 的后续调用将不受影响，对 previous 的后续调用将返回新元素。</li>
+</ul>
+</li>
+<li>
+<h2 id="在使用光标类比时要格外小心-不能连续调用两次-remove-方法add-方法依赖于迭代器的位置remove-方法依赖于迭代器的状态-以下是来自源码注释"><a class="markdownIt-Anchor" href="#在使用光标类比时要格外小心-不能连续调用两次-remove-方法add-方法依赖于迭代器的位置remove-方法依赖于迭代器的状态-以下是来自源码注释">#</a> 在使用光标类比时要格外小心。不能连续调用两次 remove 方法，add 方法依赖于迭代器的位置，remove 方法依赖于迭代器的状态。以下是来自源码注释</h2>
+</li>
+</ul>
+<blockquote>
+<p>IllegalStateException – 如果在最后一次调用 next 或 previous 之后既没有调用 next 也没有调用 previous ，或者 remove 或 add 没有被调用。</p>
+</blockquote>
+<ul>
+<li>链表只跟踪对列表的结构性修改，例如添加和删除。**set 方法不被视为结构性修改。** 也就是不会增加 modCount 值</li>
+<li>get 方法做了个小优化，如果索引大于 size () / 2，就从列表尾端开始搜索元素。</li>
+</ul>
+<h1 id="933-散列集"><a class="markdownIt-Anchor" href="#933-散列集">#</a> 9.3.3 - 散列集</h1>
+<p>直接复制粘贴韩顺平老师的一个源码解读视频笔记。</p>
+<p>感谢韩顺平老师！</p>
+<p>下面是视频地址</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWZoNDExeTdSOD9wPTUyMg==">【零基础 快速学 Java】韩顺平 零基础 30 天学会 Java_哔哩哔哩_bilibili</span></p>
+<p><strong>干就完了！</strong></p>
+<p>以防忘记，写下来了一些笔记（其实大都是抄韩老师写的）</p>
+<p><a name="8c9d507e-1"></a></p>
+<h2 id="总结-2"><a class="markdownIt-Anchor" href="#总结-2">#</a> 总结：</h2>
+<ul>
+<li>HashSet 底层是 HashMap 实现</li>
+<li><strong>添加机制</strong></li>
+</ul>
+<ol>
+<li>添加一个元素时，先得到 Hash 值，Hash 值会转成 -&gt; 索引值</li>
+<li>找到存储数据表 table ，看这个位置是否已经存放元素</li>
+<li>如果没有，则直接加入</li>
+<li>如果有，调用 equals（该方法可重写，具体比较逻辑可由开发者定制） 比较，如果相同，就放弃添加，如果不同，则添加到最后</li>
+<li>在 Java8 中，如果一条链表的元素个数 &gt;= TREEIFY_THRESHOLD (默认是 8) ，并且 table 的大小 &gt;= MIN_TREEIFY_CAPACITY (默认 64)，就会进行树化（红黑树）
+<ul>
+<li>如果当链表长度 &gt; 8，但是 table 的大小还未 &gt;= 64，那么会将 table 扩容（双倍扩容）</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>扩容机制</strong>
+<ol>
+<li>第一次添加元素直接扩容到 16 ， 阈值为 16 * 0.75 == 12</li>
+<li>当 table 长度到达 12 时就会准备扩容，<strong>第 13 个元素成功</strong>添加后就会扩容（双倍扩容），即扩容到 32。此时的阈值为 24
+<ul>
+<li>第 13 个元素是指：<strong>数组加链表的总元素个数</strong>，而不是单指在数组上的元素个数或者在链表上的元素个数</li>
+</ul>
+</li>
+<li>以此类推…</li>
+</ol>
+</li>
+<li>Java 设计者买菜是不是也用补码算钱的，太强了啊！！！</li>
+</ul>
+<h2 id="源码解读"><a class="markdownIt-Anchor" href="#源码解读">#</a> 源码解读：</h2>
+<h3 id="示例代码"><a class="markdownIt-Anchor" href="#示例代码">#</a> 示例代码：</h3>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"PHP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"set = "</span> <span class="token operator">+</span> set<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="line-3"><a class="markdownIt-Anchor" href="#line-3">#</a> line 3 ：</h3>
+<p>HashSet 的无参构造<strong>创建 HashMap 对象</strong>，默认长度是 16，这里需要注意的是：长度并不会立即分配，而是在第一次添加元素时进行分配。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215732.jpg" alt=""></p>
+<p>并将 DEFAULT_LOAD_FACTOR （默认负载系数）赋值给 loadFactor</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215734.jpg" alt=""></p>
+<h3 id="line-5"><a class="markdownIt-Anchor" href="#line-5">#</a> line 5 ：</h3>
+<p>调用 HashMap 对象 map 的 public V put (K key, V value) 方法；<strong>PRESENT 只是填补 value 这个位置</strong>，传入参数 key 可变化，但 value 一直是 PRESENT (官方文档：要与后备映射中的对象关联的虚拟值)</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215736.jpg" alt=""></p>
+<p>再次调用 static final int hash (Object key) 方法，得到 key 的 hash 值</p>
+<p>在 hash () 里判断传入参数 key 是否为空，若为空则返回 0，若不为空则根据  <code>(h = key.hashCode()) ^ (h &gt;&gt;&gt; 16)</code>  算法（为避免碰撞）计算其 hash 值（不完全等价于 HashCode）并返回，作为 putVal () 方法的第一个参数</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215738.jpg" alt=""></p>
+<h4 id="putval"><a class="markdownIt-Anchor" href="#putval">#</a> putVal(…)</h4>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">final</span> <span class="token class-name">V</span> <span class="token function">putVal</span><span class="token punctuation">(</span><span class="token keyword">int</span> hash<span class="token punctuation">,</span> <span class="token class-name">K</span> key<span class="token punctuation">,</span> <span class="token class-name">V</span> value<span class="token punctuation">,</span> <span class="token keyword">boolean</span> onlyIfAbsent<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="2"></td><td><pre>                   <span class="token keyword">boolean</span> evict<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">// 定义辅助变量</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> tab<span class="token punctuation">;</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> p<span class="token punctuation">;</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> i<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">//table 是放 Node 结点的数组，类型是 Node []</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">//if 语句表示 如果当前的 table 是 null，或者大小 == 0，则进行第一次扩容</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>tab <span class="token operator">=</span> table<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token punctuation">(</span>n <span class="token operator">=</span> tab<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token comment">//resize ()：第一次扩容 table 数组</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        n <span class="token operator">=</span> <span class="token punctuation">(</span>tab <span class="token operator">=</span> <span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment">// 根据 key 得到的 Hash 值去计算 key 应该存放到 table 表的哪个索引位置</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">// 并把这个位置的对象，赋给 p</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">// 再判断 p 是否为 null</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">//     如果 p 为空：表示还未存放元素，就创建一个 Node（hash 用于比较是否相等，key 是传入参数，value 是 PREENT ，null 类似于 尾结点</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token comment">//     如果 p 不为空：line 18 ：即 key 元素本应存放的位置已经存放了元素，被占用了，所以 table [...] 不为空</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>p <span class="token operator">=</span> tab<span class="token punctuation">[</span>i <span class="token operator">=</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> hash<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">newNode</span><span class="token punctuation">(</span>hash<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token comment">// 开发技巧提示：局部变量在需要时再创建</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token comment">// 定义辅助变量</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> e<span class="token punctuation">;</span> <span class="token class-name">K</span> k<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token comment">// 将准备添加的 key 的 hash 值 与 p (是当前索引位置的链表的第一个元素) 的 hash 值比较</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>hash <span class="token operator">==</span> hash <span class="token operator">&amp;&amp;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>                <span class="token comment">// 并且满足 准备加入的 key 与 p 指向的 Node 结点的 key 是同一个对象</span></pre></td></tr><tr><td data-num="24"></td><td><pre>                    <span class="token comment">//         或者 两者不是同一个对象，但两者 通过 p 指向的 Node 结点的 key 的 equals () 比较后 相同</span></pre></td></tr><tr><td data-num="25"></td><td><pre>                    <span class="token comment">//                                                         此 equals () 程序员可以定制</span></pre></td></tr><tr><td data-num="26"></td><td><pre>                    <span class="token punctuation">(</span><span class="token punctuation">(</span>k <span class="token operator">=</span> p<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> key <span class="token operator">||</span> <span class="token punctuation">(</span>key <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> key<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>                    e <span class="token operator">=</span> p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>            <span class="token comment">// 判断 p 是不是一颗红黑树</span></pre></td></tr><tr><td data-num="29"></td><td><pre>            <span class="token comment">// 如果是 红黑树 ，就调用 putTreeVal () 方法添加</span></pre></td></tr><tr><td data-num="30"></td><td><pre>            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token keyword">instanceof</span> <span class="token class-name">TreeNode</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre>                e <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">)</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">putTreeVal</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> tab<span class="token punctuation">,</span> hash<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>            <span class="token comment">// </span></pre></td></tr><tr><td data-num="33"></td><td><pre>            <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>                <span class="token comment">// 依次和该链表的每一个元素比较后，都不相同，则添加到该链表的最后</span></pre></td></tr><tr><td data-num="35"></td><td><pre>                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> binCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> <span class="token operator">++</span>binCount<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>                    <span class="token comment">// 由于前面已经比较了一次，这里不在比较</span></pre></td></tr><tr><td data-num="37"></td><td><pre>                    <span class="token comment">// 判断是否到了链表的最后（链表最后一个结点的 next 是 null）</span></pre></td></tr><tr><td data-num="38"></td><td><pre>                    <span class="token comment">// 并且将结点 p 的尾结点 p.next 赋值给 e</span></pre></td></tr><tr><td data-num="39"></td><td><pre>                    <span class="token comment">// 由于这里比较的是尾结点是否为空，故当链表长度为 9 时才能使 binCount 为 7 （binCount 是从 0 开始，为 7 时循环 8 次）</span></pre></td></tr><tr><td data-num="40"></td><td><pre>                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>                        <span class="token comment">// 已经到了链表末尾，用传入参数 key 创建一个 Node 结点添加到最后一个结点 p 的末尾，即添加到 p.next</span></pre></td></tr><tr><td data-num="42"></td><td><pre>                        p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">newNode</span><span class="token punctuation">(</span>hash<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>                        <span class="token comment">// 添加元素到链表后，立即判断该链表是否已经达到 8 个结点</span></pre></td></tr><tr><td data-num="44"></td><td><pre>                        <span class="token comment">// 如果达到，就调用 treeifyBin () 对当前链表进行树化（转成红黑树）</span></pre></td></tr><tr><td data-num="45"></td><td><pre>                        <span class="token comment">// ！！！注意：在转成 红黑树 时，要进行判断，详见下方 treeifyBin (tab, hash)</span></pre></td></tr><tr><td data-num="46"></td><td><pre>                        <span class="token keyword">if</span> <span class="token punctuation">(</span>binCount <span class="token operator">>=</span> <span class="token constant">TREEIFY_THRESHOLD</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// -1 for 1st</span></pre></td></tr><tr><td data-num="47"></td><td><pre>                            <span class="token function">treeifyBin</span><span class="token punctuation">(</span>tab<span class="token punctuation">,</span> hash<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>                        <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>                    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>               </pre></td></tr><tr><td data-num="51"></td><td><pre>                    <span class="token comment">// 没有到末尾，则比较 传入参数 key 与 当前索引位置的第一个元素的下一个元素（因为前面 e = p.next） 比较是否相等</span></pre></td></tr><tr><td data-num="52"></td><td><pre>                    <span class="token comment">// 比较逻辑同前文一样</span></pre></td></tr><tr><td data-num="53"></td><td><pre>                    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>hash <span class="token operator">==</span> hash <span class="token operator">&amp;&amp;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>                        <span class="token punctuation">(</span><span class="token punctuation">(</span>k <span class="token operator">=</span> e<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> key <span class="token operator">||</span> <span class="token punctuation">(</span>key <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> key<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre>                        <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>                    p <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// existing mapping for key</span></pre></td></tr><tr><td data-num="60"></td><td><pre>            <span class="token class-name">V</span> oldValue <span class="token operator">=</span> e<span class="token punctuation">.</span>value<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>onlyIfAbsent <span class="token operator">||</span> oldValue <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="62"></td><td><pre>                e<span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>            <span class="token function">afterNodeAccess</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>            <span class="token keyword">return</span> oldValue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="67"></td><td><pre>    <span class="token operator">++</span>modCount<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>    <span class="token comment">// threshold == 12 </span></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token comment">// 判断长度是否大于 12 ，是否进行扩容</span></pre></td></tr><tr><td data-num="70"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>size <span class="token operator">></span> threshold<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="71"></td><td><pre>        <span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token comment">//hashMap 留给其子类的方法，此方法在 HashMap 中为空</span></pre></td></tr><tr><td data-num="73"></td><td><pre>    <span class="token function">afterNodeInsertion</span><span class="token punctuation">(</span>evict<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="75"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h5 id="line-9-resize"><a class="markdownIt-Anchor" href="#line-9-resize">#</a> line 9 ：resize()</h5>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token comment">// table == 0</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> oldTab <span class="token operator">=</span> table<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">int</span> oldCap <span class="token operator">=</span> <span class="token punctuation">(</span>oldTab <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> oldTab<span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">int</span> oldThr <span class="token operator">=</span> threshold<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">int</span> newCap<span class="token punctuation">,</span> newThr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>oldCap <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// initial capacity was placed in threshold</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>oldThr <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="11"></td><td><pre>        newCap <span class="token operator">=</span> oldThr<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">// zero initial threshold signifies using defaults</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token comment">// 扩容长度 ： 16（DEFAULT_INITIAL_CAPACITY == 1 &lt;&lt; 4 == 16</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        newCap <span class="token operator">=</span> <span class="token constant">DEFAULT_INITIAL_CAPACITY</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token comment">// 确定阈值：当 table 长度到达 16 * DEFAULT_LOAD_FACTOR（0.75） == 12 的时候就准备扩容，防止当操作量比较大时发生阻塞</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        newThr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token constant">DEFAULT_LOAD_FACTOR</span> <span class="token operator">*</span> <span class="token constant">DEFAULT_INITIAL_CAPACITY</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>newThr <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token keyword">float</span> ft <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>newCap <span class="token operator">*</span> loadFactor<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        newThr <span class="token operator">=</span> <span class="token punctuation">(</span>newCap <span class="token operator">&lt;</span> <span class="token constant">MAXIMUM_CAPACITY</span> <span class="token operator">&amp;&amp;</span> ft <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token constant">MAXIMUM_CAPACITY</span> <span class="token operator">?</span></pre></td></tr><tr><td data-num="22"></td><td><pre>                  <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>ft <span class="token operator">:</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MAX_VALUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    threshold <span class="token operator">=</span> newThr<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"rawtypes"</span><span class="token punctuation">,</span><span class="token string">"unchecked"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment">// 创建一个长度为 newCap（16） 的 Node []</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> newTab <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">[</span>newCap<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token comment">// 并赋值给 table ，所以 table 的长度也是 16</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    table <span class="token operator">=</span> newTab<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>oldTab <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token keyword">return</span> newTab<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h5 id="line-29-treeifybintab-hash"><a class="markdownIt-Anchor" href="#line-29-treeifybintab-hash">#</a> line ： 29 ：treeifyBin(tab, hash)：</h5>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 当链表的长度大于等于 8 时，进入此方法</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">treeifyBin</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> tab<span class="token punctuation">,</span> <span class="token keyword">int</span> hash<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">int</span> n<span class="token punctuation">,</span> index<span class="token punctuation">;</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token comment">// 若 tab 的长度还未到达 MIN_TREEIFY_CAPACITY (64) ，则先进行扩容，暂时不树化</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>tab <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token punctuation">(</span>n <span class="token operator">=</span> tab<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token constant">MIN_TREEIFY_CAPACITY</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e <span class="token operator">=</span> tab<span class="token punctuation">[</span>index <span class="token operator">=</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> hash<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> hd <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> tl <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">do</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            <span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> p <span class="token operator">=</span> <span class="token function">replacementTreeNode</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>tl <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>                hd <span class="token operator">=</span> p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>                p<span class="token punctuation">.</span>prev <span class="token operator">=</span> tl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>                tl<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            tl <span class="token operator">=</span> p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e <span class="token operator">=</span> e<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>tab<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> hd<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>            hd<span class="token punctuation">.</span><span class="token function">treeify</span><span class="token punctuation">(</span>tab<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="课后疑问"><a class="markdownIt-Anchor" href="#课后疑问">#</a> 课后疑问：</h2>
+<p>为什么在链表长 &gt;= 8 时，原本在 table [4] 位置的链表被移到了 table [36]？</p>
+<h3 id="问题分析"><a class="markdownIt-Anchor" href="#问题分析">#</a> 问题分析：</h3>
+<p>当链表长度 &gt;= 8 且 table 长度 &lt; 64 时，会在 <strong>resize () 方法</strong> 即本文 **line ： 29 ：treeifyBin (tab, hash)：** 代码块中的 line ：6 处进入 <strong>resize () 方法</strong>并进行扩容，此处将 <strong>resize () 方法</strong> 的代码补全，并加以分析</p>
+<h3 id="resize-方法源码分析"><a class="markdownIt-Anchor" href="#resize-方法源码分析">#</a> resize () 方法源码分析：</h3>
+<p>假设只在 table [4] 位置存在一个长度为 10 的链表</p>
+<p>链表长度为 9 时第一次扩容 table.length 16 --&gt; 32</p>
+<p>链表长度为 10 时第二次扩容 table.length 32 --&gt; 64</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token comment">// 将 table 备份</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> oldTab <span class="token operator">=</span> table<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token comment">// 判断是不是第一次扩容</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">//     第一次扩容：上一个 table 的长度为 0</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">//     否则：得到上一个 table 的实际长度（包括 null）</span></pre></td></tr><tr><td data-num="7"></td><td><pre>	<span class="token keyword">int</span> oldCap <span class="token operator">=</span> <span class="token punctuation">(</span>oldTab <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> oldTab<span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">// 备份 threshold</span></pre></td></tr><tr><td data-num="9"></td><td><pre>	<span class="token keyword">int</span> oldThr <span class="token operator">=</span> threshold<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment">// 定义辅助变量</span></pre></td></tr><tr><td data-num="11"></td><td><pre>	<span class="token keyword">int</span> newCap<span class="token punctuation">,</span> newThr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    </pre></td></tr><tr><td data-num="13"></td><td><pre>	<span class="token keyword">if</span> <span class="token punctuation">(</span>oldCap <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token comment">// 判断 table 长度是否超过 2 的 30 次方，即数组的最大长度</span></pre></td></tr><tr><td data-num="15"></td><td><pre>		<span class="token keyword">if</span> <span class="token punctuation">(</span>oldCap <span class="token operator">>=</span> <span class="token constant">MAXIMUM_CAPACITY</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token comment">// 修改阈值为 int 的最大值 (2^31-1)，这样以后就不会扩容了</span></pre></td></tr><tr><td data-num="17"></td><td><pre>			threshold <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MAX_VALUE</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>			<span class="token keyword">return</span> oldTab<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>		<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    	<span class="token comment">// 将旧的 table 长度 左移一位：即乘以 2 ，再赋值给 新的 table 长度即 newCap</span></pre></td></tr><tr><td data-num="21"></td><td><pre>		<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>newCap <span class="token operator">=</span> oldCap <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token constant">MAXIMUM_CAPACITY</span> <span class="token operator">&amp;&amp;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>			oldCap <span class="token operator">>=</span> <span class="token constant">DEFAULT_INITIAL_CAPACITY</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            <span class="token comment">// 将 旧的阈值也 乘以 2</span></pre></td></tr><tr><td data-num="24"></td><td><pre>			newThr <span class="token operator">=</span> oldThr <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// double threshold</span></pre></td></tr><tr><td data-num="25"></td><td><pre>	<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment">/*</pre></td></tr><tr><td data-num="27"></td><td><pre>    // 这一段源码在本次操作中并不会涉及，故注释一下</pre></td></tr><tr><td data-num="28"></td><td><pre>    //initial capacity was placed in threshold</pre></td></tr><tr><td data-num="29"></td><td><pre>	else if (oldThr> 0) </pre></td></tr><tr><td data-num="30"></td><td><pre>		newCap = oldThr;</pre></td></tr><tr><td data-num="31"></td><td><pre>    //zero initial threshold signifies using defaults</pre></td></tr><tr><td data-num="32"></td><td><pre>	else &#123;               </pre></td></tr><tr><td data-num="33"></td><td><pre>		newCap = DEFAULT_INITIAL_CAPACITY;</pre></td></tr><tr><td data-num="34"></td><td><pre>		newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</pre></td></tr><tr><td data-num="35"></td><td><pre>	&#125;</pre></td></tr><tr><td data-num="36"></td><td><pre>	if (newThr == 0) &#123;</pre></td></tr><tr><td data-num="37"></td><td><pre>		float ft = (float) newCap * loadFactor;</pre></td></tr><tr><td data-num="38"></td><td><pre>		newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (float) MAXIMUM_CAPACITY ?</pre></td></tr><tr><td data-num="39"></td><td><pre>		(int) ft : Integer.MAX_VALUE);</pre></td></tr><tr><td data-num="40"></td><td><pre>	&#125;</pre></td></tr><tr><td data-num="41"></td><td><pre>	*/</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token comment">// 将 翻倍后的 阈值 赋值给此对象的 threshold</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    threshold <span class="token operator">=</span> newThr<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>	<span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"rawtypes"</span><span class="token punctuation">,</span><span class="token string">"unchecked"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token comment">// 定义一个 长度为 newCap（即翻倍后的 oldCap）的 Node 数组</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token comment">// 来储存原 Node 数组内的元素</span></pre></td></tr><tr><td data-num="47"></td><td><pre>	<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> newTab <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">[</span>newCap<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token comment">// 将原 Node [] 即 table 覆盖，或者说 使 table 指向新的 Node []</span></pre></td></tr><tr><td data-num="49"></td><td><pre>	table <span class="token operator">=</span> newTab<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>	<span class="token keyword">if</span> <span class="token punctuation">(</span>oldTab <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>        <span class="token comment">// 循环遍历 原 Node [] 中的每一个元素</span></pre></td></tr><tr><td data-num="52"></td><td><pre>		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> oldCap<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>            <span class="token comment">// 定义辅助变量，储存从原 Node [] 取出的 Node 对象</span></pre></td></tr><tr><td data-num="54"></td><td><pre>			<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>            <span class="token comment">// 将原 Node [] 中的第 j 个元素赋值给 e，相当于备份</span></pre></td></tr><tr><td data-num="56"></td><td><pre>            <span class="token comment">// 并判断其是否为空，此时：第四个元素不为空，其余都为空</span></pre></td></tr><tr><td data-num="57"></td><td><pre>			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e <span class="token operator">=</span> oldTab<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>                <span class="token comment">// 将原来存有元素的位置用 null 替换</span></pre></td></tr><tr><td data-num="59"></td><td><pre>				oldTab<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>                <span class="token comment">// 判断该位置是否形成链表</span></pre></td></tr><tr><td data-num="61"></td><td><pre>				<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="62"></td><td><pre>                    <span class="token comment">// 没有形成链表，则直接将备份的 e 以相同的方式计算出其在 Node [] 中的位置后赋值到该位置</span></pre></td></tr><tr><td data-num="63"></td><td><pre>					newTab<span class="token punctuation">[</span>e<span class="token punctuation">.</span>hash <span class="token operator">&amp;</span> <span class="token punctuation">(</span>newCap <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>                <span class="token comment">// 已经形成链表，判断是否为红黑树，此时未树化</span></pre></td></tr><tr><td data-num="65"></td><td><pre>                <span class="token comment">// 暂时未学习数据结构，暂不探究</span></pre></td></tr><tr><td data-num="66"></td><td><pre>				<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token keyword">instanceof</span> <span class="token class-name">TreeNode</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="67"></td><td><pre>					<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">)</span>e<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> newTab<span class="token punctuation">,</span> j<span class="token punctuation">,</span> oldCap<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>                <span class="token comment">// 进入到这</span></pre></td></tr><tr><td data-num="69"></td><td><pre>				<span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// preserve order</span></pre></td></tr><tr><td data-num="70"></td><td><pre>                    <span class="token comment">// 定义辅助变量</span></pre></td></tr><tr><td data-num="71"></td><td><pre>					<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> loHead <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> loTail <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>					<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> hiHead <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> hiTail <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>					<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> next<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>                    <span class="token comment">// 将此链表上的元素通过 do...while (...) 循环放到一个新的链表上 </span></pre></td></tr><tr><td data-num="75"></td><td><pre>					<span class="token keyword">do</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>                        next <span class="token operator">=</span> e<span class="token punctuation">.</span>next<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="77"></td><td><pre>                        <span class="token comment">// 关于这里的按位与，会在下面放一段链接，看完就懂</span></pre></td></tr><tr><td data-num="78"></td><td><pre>                        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>hash <span class="token operator">&amp;</span> oldCap<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>                            <span class="token keyword">if</span> <span class="token punctuation">(</span>loTail <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="80"></td><td><pre>                                loHead <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>                            <span class="token keyword">else</span></pre></td></tr><tr><td data-num="82"></td><td><pre>                                loTail<span class="token punctuation">.</span>next <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>                            loTail <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>                            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>                        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>                            <span class="token keyword">if</span> <span class="token punctuation">(</span>hiTail <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="87"></td><td><pre>                                hiHead <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>                            <span class="token keyword">else</span></pre></td></tr><tr><td data-num="89"></td><td><pre>                                hiTail<span class="token punctuation">.</span>next <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="90"></td><td><pre>                            hiTail <span class="token operator">=</span> e<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="91"></td><td><pre>                        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="92"></td><td><pre>                    <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e <span class="token operator">=</span> next<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="93"></td><td><pre>                    <span class="token comment">// 如果前面按位与的结果是 0，则将复制的链表放回原位置</span></pre></td></tr><tr><td data-num="94"></td><td><pre>                    <span class="token keyword">if</span> <span class="token punctuation">(</span>loTail <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="95"></td><td><pre>                        loTail<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="96"></td><td><pre>                        newTab<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> loHead<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="97"></td><td><pre>                    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="98"></td><td><pre>                    <span class="token comment">// 如果前面按位与的结果不为 0，则将复制的链表放到 j + oldCap 处</span></pre></td></tr><tr><td data-num="99"></td><td><pre>                    <span class="token keyword">if</span> <span class="token punctuation">(</span>hiTail <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="100"></td><td><pre>                        hiTail<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="101"></td><td><pre>                        newTab<span class="token punctuation">[</span>j <span class="token operator">+</span> oldCap<span class="token punctuation">]</span> <span class="token operator">=</span> hiHead<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="102"></td><td><pre>                    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="103"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="104"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="105"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="106"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="107"></td><td><pre>    <span class="token keyword">return</span> newTab<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="108"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>line 77：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MDkzNDY1L2FydGljbGUvZGV0YWlscy81MjI3MDUxOQ=="> Java HashMap 中在 resize () 时候的 rehash, 即再哈希法的理解_请叫我大师兄_的博客 - CSDN 博客_rehash 和 resize</span></p>
+<h1 id="951-java-9-中集合的新特性"><a class="markdownIt-Anchor" href="#951-java-9-中集合的新特性">#</a> 9.5.1 - Java 9 中集合的新特性</h1>
+<p>Java 9 引入了一些静态方法，可以生成给定元素的集或列表，以及给定键值对的映射。List 接口、 Set 接口、Map 接口有 11 个方法，分别有 0 到 10 个参数，其中 List 接口、Set 接口还有一个额外的 参数个数可变的 of 方法。<strong>提供这种特定性是为了提高效率。</strong>-&gt; 即减少使用可变参数所带来的创建数组以及回收数组所带来的消耗。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215740.jpg" alt=""></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215742.jpg" alt=""></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215744.jpg" alt=""></p>
+<p>需要注意的是：</p>
+<ul>
+<li><strong>其中的元素、键、值不能为 null。</strong></li>
+<li>这些集合对象是不可更改的，如果试图改变他们的内容，会得到一个 UnsupportedOperationException 异常。
+<ul>
+<li><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215747.jpg" alt=""></li>
+<li>若要得到一个可更改的，可以把这个集合传递到集合的构造器中中。</li>
+</ul>
+</li>
+</ul>
+<p>另外，Java 9 中的 Map 引入了另一个方法： <code>static &lt;K, V&gt; Entry&lt;K, V&gt; entry(K k, V v)</code>  ，这个静态方法可以得到一个 Map.Entry 的对象，可以作为对组，存储一对元素。</p>
+<blockquote>
+<p>在 Java 9 之前这会很麻烦，你必须使用  <code>new AbstractNap.SimpleImmutableEntry&lt;&gt;(first, second)</code>  构造对象。</p>
+</blockquote>
+<p>我什么不使用  <code>Object[] twoObj = new Object[2];</code> ？？</p>
+<h1 id="953-不可修改的视图"><a class="markdownIt-Anchor" href="#953-不可修改的视图">#</a> 9.5.3 - 不可修改的视图</h1>
+<p>Collections 的 一系列方法将帮助我们得到一个不可修改的视图：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215749.jpg" alt=""></p>
+<p>需要注意的是：</p>
+<ul>
+<li>不可修改的视图并不是集合本身不可更改。仍然可以通过集合的原始引用对集合进行修改，并且仍然可以对集合的元素调用更改器方法。</li>
+<li>不可修改的集合中的 equals 方法以及 hashCode 方法将直接使用两个集合的对象地址，不在比较其元素内容。
+<ul>
+<li>AbstractList 中的 equals 和 hashCode：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215751.jpg" alt=""><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215753.jpg" alt=""></li>
+<li>UnmodifiableList 中的 equals 和 hashCode：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215756.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+<h1 id="96-集合中的算法"><a class="markdownIt-Anchor" href="#96-集合中的算法">#</a> 9.6 - 集合中的算法</h1>
+<p>先欠着，学完排序再来。</p>
+<h1 id="12410-原子性"><a class="markdownIt-Anchor" href="#12410-原子性">#</a> 12.4.10 - 原子性</h1>
+<p>原子性是指<strong>一个操作不可被中断，要么全部执行成功要么全部执行失败</strong>；</p>
+<p><code>java.util.concurrent.atomic</code>  包中有很多类使用了很高效的机器级指令（而没有使用锁）来保证其他操作的原子性。</p>
+<h1 id="12412-线程局部变量"><a class="markdownIt-Anchor" href="#12412-线程局部变量">#</a> 12.4.12 - 线程局部变量</h1>
+<p>使用 ThreadLocal 辅助类为各个线程提供各自的实例。例如：将 SqlSession 对象存入 ThreadLocal 中，以保证 service 层的操作具有原子性。</p>
+<h1 id="1251-阻塞队列"><a class="markdownIt-Anchor" href="#1251-阻塞队列">#</a> 12.5.1 - 阻塞队列</h1>
+<blockquote>
+<p>很多线程问题可以使用一个或多个队列以优雅而安全的方式来描述。</p>
+</blockquote>
+<p>所以  <code>java.util.concurrent</code>  包提供了阻塞队列的几个变体。</p>
+<p>默认情况下：</p>
+<ul>
+<li>LinkedBlockingQueue 的容量没有上届，但是也可以选择指定一个最大容量。</li>
+<li>LinkedBlockingDeque 是一个双端队列。</li>
+<li>ArrayBlockingQueue 在构造时需要指定容量，并且有一个可选的参数来指定是否需要公平性。</li>
+<li>PriorityBlockingQueue 是一个优先队列，而不是先进先出队列。</li>
+</ul>
+<h1 id="1252-高效的映射-集-队列"><a class="markdownIt-Anchor" href="#1252-高效的映射-集-队列">#</a> 12.5.2 - 高效的映射、集、队列</h1>
+<blockquote>
+<p>java.util.concurrent 包提供了映射，有序集、队列的高效实现：ConcurrentHashMap, ConcurrentSkipListMap, ConcurrentSkipListSet, ConcurrentLinkedQueue。</p>
+</blockquote>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215758.jpg" alt=""></p>
+<p>注：</p>
+<ul>
+<li><strong>获取集合长度应该使用</strong> <code>**mappingCount()**</code> <strong> 而不是</strong> <code>**size()**</code>  ，因为 ConcurrentHashMap 可能包含比 int 表示的更多映射。返回的值是估计值；如果存在并发插入或删除，实际计数可能会有所不同。</li>
+<li>集合返回<strong>弱一致性的迭代器</strong>：即迭代器不一定能反映出他们构造之后的所有更改，但不会抛出 ConcurrentModificationException 异常。</li>
+<li>默认情况下并发散列映射可以有至多 16 个同时运行的书写器线程。如果有更多的，那么多余的将阻塞。</li>
+<li>ConcurrentHashMap 不允许有 null 值，因为许多方法都使用 null 值来指示某个映射不存在。（HashMap 允许存在一个 null 键）</li>
+</ul>
+<h1 id="1262-执行器"><a class="markdownIt-Anchor" href="#1262-执行器">#</a> 12.6.2 - 执行器</h1>
+<blockquote>
+<p>执行器 ( <code>Executors</code> ) 有许多静态工厂方法，用来构造线程池，如下表</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>newCachedThreadPool</td>
+<td>必要时创建新线程，空闲线程会保留 60 s</td>
+</tr>
+<tr>
+<td>newFixedThreadPool</td>
+<td>池中包含固定数目的线程，空闲线程会一直保留</td>
+</tr>
+<tr>
+<td>newWorkStealingPool</td>
+<td>一种适合 “fork-join” 任务的线程池，其中复杂的任务会分解为简单的任务，空闲线程会 “密取” 较简单的任务</td>
+</tr>
+<tr>
+<td>newSingleThreadExector</td>
+<td>只有一个线程的 “池”，会顺序地执行所提交地任务</td>
+</tr>
+<tr>
+<td>newScheduledThreadPool</td>
+<td>用于调度执行地固定线程池</td>
+</tr>
+<tr>
+<td>newSingleThreadScheduledExecutor</td>
+<td>用于调度执行地单线程 “池”</td>
+</tr>
+</tbody>
+</table>
+<p>注：</p>
+<ul>
+<li>为了得到最优的运行速度，并发线程数等于处理器地内核数。</li>
+<li>也可以使用如下方法自定义一个线程池： <code>ExecutorService executorService = new ThreadPoolExecutor(//...);</code></li>
+</ul>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">public</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token keyword">int</span> corePoolSize<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="2"></td><td><pre>                          <span class="token keyword">int</span> maximumPoolSize<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>                          <span class="token keyword">long</span> keepAliveTime<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>                          <span class="token class-name">TimeUnit</span> unit<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>                          <span class="token class-name">BlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Runnable</span><span class="token punctuation">></span></span> workQueue<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>                          <span class="token class-name">ThreadFactory</span> threadFactory<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>                          <span class="token class-name">RejectedExecutionHandler</span> handler<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>                          </pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>使用给定的初始参数创建一个新的 ThreadPoolExecutor 。</pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>参形：</pre></td></tr><tr><td data-num="14"></td><td><pre>    corePoolSize - 保留在池中的线程数，即使它们是空闲的，除非设置 allowCoreThreadTimeOut</pre></td></tr><tr><td data-num="15"></td><td><pre>    </pre></td></tr><tr><td data-num="16"></td><td><pre>    maximumPoolSize – 池中允许的最大线程数</pre></td></tr><tr><td data-num="17"></td><td><pre>    </pre></td></tr><tr><td data-num="18"></td><td><pre>    keepAliveTime – 当线程数大于核心时，这是多余的空闲线程在终止前等待新任务的最长时间。</pre></td></tr><tr><td data-num="19"></td><td><pre>    </pre></td></tr><tr><td data-num="20"></td><td><pre>    unit – keepAliveTime 参数的时间单位</pre></td></tr><tr><td data-num="21"></td><td><pre>    </pre></td></tr><tr><td data-num="22"></td><td><pre>    workQueue – 用于在执行任务之前保存任务的队列。此队列将仅保存由 execute 方法提交的 Runnable 任务。</pre></td></tr><tr><td data-num="23"></td><td><pre>    </pre></td></tr><tr><td data-num="24"></td><td><pre>    threadFactory – 执行器创建新线程时使用的工厂</pre></td></tr><tr><td data-num="25"></td><td><pre>    </pre></td></tr><tr><td data-num="26"></td><td><pre>    handler：通过这个参数你可以自定义任务的拒绝策略。如果线程池中所有的线程都在忙碌，并且工作队列也满了（前提是工作队列是有界队列），那么此时提交任务，线程池就会拒绝接收。至于拒绝的策略，你可以通过 handler 这个参数来指定。ThreadPoolExecutor 已经提供了以下 4 种策略。</pre></td></tr><tr><td data-num="27"></td><td><pre>    </pre></td></tr><tr><td data-num="28"></td><td><pre>        CallerRunsPolicy：提交任务的线程自己去执行该任务。</pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>        AbortPolicy：默认的拒绝策略，会 throws RejectedExecutionException。</pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>        DiscardPolicy：直接丢弃任务，没有任何异常抛出。</pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>        DiscardOldestPolicy：丢弃最老的任务，其实就是把最早进入工作队列的任务丢弃，然后把新任务加入到工作队列。</pre></td></tr><tr><td data-num="35"></td><td><pre>抛出：</pre></td></tr><tr><td data-num="36"></td><td><pre>    IllegalArgumentException – 如果以下条件之一成立： corePoolSize &lt; 0 keepAliveTime &lt; 0 maximumPoolSize &lt;= 0 maximumPoolSize &lt; corePoolSize</pre></td></tr><tr><td data-num="37"></td><td><pre>    NullPointerException – 如果 workQueue 或 threadFactory 或 handler 为 null</pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre>*/</span></pre></td></tr></table></figure><h1 id="1264-fork-join框架"><a class="markdownIt-Anchor" href="#1264-fork-join框架">#</a> 12.6.4 - fork-join 框架</h1>
+<p>先画个饼，学完分治算法再回来</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>lx0815 <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(7.3%20_%209.5.3)/" title="卷一(7.3 _ 9.5.3)">https://zrgzs.github.io/guide/2023/09/07/java基础/核心技术卷/卷一(7.3 _ 9.5.3)/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%BA%8C%EF%BC%884.1%20_%20%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-26.jpg" title="卷二（4.1 _ ）">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 核心技术卷</span>
+  <h3>卷二（4.1 _ ）</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(1.1%20_%207.2.5)/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-64.jpg" title="卷一(1.1 _ 7.2.5)">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 核心技术卷</span>
+  <h3>卷一(1.1 _ 7.2.5)</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#73-%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8A%80%E5%B7%A7"><span class="toc-number">1.</span> <span class="toc-text"> 7.3 - 使用异常的技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#741-assert-%E4%B9%8B%E6%96%AD%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text"> 7.4.1 - assert 之断言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#742-%E6%96%AD%E8%A8%80%E7%9A%84%E5%BC%80%E5%90%AF%E5%92%8C%E7%A6%81%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text"> 7.4.2 - 断言的开启和禁用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8"><span class="toc-number">3.1.</span> <span class="toc-text"> 注：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#743-%E4%BD%BF%E7%94%A8%E6%96%AD%E8%A8%80%E5%AE%8C%E6%88%90%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5"><span class="toc-number">4.</span> <span class="toc-text"> 7.4.3 - 使用断言完成参数检查</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#84-%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E9%99%90%E5%AE%9A"><span class="toc-number">5.</span> <span class="toc-text"> 8.4 - 类型变量的限定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#851-%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4"><span class="toc-number">6.</span> <span class="toc-text"> 8.5.1 - 类型擦除</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#852-%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4%E7%9A%84%E9%A2%9D%E5%A4%96%E5%A4%84%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text"> 8.5.2 - 类型擦除的额外处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#853-%E8%BD%AC%E6%8D%A2%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text"> 8.5.3 - 转换泛型方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E8%99%91%E4%B8%80%E4%B8%AA%E5%9C%BA%E6%99%AF"><span class="toc-number">8.1.</span> <span class="toc-text"> 考虑一个场景：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B"><span class="toc-number">8.1.1.</span> <span class="toc-text"> 代码如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">8.1.2.</span> <span class="toc-text"> 运行结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%88%AA%E5%9B%BE"><span class="toc-number">8.1.3.</span> <span class="toc-text"> 代码截图：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">8.1.4.</span> <span class="toc-text"> 说明：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%B9%88%E5%86%8D%E8%80%83%E8%99%91%E4%B8%80%E4%B8%AA%E5%9C%BA%E6%99%AF"><span class="toc-number">8.2.</span> <span class="toc-text"> 那么再考虑一个场景：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B-2"><span class="toc-number">8.2.1.</span> <span class="toc-text"> 代码如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-2"><span class="toc-number">8.2.2.</span> <span class="toc-text"> 运行结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E-2"><span class="toc-number">8.2.3.</span> <span class="toc-text"> 说明：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8-2"><span class="toc-number">8.3.</span> <span class="toc-text"> 注：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.4.</span> <span class="toc-text"> 总结：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#86-%E9%99%90%E5%88%B6%E4%B8%8E%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">9.</span> <span class="toc-text"> 8.6 - 限制与局限性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#861-%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-number">9.1.</span> <span class="toc-text"> 8.6.1 - 不能使用基本类型实例化类型参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#862-%E8%BF%90%E8%A1%8C%E6%97%B6%E7%B1%BB%E5%9E%8B%E6%9F%A5%E8%AF%A2%E5%8F%AA%E9%80%82%E7%94%A8%E4%BA%8E%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="toc-number">9.2.</span> <span class="toc-text"> 8.6.2 - 运行时类型查询只适用于原始类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#863-%E4%B8%8D%E8%83%BD%E5%88%9B%E5%BB%BA%E5%8F%82%E6%95%B0%E5%8C%96%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E7%BB%84"><span class="toc-number">9.3.</span> <span class="toc-text"> 8.6.3 - 不能创建参数化类型的数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#865-%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F"><span class="toc-number">9.4.</span> <span class="toc-text"> 8.6.5 - 不能直接实例化类型变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#866-%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%9E%84%E9%80%A0%E6%B3%9B%E5%9E%8B%E6%95%B0%E7%BB%84"><span class="toc-number">9.5.</span> <span class="toc-text"> 8.6.6 - 不能直接构造泛型数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#867-%E6%B3%9B%E5%9E%8B%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%AD%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E6%97%A0%E6%95%88"><span class="toc-number">9.6.</span> <span class="toc-text"> 8.6.7 - 泛型类的静态上下文中类型变量无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#868-%E4%B8%8D%E8%83%BD%E6%8A%9B%E5%87%BA%E6%88%96%E6%8D%95%E8%8E%B7%E6%B3%9B%E5%9E%8B%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-number">9.7.</span> <span class="toc-text"> 8.6.8 - 不能抛出或捕获泛型类的实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8610-%E6%B3%A8%E6%84%8F%E6%B3%9B%E5%9E%8B%E6%93%A6%E9%99%A4%E5%90%8E%E7%9A%84%E5%86%B2%E7%AA%81"><span class="toc-number">9.8.</span> <span class="toc-text"> 8.6.10 - 注意泛型擦除后的冲突</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#913-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text"> 9.1.3 - 迭代器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#93-java-%E5%BA%93%E4%B8%AD%E7%9A%84%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88"><span class="toc-number">11.</span> <span class="toc-text"> 9.3 - Java 库中的具体集合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#931-iterator-%E7%9A%84%E5%A5%BD%E5%85%84%E5%BC%9F-listiterator"><span class="toc-number">12.</span> <span class="toc-text"> 9.3.1 - Iterator 的好兄弟 ListIterator</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E4%BD%BF%E7%94%A8%E5%85%89%E6%A0%87%E7%B1%BB%E6%AF%94%E6%97%B6%E8%A6%81%E6%A0%BC%E5%A4%96%E5%B0%8F%E5%BF%83-%E4%B8%8D%E8%83%BD%E8%BF%9E%E7%BB%AD%E8%B0%83%E7%94%A8%E4%B8%A4%E6%AC%A1-remove-%E6%96%B9%E6%B3%95add-%E6%96%B9%E6%B3%95%E4%BE%9D%E8%B5%96%E4%BA%8E%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E4%BD%8D%E7%BD%AEremove-%E6%96%B9%E6%B3%95%E4%BE%9D%E8%B5%96%E4%BA%8E%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E7%8A%B6%E6%80%81-%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%9D%A5%E8%87%AA%E6%BA%90%E7%A0%81%E6%B3%A8%E9%87%8A"><span class="toc-number">12.1.</span> <span class="toc-text"> 在使用光标类比时要格外小心。不能连续调用两次 remove 方法，add 方法依赖于迭代器的位置，remove 方法依赖于迭代器的状态。以下是来自源码注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#933-%E6%95%A3%E5%88%97%E9%9B%86"><span class="toc-number">13.</span> <span class="toc-text"> 9.3.3 - 散列集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">13.1.</span> <span class="toc-text"> 总结：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">13.2.</span> <span class="toc-text"> 源码解读：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">13.2.1.</span> <span class="toc-text"> 示例代码：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#line-3"><span class="toc-number">13.2.2.</span> <span class="toc-text"> line 3 ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#line-5"><span class="toc-number">13.2.3.</span> <span class="toc-text"> line 5 ：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#putval"><span class="toc-number">13.2.3.1.</span> <span class="toc-text"> putVal(…)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#line-9-resize"><span class="toc-number">13.2.3.1.1.</span> <span class="toc-text"> line 9 ：resize()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#line-29-treeifybintab-hash"><span class="toc-number">13.2.3.1.2.</span> <span class="toc-text"> line ： 29 ：treeifyBin(tab, hash)：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E5%90%8E%E7%96%91%E9%97%AE"><span class="toc-number">13.3.</span> <span class="toc-text"> 课后疑问：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">13.3.1.</span> <span class="toc-text"> 问题分析：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resize-%E6%96%B9%E6%B3%95%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">13.3.2.</span> <span class="toc-text"> resize () 方法源码分析：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#951-java-9-%E4%B8%AD%E9%9B%86%E5%90%88%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">14.</span> <span class="toc-text"> 9.5.1 - Java 9 中集合的新特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#953-%E4%B8%8D%E5%8F%AF%E4%BF%AE%E6%94%B9%E7%9A%84%E8%A7%86%E5%9B%BE"><span class="toc-number">15.</span> <span class="toc-text"> 9.5.3 - 不可修改的视图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#96-%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">16.</span> <span class="toc-text"> 9.6 - 集合中的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12410-%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="toc-number">17.</span> <span class="toc-text"> 12.4.10 - 原子性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12412-%E7%BA%BF%E7%A8%8B%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="toc-number">18.</span> <span class="toc-text"> 12.4.12 - 线程局部变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1251-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="toc-number">19.</span> <span class="toc-text"> 12.5.1 - 阻塞队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1252-%E9%AB%98%E6%95%88%E7%9A%84%E6%98%A0%E5%B0%84-%E9%9B%86-%E9%98%9F%E5%88%97"><span class="toc-number">20.</span> <span class="toc-text"> 12.5.2 - 高效的映射、集、队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1262-%E6%89%A7%E8%A1%8C%E5%99%A8"><span class="toc-number">21.</span> <span class="toc-text"> 12.6.2 - 执行器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1264-fork-join%E6%A1%86%E6%9E%B6"><span class="toc-number">22.</span> <span class="toc-text"> 12.6.4 - fork-join 框架</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(1.1%20_%207.2.5)/" rel="bookmark" title="卷一(1.1 _ 7.2.5)">卷一(1.1 _ 7.2.5)</a></li><li class="active"><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(7.3%20_%209.5.3)/" rel="bookmark" title="卷一(7.3 _ 9.5.3)">卷一(7.3 _ 9.5.3)</a></li><li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%BA%8C%EF%BC%884.1%20_%20%EF%BC%89/" rel="bookmark" title="卷二（4.1 _ ）">卷二（4.1 _ ）</a></li><li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%BA%8C(1.2%20_%203.9)/" rel="bookmark" title="卷二(1.2 _ 3.9)">卷二(1.2 _ 3.9)</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%BA%8C%EF%BC%884.1%20_%20%EF%BC%89/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(1.1%20_%207.2.5)/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/Linux%E8%BF%90%E7%BB%B4/" title="分类于 Linux运维">Linux运维</a>
+</div>
+
+    <span><a href="/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/" title="CentOS 环境安装">CentOS 环境安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%98%85%E5%89%8D%E9%A1%BB%E7%9F%A5/" title="阅前须知">阅前须知</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/B-Tree/" title="B-Tree">B-Tree</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/other/" title="分类于 other">other</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/other/%E5%88%AB%E4%BA%BA%E5%AE%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="别人家的学习笔记">别人家的学习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9Redis%E5%92%8CSession%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/" title="谈谈你对Redis和Session的理解？">谈谈你对Redis和Session的理解？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/%E4%BB%8E0%E5%88%B0N%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%89/" title="从0到N搭建微服务项目（保姆级教程）">从0到N搭建微服务项目（保姆级教程）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/README/" title="README">README</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-day05/" title="设计模式-day05">设计模式-day05</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20Java%20%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" title="第二章 Java 内存区域与内存溢出异常">第二章 Java 内存区域与内存溢出异常</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" title="SpringBoot 调用第三方接口时的公私钥管理">SpringBoot 调用第三方接口时的公私钥管理</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/java基础/核心技术卷/卷一(7.3 _ 9.5.3)/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

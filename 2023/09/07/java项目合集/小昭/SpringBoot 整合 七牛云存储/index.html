@@ -1,0 +1,554 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/">
+
+
+
+  <title>
+SpringBoot 整合 七牛云存储 - 小昭 - java项目合集 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">SpringBoot 整合 七牛云存储
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>6.6k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>6 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>lx0815</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-14.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-85.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-53.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-7.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-77.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-90.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" itemprop="item" rel="index" title="分类于 java项目合集"><span itemprop="name">java项目合集</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" itemprop="item" rel="index" title="分类于 小昭"><span itemprop="name">小昭</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="springboot-整合-七牛云存储"><a class="markdownIt-Anchor" href="#springboot-整合-七牛云存储">#</a> SpringBoot 整合 七牛云存储</h1>
+<p>七牛云的注册及配置这里就不赘述了。</p>
+<h2 id="0-七牛云存储-javasdk-官方文档"><a class="markdownIt-Anchor" href="#0-七牛云存储-javasdk-官方文档">#</a> 0. 七牛云存储 JavaSDK 官方文档</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIucWluaXUuY29tL2tvZG8vMTIzOS9qYXZh">Java SDK_SDK 下载_对象存储 - 七牛开发者中心 (qiniu.com)</span></p>
+<h2 id="1-引入依赖"><a class="markdownIt-Anchor" href="#1-引入依赖">#</a> 1. 引入依赖</h2>
+<figure class="highlight xml"><figcaption data-lang="XML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.qiniu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>qiniu-java-sdk<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>[7.7.0, 7.10.99]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><blockquote>
+<p>这里的 <code>version</code>  指定了一个版本范围，每次更新 <code>pom.xml</code>  的时候会尝试去下载 <code>7.7.x</code>  版本中的最新版本，你可以手动指定一个固定的版本。</p>
+</blockquote>
+<h2 id="2-在环境变量中配置-accesskey-和-secretkey"><a class="markdownIt-Anchor" href="#2-在环境变量中配置-accesskey-和-secretkey">#</a> 2. 在环境变量中配置 AccessKey 和 SecretKey</h2>
+<p>不知道如何配置的参见<span class="exturl" data-url="aHR0cDovL2F3aW5kLnNwYWNlL2FyY2hpdmVzLzE2NzE0NjIxMDExMzU="> SpringBoot 环境变量管理</span></p>
+<h2 id="3-根据文档中需要填写的配置为模板创建-qiniuproperties-类"><a class="markdownIt-Anchor" href="#3-根据文档中需要填写的配置为模板创建-qiniuproperties-类">#</a> 3. 根据文档中需要填写的配置为模板创建 QiNiuProperties 类</h2>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>configProp</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>lang3<span class="token punctuation">.</span></span><span class="token class-name">StringUtils</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Value</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="9"></td><td><pre> * @description: 域名相关：&lt;a href="https://developer.qiniu.com/kodo/1671/region-endpoint-fq"> 域名 & lt;/a></pre></td></tr><tr><td data-num="10"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="11"></td><td><pre> * @version: 1.0</pre></td></tr><tr><td data-num="12"></td><td><pre> * @createTime: 2022-11-17 6:15:13</pre></td></tr><tr><td data-num="13"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="14"></td><td><pre> */</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token annotation punctuation">@Data</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token annotation punctuation">@Component</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QiNiuProperties</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="21"></td><td><pre>     * 存储桶名称</pre></td></tr><tr><td data-num="22"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;qiniu.bucket&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> bucket<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="27"></td><td><pre>     * 地区描述，例如 huadongzhejiang2</pre></td></tr><tr><td data-num="28"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;qiniu.region&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> region<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="33"></td><td><pre>     * 七牛云中配置的访问域名</pre></td></tr><tr><td data-num="34"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;qiniu.domain&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> domain<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="39"></td><td><pre>     * 图片存储的根路径</pre></td></tr><tr><td data-num="40"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;qiniu.rootDirectory:#&#123; 'xiaozhao/person-face/' &#125;&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> rootDirectory<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="45"></td><td><pre>     * 最大重试次数</pre></td></tr><tr><td data-num="46"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;qiniu.retryMaxCount:#&#123; 3 &#125;&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">int</span> retryMaxCount<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre></pre></td></tr><tr><td data-num="50"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="51"></td><td><pre>     * 加速域名（见官网，不知道有啥用）</pre></td></tr><tr><td data-num="52"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;qiniu.accelerateUploadDomain&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> accelerateUploadDomain<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre></pre></td></tr><tr><td data-num="56"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="57"></td><td><pre>     * 访问公钥，从环境变量获取</pre></td></tr><tr><td data-num="58"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="59"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;XIAO_ZHAO_DEFAULT_QINIU_ACCESS_KEY&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="60"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> accessKey<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="61"></td><td><pre></pre></td></tr><tr><td data-num="62"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="63"></td><td><pre>     * 密钥，从环境变量获取</pre></td></tr><tr><td data-num="64"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="65"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;XIAO_ZHAO_DEFAULT_QINIU_SECRET_KEY&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> secretKey<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="67"></td><td><pre></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="70"></td><td><pre>     * 手动复写该方法是为了确保不出现两个连续的斜杠</pre></td></tr><tr><td data-num="71"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isBlank</span><span class="token punctuation">(</span>domain<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>domain<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>            domain <span class="token operator">+=</span> <span class="token char">'/'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>        <span class="token keyword">return</span> domain<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="77"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="78"></td><td><pre></pre></td></tr><tr><td data-num="79"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="80"></td><td><pre>     * 手动复写该方法是为了确保不出现两个连续的斜杠</pre></td></tr><tr><td data-num="81"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="82"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getRootDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isBlank</span><span class="token punctuation">(</span>rootDirectory<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> rootDirectory<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>            rootDirectory <span class="token operator">=</span> rootDirectory<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isBlank</span><span class="token punctuation">(</span>rootDirectory<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>rootDirectory<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="87"></td><td><pre>            rootDirectory <span class="token operator">+=</span> <span class="token char">'/'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="89"></td><td><pre>        <span class="token keyword">return</span> rootDirectory<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="90"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="91"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="4-新建-qiniuconfig-配置类"><a class="markdownIt-Anchor" href="#4-新建-qiniuconfig-配置类">#</a> 4. 新建 QiNiuConfig 配置类</h2>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>config<span class="token punctuation">.</span>qiniu</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>storage<span class="token punctuation">.</span></span><span class="token class-name">UploadManager</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Auth</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>configProp<span class="token punctuation">.</span></span><span class="token class-name">QiNiuProperties</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Bean</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Configuration</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>security<span class="token punctuation">.</span></span><span class="token class-name">NoSuchProviderException</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="14"></td><td><pre> * @description:</pre></td></tr><tr><td data-num="15"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="16"></td><td><pre> * @version: 1.0</pre></td></tr><tr><td data-num="17"></td><td><pre> * @createTime: 2022-11-16 23:25:31</pre></td></tr><tr><td data-num="18"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="19"></td><td><pre> */</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token annotation punctuation">@Slf4j</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token annotation punctuation">@Configuration</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QiNiuConfig</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">QiNiuProperties</span> qiNiuProperties<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token annotation punctuation">@Autowired</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setQiNiuProperties</span><span class="token punctuation">(</span><span class="token class-name">QiNiuProperties</span> qiNiuProperties<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span>qiNiuProperties <span class="token operator">=</span> qiNiuProperties<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="32"></td><td><pre>     * 配置空间的存储区域</pre></td></tr><tr><td data-num="33"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token annotation punctuation">@Bean</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>storage<span class="token punctuation">.</span></span>Configuration</span> <span class="token function">qiNiuConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"准备开始读取 QiNiuProperties: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>            <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>storage<span class="token punctuation">.</span></span>Configuration</span> configuration <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>storage<span class="token punctuation">.</span></span>Configuration</span><span class="token punctuation">(</span><span class="token class-name">RegionFactoryBuilder</span></pre></td></tr><tr><td data-num="39"></td><td><pre>                    <span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span>qiNiuProperties<span class="token punctuation">.</span><span class="token function">getRegion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="40"></td><td><pre>                    <span class="token punctuation">.</span><span class="token function">createRegion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre></pre></td></tr><tr><td data-num="42"></td><td><pre>            configuration<span class="token punctuation">.</span>retryMax <span class="token operator">=</span> qiNiuProperties<span class="token punctuation">.</span><span class="token function">getRetryMaxCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>            <span class="token keyword">return</span> configuration<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NoSuchProviderException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="50"></td><td><pre>     * 构建一个七牛上传工具实例</pre></td></tr><tr><td data-num="51"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="52"></td><td><pre>    <span class="token annotation punctuation">@Bean</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">UploadManager</span> <span class="token function">uploadManager</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>storage<span class="token punctuation">.</span></span>Configuration</span> configuration<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UploadManager</span><span class="token punctuation">(</span>configuration<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="56"></td><td><pre></pre></td></tr><tr><td data-num="57"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="58"></td><td><pre>     * 认证信息实例</pre></td></tr><tr><td data-num="59"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="60"></td><td><pre>    <span class="token annotation punctuation">@Bean</span></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">Auth</span> <span class="token function">auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>        <span class="token keyword">return</span> <span class="token class-name">Auth</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>qiNiuProperties<span class="token punctuation">.</span><span class="token function">getAccessKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> qiNiuProperties<span class="token punctuation">.</span><span class="token function">getSecretKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="64"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="region-的处理"><a class="markdownIt-Anchor" href="#region-的处理">#</a> region 的处理</h3>
+<p>region 在配置文件中写的是 字符串，而要根据配置文件中的字符串找到相应的方法，肯定不能用大量的  <code>if... else if... else</code>  。所以这里使用工厂模式，具体哪一种我也不造。</p>
+<p>首先看一下类图</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220304.jpg" alt=""></p>
+<p><code>RegionFactory</code>  中又两个抽象方法：</p>
+<ul>
+<li><code>boolean support(String region);</code>
+<ul>
+<li>判断该工厂是否支持创建描述为  <code>region</code>  的  <code>Region</code>  对象</li>
+</ul>
+</li>
+<li><code>Region createRegion();</code>
+<ul>
+<li>创建  <code>Region</code>  对象</li>
+</ul>
+</li>
+</ul>
+<p>其七个子类工厂均实现其方法，示例如下：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>config<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>impl</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>storage<span class="token punctuation">.</span></span><span class="token class-name">Region</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>config<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span></span><span class="token class-name">RegionFactory</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="7"></td><td><pre> * @description:</pre></td></tr><tr><td data-num="8"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="9"></td><td><pre> * @version: 1.0</pre></td></tr><tr><td data-num="10"></td><td><pre> * @createTime: 2022-11-17 9:36:33</pre></td></tr><tr><td data-num="11"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="12"></td><td><pre> */</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HuabeiRegionFactory</span> <span class="token keyword">implements</span> <span class="token class-name">RegionFactory</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> <span class="token constant">SUPPORT_REGION</span> <span class="token operator">=</span> <span class="token string">"huabei"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">support</span><span class="token punctuation">(</span><span class="token class-name">String</span> region<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token keyword">return</span> <span class="token constant">SUPPORT_REGION</span><span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span>region<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">Region</span> <span class="token function">createRegion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token keyword">return</span> <span class="token class-name">Region</span><span class="token punctuation">.</span><span class="token function">huabei</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>在  <code>RegionFactoryBuilder</code>  中，通过  <code>ServiceLoader</code>  类加载  <code>RegionFactory</code>  的实现类，作为服务提供者，然后遍历其所有被加载的实现类以找到支持该地区的一个 工厂，找不到将抛出异常。</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>config<span class="token punctuation">.</span>qiniu</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>security<span class="token punctuation">.</span></span><span class="token class-name">NoSuchProviderException</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashMap</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Objects</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ServiceLoader</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="10"></td><td><pre> * @description:</pre></td></tr><tr><td data-num="11"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="12"></td><td><pre> * @version: 1.0</pre></td></tr><tr><td data-num="13"></td><td><pre> * @createTime: 2022-11-17 9:03:35</pre></td></tr><tr><td data-num="14"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="15"></td><td><pre> */</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RegionFactoryBuilder</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">ServiceLoader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">RegionFactory</span><span class="token punctuation">></span></span> regionFactories <span class="token operator">=</span> <span class="token class-name">ServiceLoader</span><span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token class-name">RegionFactory</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">RegionFactory</span><span class="token punctuation">></span></span> factoryMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">RegionFactoryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">RegionFactory</span> <span class="token function">builder</span><span class="token punctuation">(</span><span class="token class-name">String</span> region<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">NoSuchProviderException</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token class-name">RegionFactory</span> f <span class="token operator">=</span> factoryMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>region<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">nonNull</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> f<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">RegionFactory</span> factory <span class="token operator">:</span> regionFactories<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>factory<span class="token punctuation">.</span><span class="token function">support</span><span class="token punctuation">(</span>region<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>                factoryMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>region<span class="token punctuation">,</span> factory<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>                <span class="token keyword">return</span> factory<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NoSuchProviderException</span><span class="token punctuation">(</span><span class="token string">"Region 配置错误，没有程序能够支持 "</span> <span class="token operator">+</span> region<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="新建-qiniuservice-接口并创建其实现类"><a class="markdownIt-Anchor" href="#新建-qiniuservice-接口并创建其实现类">#</a> . 新建 QiNiuService 接口，并创建其实现类</h2>
+<p>编写一个保存  <code>List&lt;MultipartFile&gt;</code>  的方法如下：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token annotation punctuation">@Override</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">saveMultipartFileList</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MultipartFile</span><span class="token punctuation">></span></span> fileList<span class="token punctuation">,</span> <span class="token class-name">String</span> directory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        <span class="token comment">// 防止 NPE</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        directory <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">isNull</span><span class="token punctuation">(</span>directory<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> <span class="token operator">:</span> directory<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token comment">// 图片保存路径</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token class-name">StringBuilder</span> path<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token comment">// 响应对象</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>qiniu<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span>Response</span> response<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token comment">// 图片访问路径</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token class-name">String</span> accessPath <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token comment">// 所有图片的访问路径</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> accessPathList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> multipartFile <span class="token operator">:</span> fileList<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                <span class="token comment">// 获取文件名，主要用于获取图片后缀</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                <span class="token class-name">String</span> fileName <span class="token operator">=</span> multipartFile<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>                <span class="token comment">// 使用 UUID 生成文件名，与目录拼接得到保存路径</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                path <span class="token operator">=</span> sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>directory<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token constant">UUID</span><span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token char">'.'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">substringAfterLast</span><span class="token punctuation">(</span>fileName<span class="token punctuation">,</span> <span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>                <span class="token comment">// 开始上传文件</span></pre></td></tr><tr><td data-num="21"></td><td><pre>                response <span class="token operator">=</span> uploadManager<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>multipartFile<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> path<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getUploadToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span><span class="token function">isOK</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>                    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"本次上传信息：\n文件名：%s\n文件大小：%s\n文件保存路径：%s"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>                            fileName<span class="token punctuation">,</span> multipartFile<span class="token punctuation">.</span><span class="token function">getSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"上传文件失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>                sb<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>                <span class="token comment">// 得到访问路径</span></pre></td></tr><tr><td data-num="30"></td><td><pre>                accessPath <span class="token operator">=</span> sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"http://"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>qiNiuProperties<span class="token punctuation">.</span><span class="token function">getDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>                accessPathList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>accessPath<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>                sb<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"商品图片上传成功，访问路径为："</span> <span class="token operator">+</span> accessPath<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token keyword">return</span> accessPathList<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>lx0815 <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" title="SpringBoot 整合 七牛云存储">https://zrgzs.github.io/guide/2023/09/07/java项目合集/小昭/SpringBoot 整合 七牛云存储/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-78.jpg" title="SpringBoot 整合 腾讯云 API">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 小昭</span>
+  <h3>SpringBoot 整合 腾讯云 API</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-10.jpg" title="SpringBoot logback-spring.xml">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 小昭</span>
+  <h3>SpringBoot logback-spring.xml</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springboot-%E6%95%B4%E5%90%88-%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8"><span class="toc-number">1.</span> <span class="toc-text"> SpringBoot 整合 七牛云存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8-javasdk-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">1.1.</span> <span class="toc-text"> 0. 七牛云存储 JavaSDK 官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-number">1.2.</span> <span class="toc-text"> 1. 引入依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9C%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%AD%E9%85%8D%E7%BD%AE-accesskey-%E5%92%8C-secretkey"><span class="toc-number">1.3.</span> <span class="toc-text"> 2. 在环境变量中配置 AccessKey 和 SecretKey</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A0%B9%E6%8D%AE%E6%96%87%E6%A1%A3%E4%B8%AD%E9%9C%80%E8%A6%81%E5%A1%AB%E5%86%99%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%BA%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA-qiniuproperties-%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text"> 3. 根据文档中需要填写的配置为模板创建 QiNiuProperties 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%96%B0%E5%BB%BA-qiniuconfig-%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-number">1.5.</span> <span class="toc-text"> 4. 新建 QiNiuConfig 配置类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#region-%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">1.5.1.</span> <span class="toc-text"> region 的处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA-qiniuservice-%E6%8E%A5%E5%8F%A3%E5%B9%B6%E5%88%9B%E5%BB%BA%E5%85%B6%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">1.6.</span> <span class="toc-text"> . 新建 QiNiuService 接口，并创建其实现类</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/'text_plain'%20WebClient/" rel="bookmark" title="'text_plain' WebClient">'text_plain' WebClient</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/IDEA%20%E4%B8%8E%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="IDEA 与 服务器开发">IDEA 与 服务器开发</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/ServiceLoader%E7%B1%BB%20%E4%B8%8E%20SPI%20%E6%9C%BA%E5%88%B6/" rel="bookmark" title="ServiceLoader类 与 SPI 机制">ServiceLoader类 与 SPI 机制</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/@MultiParameterBody%20%E6%B3%A8%E8%A7%A3/" rel="bookmark" title="@MultiParameterBody 注解">@MultiParameterBody 注解</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/" rel="bookmark" title="SpringBoot logback-spring.xml">SpringBoot logback-spring.xml</a></li><li class="active"><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" rel="bookmark" title="SpringBoot 整合 七牛云存储">SpringBoot 整合 七牛云存储</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/" rel="bookmark" title="SpringBoot 整合 腾讯云 API">SpringBoot 整合 腾讯云 API</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" rel="bookmark" title="SpringBoot 调用第三方接口时的公私钥管理">SpringBoot 调用第三方接口时的公私钥管理</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0/" rel="bookmark" title="开发随记">开发随记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/B-Tree/" title="B-Tree">B-Tree</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/VO%EF%BC%8CBO%EF%BC%8CPO%EF%BC%8CDO%EF%BC%8CDTO%E7%9A%84%E5%8C%BA%E5%88%AB/" title="VO，BO，PO，DO，DTO的区别">VO，BO，PO，DO，DTO的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-day01/" title="设计模式-day01">设计模式-day01</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Linux常用命令">Linux常用命令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" title="第三章 垃圾收集器与内存分配策略">第三章 垃圾收集器与内存分配策略</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/http%E5%AE%A2%E6%88%B7%E7%AB%AFFeign/" title="http客户端Feign">http客户端Feign</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/README/" title="README">README</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" title="插入排序">插入排序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/ServiceLoader%E7%B1%BB%20%E4%B8%8E%20SPI%20%E6%9C%BA%E5%88%B6/" title="ServiceLoader类 与 SPI 机制">ServiceLoader类 与 SPI 机制</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" title="Nacos配置管理">Nacos配置管理</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/java项目合集/小昭/SpringBoot 整合 七牛云存储/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,589 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+
+
+
+  <title>
+Ribbon负载均衡 - 微服务 - 框架 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Ribbon负载均衡
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>wspstart</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-77.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-96.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-84.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-10.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-83.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-37.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="分类于 框架"><span itemprop="name">框架</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="item" rel="index" title="分类于 微服务"><span itemprop="name">微服务</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="为何ribbon可以做到负载均衡原理"><a class="markdownIt-Anchor" href="#为何ribbon可以做到负载均衡原理">#</a> 为何 Ribbon 可以做到负载均衡（原理）？</h2>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220847.jpg" alt="image.png"> 发送请求：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220850.jpg" alt="image.png"> 继续 debug 会进入到 LoadBalancerInterceptor 拦截器中，我们会发现在拦截请求中实质上是获取了 URI，获取了主机名称，后将主机名称传给了 RibbonLoadBalanceIacerClient, 负载均衡客户端会继续执行<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220852.jpg" alt="image.png"> 之后进入到 execute 方法中，通过服务 ID，会在 Eureka 中找到 ID 相同的服务封装成 List。（RibbonLoadBalancerClient）getLoadBalancer 是在根据服务名称找 Eureka 的服务名称来拉取服务的，继续进入 getServer 方法中，<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220855.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220859.jpg" alt="image.png"> 到这里一步，我们已经拉取到服务列表了，这样我们就可以开始做负载均衡了，我们可以看到使用了一个叫 rule 的 choose 方法来选择<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220901.jpg" alt="image.png">rule 是什么呢？<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220903.jpg" alt="image.png"> 通过 IRule 来决定选择负载均衡<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220906.jpg" alt="image.png"> 执行完成 rule 的 choose 之后，我们就找到了这个服务的 ip 和端口号了<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220908.jpg" alt="image.png"></p>
+<p>实质上，我们的请求会被一个叫做 LoadBalanceInterceptor 负载均衡拦截器拦截，后将服务的名称交给 RibbonLoadBalcaneClient，然后将 url 的服务 ID 交给 DynamicServiceListLoadBalance 去拉取服务信息，然后通过 IRule 来做负载均衡。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220910.jpg" alt="image.png"></p>
+<h2 id="配置ribbon负载均衡"><a class="markdownIt-Anchor" href="#配置ribbon负载均衡">#</a> 配置 Ribbon 负载均衡</h2>
+<h3 id="ribbon负载均衡策略"><a class="markdownIt-Anchor" href="#ribbon负载均衡策略">#</a> Ribbon 负载均衡策略</h3>
+<p>Ribbon 的负载均衡规则是一个叫做 IRule 的接口来定义的，每一个子接口都是一种规则：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220913.jpg" alt="image.png"></p>
+<h3 id="负载均衡策略"><a class="markdownIt-Anchor" href="#负载均衡策略">#</a> 负载均衡策略</h3>
+<table>
+<thead>
+<tr>
+<th><strong>内置负载均衡规则类</strong></th>
+<th><strong>规则描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RoundRobinRule</td>
+<td>简单轮询服务列表来选择服务器。它是 Ribbon 默认的负载均衡规则。</td>
+</tr>
+<tr>
+<td>AvailabilityFilteringRule</td>
+<td>对以下两种服务器进行忽略：（1）在默认情况下，这台服务器如果 3 次连接失败，这台服务器就会被设置为 “短路” 状态。短路状态将持续 30 秒，如果再次连接失败，短路的持续时间就会几何级地增加。（2）并发数过高的服务器。如果一个服务器的并发连接数过高，配置了 AvailabilityFilteringRule 规则的客户端也会将其忽略。并发连接数的上限，可以由客户端的<clientName>.<clientConfigNameSpace>.ActiveConnectionsLimit 属性进行配置。</td>
+</tr>
+<tr>
+<td>WeightedResponseTimeRule</td>
+<td>为每一个服务器赋予一个权重值。服务器响应时间越长，这个服务器的权重就越小。这个规则会随机选择服务器，这个权重值会影响服务器的选择。</td>
+</tr>
+<tr>
+<td>ZoneAvoidanceRule</td>
+<td>以区域可用的服务器为基础进行服务器的选择。使用 Zone 对服务器进行分类，这个 Zone 可以理解为一个机房、一个机架等。而后再对 Zone 内的多个服务做轮询。</td>
+</tr>
+<tr>
+<td>BestAvailableRule</td>
+<td>忽略那些短路的服务器，并选择并发数较低的服务器。</td>
+</tr>
+<tr>
+<td>RandomRule</td>
+<td>随机选择一个可用的服务器。</td>
+</tr>
+<tr>
+<td>RetryRule</td>
+<td>重试机制的选择逻辑</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这样我们完全可以自己配置一个 bean 来实现自定义负载均衡策略。</strong></p>
+<h3 id="配置方式"><a class="markdownIt-Anchor" href="#配置方式">#</a> 配置方式：</h3>
+<h4 id="全局配置"><a class="markdownIt-Anchor" href="#全局配置">#</a> 全局配置：</h4>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token annotation punctuation">@Bean</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">public</span> <span class="token class-name">IRule</span> <span class="token function">randomRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RandomRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>这样配置，会导致我们选择任何服务者都是使用我们自己配置的 RandomRule 方式来选择服务的。即选择调用任何服务接口都是随机的。配置文件方式（非全局，需自己选择）：</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">userservice</span><span class="token punctuation">:</span>  <span class="token comment"># 服务名称</span></pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token key atrule">ribbon</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>     <span class="token key atrule">NFLoadBalancerRuleClassName</span><span class="token punctuation">:</span> com.netflix.loadbalancer.RandomRule  <span class="token comment"># 负载均衡规则</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 可配置其他的服务负载均衡规则</span></pre></td></tr></table></figure><p>小提示：我们自己手动配置的 bean 会注入到 Spring 容器中，这样在给其他类添加属性 bean 时会将 Spring 容器中的 bean 注入到该对象上去。所以我们的配置的 bean 才会生效，走我们自己配置信息。</p>
+<h2 id="ribbon默认是懒加载模式"><a class="markdownIt-Anchor" href="#ribbon默认是懒加载模式">#</a> Ribbon 默认是懒加载模式：</h2>
+<p>默认第一次请求的时候，才会去创建 LoadBalanceClient, 请求时间会很长。</p>
+<h3 id="饥饿加载"><a class="markdownIt-Anchor" href="#饥饿加载">#</a> 饥饿加载</h3>
+<p>我们配置饥饿加载会在项目启动时创建，降低第一次访问的耗时，我们可以通过下面的配置来开启饥饿加载：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre>ribbon<span class="token operator">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  eager<span class="token operator">-</span>load<span class="token operator">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    enabled<span class="token operator">:</span> <span class="token boolean">true</span> # 开启饥饿加载</pre></td></tr><tr><td data-num="4"></td><td><pre>    clients<span class="token operator">:</span> userservice  # 我们针对那个服务做的饥饿加载</pre></td></tr></table></figure><figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">ribbon</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token key atrule">eager-load</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启饥饿加载</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">clients</span><span class="token punctuation">:</span>  <span class="token comment"># 配置针对多个</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token punctuation">-</span> userservice</pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token punctuation">-</span> xxservice</pre></td></tr></table></figure><h2 id="稍作总结"><a class="markdownIt-Anchor" href="#稍作总结">#</a> 稍作总结：</h2>
+<p>1、Ribbon 负载均衡规则</p>
+<ul>
+<li>默认接口是 IRule</li>
+<li>默认选择是 ZoneAvoidanceRule, 根据 zone 选择服务列表，然后轮询</li>
+</ul>
+<p>2、负载均衡自定义方式</p>
+<ul>
+<li>代码方式：配置灵活，但修改时需要重新打包发布</li>
+<li>配置方式：直观，方便，无需重新打包发布，但是无法做到全局配置</li>
+</ul>
+<p>3、饥饿加载</p>
+<ul>
+<li>开启饥饿加载</li>
+<li>指定饥饿加载的微服务名称</li>
+</ul>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>wspstart <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="Ribbon负载均衡">https://zrgzs.github.io/guide/2023/09/07/框架/微服务/Ribbon负载均衡/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-43.jpg" title="Nacos配置管理">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微服务</span>
+  <h3>Nacos配置管理</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-2.jpg" title="Nacos注册中心">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微服务</span>
+  <h3>Nacos注册中心</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95ribbon%E5%8F%AF%E4%BB%A5%E5%81%9A%E5%88%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text"> 为何 Ribbon 可以做到负载均衡（原理）？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">2.</span> <span class="toc-text"> 配置 Ribbon 负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5"><span class="toc-number">2.1.</span> <span class="toc-text"> Ribbon 负载均衡策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5"><span class="toc-number">2.2.</span> <span class="toc-text"> 负载均衡策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text"> 配置方式：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 全局配置：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ribbon%E9%BB%98%E8%AE%A4%E6%98%AF%E6%87%92%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text"> Ribbon 默认是懒加载模式：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A5%A5%E9%A5%BF%E5%8A%A0%E8%BD%BD"><span class="toc-number">3.1.</span> <span class="toc-text"> 饥饿加载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8D%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text"> 稍作总结：</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Docker安装以及使用">Docker安装以及使用</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" rel="bookmark" title="Eureka注册中心">Eureka注册中心</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Gateway%E7%BD%91%E5%85%B3/" rel="bookmark" title="Gateway网关">Gateway网关</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" rel="bookmark" title="Nacos注册中心">Nacos注册中心</a></li><li class="active"><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="bookmark" title="Ribbon负载均衡">Ribbon负载均衡</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="bookmark" title="Nacos配置管理">Nacos配置管理</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/http%E5%AE%A2%E6%88%B7%E7%AB%AFFeign/" rel="bookmark" title="http客户端Feign">http客户端Feign</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80/" rel="bookmark" title="微服务基础">微服务基础</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E4%BB%A5%E5%8F%8A%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="bookmark" title="服务拆分以及远程调用">服务拆分以及远程调用</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6RebitMQ%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/" rel="bookmark" title="消息中间件RebitMQ食用教程">消息中间件RebitMQ食用教程</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/shell%E6%8E%92%E5%BA%8F/" title="shell排序">shell排序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/Session%E5%92%8CCookie%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" title="Session和Cookie的区别？">Session和Cookie的区别？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9Redis%E5%92%8CSession%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/" title="谈谈你对Redis和Session的理解？">谈谈你对Redis和Session的理解？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/README/" title="README">README</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/B-Tree/" title="B-Tree">B-Tree</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%A3%9E%E4%B9%A6/" title="分类于 飞书">飞书</a>
+</div>
+
+    <span><a href="/guide/2023/10/07/%E9%A3%9E%E4%B9%A6/GitHub2FeishuWebhook/" title="在飞书中添加自定义指令监听 GitHub 事件">在飞书中添加自定义指令监听 GitHub 事件</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E6%8B%A6%E6%88%AA%E5%99%A8%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%81Servlet%EF%BC%9F/" title="简要说明一下什么是拦截器、过滤器、Servlet？">简要说明一下什么是拦截器、过滤器、Servlet？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/SE/" title="分类于 SE">SE</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/SE/JDK%20%E7%9A%84%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E4%B9%8B%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="JDK 的动态代理之源码解析">JDK 的动态代理之源码解析</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/other/" title="分类于 other">other</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/other/%E5%88%AB%E4%BA%BA%E5%AE%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="别人家的学习笔记">别人家的学习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/Gateway%20%E7%9A%84%20GlobalFilter%20%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8D%E7%94%9F%E6%95%88/" title="Gateway 的 GlobalFilter 过滤器不生效">Gateway 的 GlobalFilter 过滤器不生效</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/框架/微服务/Ribbon负载均衡/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

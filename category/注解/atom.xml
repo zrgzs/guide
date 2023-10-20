@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zrgzs.github.io/guide</id>
+    <title>卓软信息工作室 • Posts by &#34;注解&#34; category</title>
+    <link href="https://zrgzs.github.io/guide" />
+    <updated>2023-09-07T09:59:14.000Z</updated>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%B3%A8%E8%A7%A3/@SuppressWarnings/</id>
+        <title>@SuppressWarnings</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%B3%A8%E8%A7%A3/@SuppressWarnings/"/>
+        <content type="html">&lt;p&gt;例如：抑制多类型的警告：@SuppressWarnings (“unchecked”,“rawtypes”)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;all&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;抑制所有警告&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;boxing&lt;/td&gt;
+&lt;td&gt;抑制装箱、拆箱操作时候的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cast&lt;/td&gt;
+&lt;td&gt;抑制映射相关的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ConstantConditions&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;抑制返回值可能为 null 的警告&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dep-ann&lt;/td&gt;
+&lt;td&gt;抑制启用注释的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;deprecation&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;抑制过期方法警告&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fallthrough&lt;/td&gt;
+&lt;td&gt;抑制在 switch 中缺失 breaks 的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;finally&lt;/td&gt;
+&lt;td&gt;抑制 finally 模块没有返回的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hiding&lt;/td&gt;
+&lt;td&gt;抑制相对于隐藏变量的局部变量的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;incomplete-switch&lt;/td&gt;
+&lt;td&gt;忽略不完整的 switch 语句&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nls&lt;/td&gt;
+&lt;td&gt;忽略非 nls 格式的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;忽略对 null 的操作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;path&lt;/td&gt;
+&lt;td&gt;在类路径、源文件路径等中有不存在的路径时的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rawtypes&lt;/td&gt;
+&lt;td&gt;使用 generics 时忽略没有指定相应的类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;resource&lt;/td&gt;
+&lt;td&gt;忽略泛型未指定类型的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;restriction&lt;/td&gt;
+&lt;td&gt;忽略制禁止使用劝阻或禁止引用的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;serial&lt;/td&gt;
+&lt;td&gt;忽略在 serializable 类中没有声明 serialVersionUID 变量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;static-access&lt;/td&gt;
+&lt;td&gt;抑制不正确的静态访问方式警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;synthetic-access&lt;/td&gt;
+&lt;td&gt;抑制子类没有按最优方法访问内部类的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;try&lt;/td&gt;
+&lt;td&gt;没有 catch 时的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;unchecked&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;抑制没有进行类型检查操作的警告&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;unqualified-field-access&lt;/td&gt;
+&lt;td&gt;抑制没有权限访问的域的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;unused&lt;/td&gt;
+&lt;td&gt;抑制没被使用过的代码的警告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+</feed>

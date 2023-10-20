@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zrgzs.github.io/guide</id>
+    <title>卓软信息工作室 • Posts by &#34;中间件&#34; category</title>
+    <link href="https://zrgzs.github.io/guide" />
+    <updated>2023-09-07T09:59:14.000Z</updated>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%E5%9F%BA%E7%A1%80/</id>
+        <title>Redis基础</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%E5%9F%BA%E7%A1%80/"/>
+        <content type="html">&lt;h2 id=&#34;1-为什么要使用redis而不使用session&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-为什么要使用redis而不使用session&#34;&gt;#&lt;/a&gt; 1、为什么要使用 redis，而不使用 Session?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 Redis 而不使用传统的 Session 的主要原因是为了减轻服务器负载和提高性能。Redis 是一个高性能的基于内存的键值存储系统，相比传统的会话存储方式，使用 Redis 可以获得以下好处：
+&lt;ul&gt;
+&lt;li&gt;高性能和低延迟：Redis 的读写速度非常快，可以显著减少读写操作的延迟，提高响应速度。&lt;/li&gt;
+&lt;li&gt;可扩展性：Redis 支持分布式部署，可以实现数据的负载均衡和横向扩展，提高系统的可扩展性和容量。&lt;/li&gt;
+&lt;li&gt;持久化支持：Redis 提供将数据持久化到磁盘的功能，以防止数据丢失，保证数据的可靠性。&lt;/li&gt;
+&lt;li&gt;丰富的功能：Redis 提供了许多附加功能，如发布 / 订阅机制、事务支持、键过期等，可以增加会话管理的灵活性和功能扩展性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;传统的 Session 在分布式环境下无法实现会话共享和资源共享。由于每个服务器都拥有自己的本地 Session 存储，不同服务器之间无法直接共享 Session 数据，这会导致用户在不同服务器之间会话状态不一致的问题。而使用 Redis 作为中央会话存储，可以解决这个问题，各个服务器可以共享和访问相同的会话数据，实现会话的共享和一致性。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/</id>
+        <title>乐观锁和悲观锁</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/"/>
+        <content type="html">&lt;h2 id=&#34;1-基本概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-基本概念&#34;&gt;#&lt;/a&gt; 1、基本概念&lt;/h2&gt;
+&lt;p&gt;乐观锁和悲观锁是两种思想，用于解决并发场景下的数据竞争问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;乐观锁：乐观锁在操作数据时非常乐观，认为别人不会同时修改数据。因此乐观锁不会上锁，只是在执行更新的时候判断一下在此期间别人是否修改了数据：如果别人修改了数据则放弃操作，否则执行操作。&lt;/li&gt;
+&lt;li&gt;悲观锁：悲观锁在操作数据时比较悲观，认为别人会同时修改数据。因此操作数据时直接把数据锁住，直到操作完成后才会释放锁；上锁期间其他人不能修改数据。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80ID/</id>
+        <title>全局唯一ID</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80ID/"/>
+        <content type="html">&lt;h2 id=&#34;1-需求描述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-需求描述&#34;&gt;#&lt;/a&gt; 1、需求描述&lt;/h2&gt;
+&lt;p&gt;当数据量很大，并且要求 ID 唯一的时候，我们需要生成唯一 ID，我们可能会根据 ID 去不同的表中对比获取数据。所以全局唯一 ID 的两个核心需求就是：① 全局唯一性② 粗略有序性&lt;/p&gt;
+&lt;h2 id=&#34;2-使用数据库自增id优缺点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-使用数据库自增id优缺点&#34;&gt;#&lt;/a&gt; 2、使用数据库自增 ID 优缺点&lt;/h2&gt;
+&lt;p&gt;如果使用数据库提供的自增 ID 来实现，这样的 ID 会太明显，数据量过大需要进行分表时，两个表都进行生成唯一 ID，ID 可能会冲突。mysql 自带自增生成 id，oracle 可以用序列生成 id, 但在数据库集群环境下，扩展性不好&lt;/p&gt;
+&lt;h2 id=&#34;3-使用uuid的优缺点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-使用uuid的优缺点&#34;&gt;#&lt;/a&gt; 3、使用 UUID 的优缺点&lt;/h2&gt;
+&lt;p&gt;① 生成的 ID 太长，没有任何规律性② uuid 生成全球唯一 id, 生成方式简单粗暴，本地生成，没有网络开销，效率高；缺点长度较长，没有递增趋势性，不易维护，常用于生成 token 令牌。&lt;/p&gt;
+&lt;h2 id=&#34;4-雪花id优缺点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-雪花id优缺点&#34;&gt;#&lt;/a&gt; 4、雪花 ID 优缺点&lt;/h2&gt;
+&lt;p&gt;基于雪花算法 snowflake 生成全局 id，本地生成，没有网络开销，效率高，但是依赖机器时钟。&lt;/p&gt;
+&lt;h2 id=&#34;5-redis-生成全局唯一id&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#5-redis-生成全局唯一id&#34;&gt;#&lt;/a&gt; 5、Redis 生成全局唯一 ID&lt;/h2&gt;
+&lt;p&gt;基于 redis 单线程的特点生成全局唯一 id，redis 性能高，支持集群分片。为了增加 ID 的安全性，我们可以不直接使用 Redis 自增的数值，而是拼接一些其它信息：&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220545.jpg&#34; alt=&#34;image.png&#34;&gt;ID 的组成部分：符号位：1bit，永远为 0 时间戳：31bit，以秒为单位，可以使用 69 年序列号：32bit，秒内的计数器，支持每秒产生 2^32 个不同 ID 实现：&lt;/p&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/</id>
+        <title>缓存更新策略</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/"/>
+        <content type="html">&lt;h2 id=&#34;操作缓存和数据库的时候有三个问题需要考虑&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作缓存和数据库的时候有三个问题需要考虑&#34;&gt;#&lt;/a&gt; 操作缓存和数据库的时候有三个问题需要考虑：&lt;/h2&gt;
+&lt;h3 id=&#34;1-删除缓存还是更新缓存&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-删除缓存还是更新缓存&#34;&gt;#&lt;/a&gt; 1、删除缓存还是更新缓存？&lt;/h3&gt;
+&lt;p&gt;① 更新缓存的话，每次更新数据库都需要更新缓存，无效写操作操作。② 删除缓存的话，更新数据库时让缓存失效，查询时再更新缓存。结合两者的优缺点 **，最优者为②**，减少无效的写操作。&lt;/p&gt;
+&lt;h3 id=&#34;2-如何保证缓存与数据库的操作的同时成功和失败&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-如何保证缓存与数据库的操作的同时成功和失败&#34;&gt;#&lt;/a&gt; 2、 如何保证缓存与数据库的操作的同时成功和失败？&lt;/h3&gt;
+&lt;p&gt;① 单体项目，将缓存与数据库操作放在一个事务中② 分布式系统，利用 TCC 等分布式事务方案&lt;/p&gt;
+&lt;h3 id=&#34;3-先操作缓存还是先操作数据库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-先操作缓存还是先操作数据库&#34;&gt;#&lt;/a&gt; 3、先操作缓存还是先操作数据库？&lt;/h3&gt;
+&lt;p&gt;① 先删除缓存，再操作数据库② 先操作数据库，再删除缓存这两种操作上看似都是可以的，我们来深入探究一下到底是那种操作更胜一筹。&lt;strong&gt;先操作缓存再操作数据库：&lt;/strong&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220548.jpg&#34; alt=&#34;image.png&#34;&gt; 假如：两个线程并行的对数据进行操作，线程 1 先删除缓存，后立即更新了数据库，使得 V 变为 20，这时线程 2 才进行查询操作，发现缓存没有命中，这时会进行查询数据库，并将查询到的信息写入到 Redis 缓存中。这样的操作是合理的。但是如果是这种情况呢？&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220550.jpg&#34; alt=&#34;image.png&#34;&gt; 还是两个线程并行，线程 1 先删除了缓存，因为删除缓存的速度一般是微秒级别的，并更新数据库，因为写的操作数据库的速度要远大于操作 Redis 的速度，这时线程 2 开始了操作并查询了缓存，发现缓存不存在然后就去查询数据库，后写入缓存中。导致缓存中的数据是 V=10, 而这时线程 1 接着继续操作数据库并更新了 V=20, 这时就会导致缓存中的数据和数据库中的数据不一致。这种情况下，写入缓存的速度要远快于更新数据库的速度，所以这种情况发生的概率比较大。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;先操作数据库，再删除缓存&lt;/strong&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220553.jpg&#34; alt=&#34;image.png&#34;&gt; 线程 1、线程 2 并行执行，线程 2 先操作了数据库，将 V 变为 20，然后将缓存清空。这时线程 1 执行查询操作，没有命中就从数据库中获取数据，后写入到 Redis 中。这种情况下是看似是可行的。我们接着看下面这种情况：&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220556.jpg&#34; alt=&#34;image.png&#34;&gt; 同样线程 1 和线程 2 并行执行，线程 1 先查询缓存，没有命中就去数据库中获取数据，这时线程 2 更新了数据库使得 V=20, 然后将缓存清空，这时线程 1 继续执行将获取到的信息再写入到 Redis 中，这时缓存的数据为线程 1 获取到的旧数据，这时缓存和数据库中的信息是不一致的。但是在写如缓存中的速度要远快于更新数据库的速度，并且线程 2 还对缓存进行了删除。所以这种情况的发送的改了较先删除缓存，再操作数据库发送的概率要低的多。&lt;strong&gt;总结：这两种方案都有可能出现数据的不一致性。最终我们选择先操作数据库后操作缓存作为我们的最佳实战策略。&lt;/strong&gt;&lt;/p&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF/</id>
+        <title>缓存穿透、雪崩、击穿</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF/"/>
+        <content type="html">&lt;h2 id=&#34;1-缓存穿透&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-缓存穿透&#34;&gt;#&lt;/a&gt; 1、缓存穿透&lt;/h2&gt;
+&lt;h3 id=&#34;1-定义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-定义&#34;&gt;#&lt;/a&gt; 1、定义&lt;/h3&gt;
+&lt;p&gt;缓存穿透是指客户端请求的数据在缓存中和数据库中都不存在，这样缓存永远不会生效，这些请求都会被打到数据库上。&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220559.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220601.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-产生原因&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-产生原因&#34;&gt;#&lt;/a&gt; 2、产生原因&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;自身业务代码问题&lt;/li&gt;
+&lt;li&gt;恶意攻击，爬虫造成空命中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;3-常见的两种解决方案&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-常见的两种解决方案&#34;&gt;#&lt;/a&gt; 3、常见的两种解决方案&lt;/h3&gt;
+&lt;h4 id=&#34;缓存空对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#缓存空对象&#34;&gt;#&lt;/a&gt; 缓存空对象&lt;/h4&gt;
+&lt;p&gt;优点：实现简单，维护方便缺点：① 额外的内存消耗② 可能造成短期的不一致&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220603.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;布隆过滤器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#布隆过滤器&#34;&gt;#&lt;/a&gt; 布隆过滤器&lt;/h4&gt;
+&lt;p&gt;优点：内存占用较少，没有多余 Key 缺点：① 实现复杂② 存在误判可能&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220606.jpg&#34; alt=&#34;image.png&#34;&gt; 补充：布隆过滤器，当再布隆过滤器中获取数据说是不存在时，那一定是不存在的，但是如果说是存在的话，数据实际上说不定是不存在的。所以使用布隆过滤器也可能会出现缓存穿透问题。&lt;/p&gt;
+&lt;h4 id=&#34;增强id的复杂度避免被猜测id规律&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#增强id的复杂度避免被猜测id规律&#34;&gt;#&lt;/a&gt; 增强 id 的复杂度避免被猜测 id 规律&lt;/h4&gt;
+&lt;h4 id=&#34;做好数据的基础格式校验&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#做好数据的基础格式校验&#34;&gt;#&lt;/a&gt; 做好数据的基础格式校验&lt;/h4&gt;
+&lt;h4 id=&#34;加强用户权限校验&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#加强用户权限校验&#34;&gt;#&lt;/a&gt; 加强用户权限校验&lt;/h4&gt;
+&lt;h4 id=&#34;做好热点参数的限流&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#做好热点参数的限流&#34;&gt;#&lt;/a&gt; 做好热点参数的限流&lt;/h4&gt;
+&lt;h2 id=&#34;2-缓存雪崩&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-缓存雪崩&#34;&gt;#&lt;/a&gt; 2、缓存雪崩&lt;/h2&gt;
+&lt;h3 id=&#34;1-定义-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-定义-2&#34;&gt;#&lt;/a&gt; 1、定义&lt;/h3&gt;
+&lt;p&gt;缓存雪崩是指在同一时段大量的缓存 Key 同时失效或者 Redis 服务宕机，导致大量请求到达数据库，带来巨大压力。&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220608.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220610.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;2-解决方案&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-解决方案&#34;&gt;#&lt;/a&gt; 2、解决方案&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;给不同的 Key 的 TTL 添加随机值&lt;/li&gt;
+&lt;li&gt;利用 Redis 集群提高服务的可用性&lt;/li&gt;
+&lt;li&gt;给缓存业务添加降级限流策略&lt;/li&gt;
+&lt;li&gt;给业务添加多级缓存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-缓存击穿&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-缓存击穿&#34;&gt;#&lt;/a&gt; 3、缓存击穿&lt;/h2&gt;
+&lt;h3 id=&#34;1-定义-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-定义-3&#34;&gt;#&lt;/a&gt; 1、定义&lt;/h3&gt;
+&lt;p&gt;缓存击穿问题也叫做热点 Key 问题，就是一个高并发访问并且缓存重建业务比较复杂的 Key 突然失效了，无数的请求访问会在瞬间给数据库带来巨大的冲击。&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220613.jpg&#34; alt=&#34;image.png&#34;&gt; 如上图所示的，线程 1 查询缓存但是缓存并没有命中，就开始查询数据库了，然后线程 2、3、4 也陆续查询了缓存没有命中，都去查询数据库并重建缓存。导致 db 的压力猛增，造成 dp 有可能会宕机。&lt;/p&gt;
+&lt;h3 id=&#34;2-解决方案-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-解决方案-2&#34;&gt;#&lt;/a&gt; 2、解决方案&lt;/h3&gt;
+&lt;h4 id=&#34;1-互斥锁&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-互斥锁&#34;&gt;#&lt;/a&gt; ① 互斥锁&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220615.jpg&#34; alt=&#34;image.png&#34;&gt; 如上图所示：线程 1 和线程 2，线程 1 先查询缓存，但是没有命中，然后线程 1 获取互斥锁，后进行查询数据库重建数据缓存，期间线程 2 查询缓存，同样没有命中，接着线程 2 获取互斥锁，但是并没有获取到锁，所以线程 2 就在等待并重试，直到线程 1 重建数据缓存并写入缓存结束后释放互斥锁，然后线程 2 获取到互斥锁缓存命中获取到数据就可以返回了。&lt;/p&gt;
+&lt;h4 id=&#34;2-逻辑过期&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-逻辑过期&#34;&gt;#&lt;/a&gt; ② 逻辑过期&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220617.jpg&#34; alt=&#34;image.png&#34;&gt; 上图为逻辑过期的处理流程：线程 1 查询缓存，发现逻辑过期时间已经过期了，后获取互斥锁，然后开启新的线程：线程 2，而线程 1 直接拿旧的数据返回了，线程 2 重建数据并设置逻辑过期时间，在此时间之内线程 3 查询缓存发现逻辑过期时间过期了，并且获取互斥锁失败，那么就证明有线程在重建数据了，线程 3 就拿旧的数据返回。这时线程 2 重构数据成功，并释放了互斥锁。线程 4 过来直接直接命中缓存并且没有逻辑过期，就返回了。&lt;/p&gt;
+&lt;h4 id=&#34;总结&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结：&lt;/h4&gt;
+&lt;p&gt;两种方式各有优缺点：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;解决方案&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;优点&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;缺点&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;互斥锁&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;没有额外的内存消耗保证一致性实现简单&lt;/td&gt;
+&lt;td&gt;线程需要等待，性能受影响可能有死锁风险&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;逻辑过期&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;线程无需等待，性能较好&lt;/td&gt;
+&lt;td&gt;不保证一致性有额外内存消耗实现复杂&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;建议再看一篇这个文章，写的比我好多了：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGhyZWUtZmlnaHRlci9wLzE1MjUzNDUxLmh0bWw=&#34;&gt;十分钟彻底掌握缓存击穿、缓存穿透、缓存雪崩 - 三分恶 - 博客园&lt;/span&gt;&lt;/p&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84/</id>
+        <title>黑马点评</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84/"/>
+        <content type="html">&lt;h2 id=&#34;1-json序列化时忽略null&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-json序列化时忽略null&#34;&gt;#&lt;/a&gt; 1、json 序列化时忽略 NULL?&lt;/h2&gt;
+&lt;p&gt;yaml 文件配置：&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;jackson&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token key atrule&#34;&gt;default-property-inclusion&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; non_null &lt;span class=&#34;token comment&#34;&gt;# JSON 处理时忽略非空字段&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;2-为什么使用session的方式登录不需要返回登录凭证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-为什么使用session的方式登录不需要返回登录凭证&#34;&gt;#&lt;/a&gt; 2、 为什么使用 Session 的方式登录不需要返回登录凭证？&lt;/h2&gt;
+&lt;p&gt;因为使用 session 的话，浏览器第一次访问服务器，服务器会生成一个 key 为 JSESSIONID 的 cookie 的信息并会创建一个 SESSIONID 为 JSESSIONID 的 session。这样下次浏览器请求就会携带 cookie，并携带 JSESSIONID 信息，会找到与之匹配的 session。我们登录成功后需要将信息存储到这个 session 中，下次请求过来就直接从这个 session 中获取就可以了哦。&lt;/p&gt;
+&lt;h2 id=&#34;3-在redis中存储对象类型使用哪种数据结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-在redis中存储对象类型使用哪种数据结构&#34;&gt;#&lt;/a&gt; 3、在 redis 中存储对象类型，使用哪种数据结构？&lt;/h2&gt;
+&lt;p&gt;可以使用 String 结构，以 JSON 字符串来保存，比较直观：&lt;/p&gt;
+&lt;table name:Rose,age:18=&#34;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;KEY&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;VALUE&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr name:Jack,age:21=&#34;&#34;&gt;
+&lt;td&gt;heima:user:1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;heima:user:2&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Hash 结构可以将对象中的每个字段独立存储，可以针对单个字段做 CRUD，并且内存占用更少：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;KEY&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;VALUE&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;field&lt;/td&gt;
+&lt;td&gt;value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;heima:user:1&lt;/td&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;Jack&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;age&lt;/td&gt;
+&lt;td&gt;21&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;heima:user:2&lt;/td&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;Rose&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;age&lt;/td&gt;
+&lt;td&gt;18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;对于取 Hash 信息，使用 stringRedisTemplate.opsForHash ().entries (key); 不能直接设置 hash 类型的过期时间，需要手动设置一下：例如：stringRedisTemplate.expire (tokenKey, LOGIN_USER_TTL, TimeUnit.MINUTES);&lt;/p&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+</feed>

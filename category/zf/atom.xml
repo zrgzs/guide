@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zrgzs.github.io/guide</id>
+    <title>卓软信息工作室 • Posts by &#34;zf&#34; category</title>
+    <link href="https://zrgzs.github.io/guide" />
+    <updated>2023-09-07T09:59:14.000Z</updated>
+    <entry>
+        <id>https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/zf/%E5%89%8D%E5%90%8E%E7%AB%AF%E8%A7%84%E7%BA%A6/</id>
+        <title>前后端规约</title>
+        <link rel="alternate" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/zf/%E5%89%8D%E5%90%8E%E7%AB%AF%E8%A7%84%E7%BA%A6/"/>
+        <content type="html">&lt;h1 id=&#34;错误码规约&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#错误码规约&#34;&gt;#&lt;/a&gt; 错误码规约&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;错误码&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;操作成功&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;404&lt;/td&gt;
+&lt;td&gt;操作失败，但无异常&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;500&lt;/td&gt;
+&lt;td&gt;服务器异常&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;controller-参数校验规约&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#controller-参数校验规约&#34;&gt;#&lt;/a&gt; Controller 参数校验规约&lt;/h1&gt;
+&lt;p&gt;Controller 参数校验统一使用 spring-boot-starter-validation 以进行注解式的校验。使用文档详见：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZXZlbG9wZXIuYWxpeXVuLmNvbS9hcnRpY2xlLzc4NjcxOQ==&#34;&gt;SpringBoot 如何进行参数校验，老鸟们都这么玩的！- 阿里云开发者社区&lt;/span&gt;&lt;/p&gt;
+</content>
+        <updated>2023-09-07T09:59:14.000Z</updated>
+    </entry>
+</feed>

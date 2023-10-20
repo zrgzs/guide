@@ -1,0 +1,607 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+
+
+
+  <title>
+归并排序 - 数据结构与算法 - java基础 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">归并排序
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>lx0815</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-76.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-49.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-29.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-47.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-95.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-48.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" itemprop="item" rel="index" title="分类于 java基础"><span itemprop="name">java基础</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="item" rel="index" title="分类于 数据结构与算法"><span itemprop="name">数据结构与算法</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="排序-归并排序merge-sort"><a class="markdownIt-Anchor" href="#排序-归并排序merge-sort">#</a> 排序 - 归并排序 (Merge Sort)</h1>
+<h2 id="归并排序介绍"><a class="markdownIt-Anchor" href="#归并排序介绍">#</a> 归并排序介绍</h2>
+<p>根据具体的实现，归并排序包括 &quot;从上往下&quot; 和 &quot;从下往上&quot;2 种方式。</p>
+<h3 id="从下往上的归并排序"><a class="markdownIt-Anchor" href="#从下往上的归并排序">#</a> 从下往上的归并排序</h3>
+<p>将待排序的数列分成若干个长度为 1 的子数列，然后将这些数列两两合并；得到若干个长度为 2 的有序数列，再将这些数列两两合并；得到若干个长度为 4 的有序数列，再将它们两两合并；直接合并成一个数列为止。这样就得到了我们想要的排序结果。</p>
+<h3 id="从上往下的归并排序"><a class="markdownIt-Anchor" href="#从上往下的归并排序">#</a> 从上往下的归并排序</h3>
+<p>它与 &quot;从下往上&quot; 在排序上是反方向的。它基本包括 3 步:</p>
+<ul>
+<li><code>分解</code>  – 将当前区间一分为二，即求分裂点 mid = (low + high)/2;</li>
+<li><code>求解</code>  – 递归地对两个子区间 a [low…mid] 和 a [mid+1…high] 进行归并排序。递归的终结条件是子区间长度为 1。</li>
+<li><code>合并</code>  – 将已排序的两个子区间 a [low…mid] 和 a [mid+1…high] 归并为一个有序的区间 a [low…high]。</li>
+</ul>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215649.jpg" alt="image-20230126224017610.png"></p>
+<h2 id="归并排序实现"><a class="markdownIt-Anchor" href="#归并排序实现">#</a> 归并排序实现</h2>
+<p><a name="74e9905f-1"></a></p>
+<h3 id="从上往下的归并排序-2"><a class="markdownIt-Anchor" href="#从上往下的归并排序-2">#</a> 从上往下的归并排序</h3>
+<p>从上往下的归并排序采用了递归的方式实现。它的原理非常简单，如下图:<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215656.jpg" alt="image-20230126224105662.png"></p>
+<p>通过 &quot;从上往下的归并排序&quot; 来对数组 {90,80,70,10,20,50,60,40} 进行排序时:</p>
+<ul>
+<li>将数组 {90,80,70,10,20,50,60,40} 看作由两个有序的子数组 {90,80,70,10} 和 {20,50,60,40} 组成。对两个有序子树组进行排序即可。
+<ul>
+<li>将子数组 {90,80,70,10} 看作由两个有序的子数组 {90,80} 和 {70,10} 组成。</li>
+<li>将子数组 {20,50,60,40} 看作由两个有序的子数组 {20,50} 和 {60,40} 组成。
+<ul>
+<li>将子数组 {90,80} 看作由两个有序的子数组 {90} 和 {80} 组成。</li>
+<li>将子数组 {70,10} 看作由两个有序的子数组 {70} 和 {10} 组成。</li>
+<li>将子数组 {20,50} 看作由两个有序的子数组 {20} 和 {50} 组成。</li>
+<li>将子数组 {60,40} 看作由两个有序的子数组 {60} 和 {40} 组成。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a name="b030624f-1"></a></p>
+<h3 id="从下往上的归并排序-2"><a class="markdownIt-Anchor" href="#从下往上的归并排序-2">#</a> 从下往上的归并排序</h3>
+<p>从下往上的归并排序的思想正好与 &quot;从下往上的归并排序&quot; 相反。如下图:</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215703.jpg" alt="image-20230126224540323.png"></p>
+<p>通过 &quot;从下往上的归并排序&quot; 来对数组 {90,80,70,10,20,50,60,40} 进行排序时:</p>
+<ul>
+<li>将数组 {90,80,70,10,20,50,60,40} 看作由 8 个有序的子数组 {90},{80},{70},{10},{20},{50},{60} 和 {40} 组成。</li>
+<li>将这 8 个有序的子数列两两合并。得到 4 个有序的子树列 {80,90},{10,70},{20,50} 和 {40,60}。</li>
+<li>将这 4 个有序的子数列两两合并。得到 2 个有序的子树列 {10,70,80,90} 和 {20,40,50,60}。</li>
+<li>将这 2 个有序的子数列两两合并。得到 1 个有序的子树列 {90,80,70,10,20,50,60,40}。</li>
+</ul>
+<h2 id="排序原理"><a class="markdownIt-Anchor" href="#排序原理">#</a> 排序原理：</h2>
+<p>1. 尽可能的一组数据拆分成两个元素相等的子组，并对每一个子组继续拆分，直到拆分后的每个子组的元素个数是 1 为止。</p>
+<p>2. 将相邻的两个子组进行合并成一个有序的大组；</p>
+<p>3. 不断的重复步骤 2，直到最终只有一个组为止。</p>
+<h3 id="归并排序api设计"><a class="markdownIt-Anchor" href="#归并排序api设计">#</a> 归并排序 API 设计</h3>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>mergeSort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>构造方法</td>
+<td>Merge ()：创建 Merge 对象</td>
+</tr>
+<tr>
+<td>成员方法</td>
+<td>1.public static void sort (int [] a)：对数组内的元素进行排序 2.private static void sort (int [] a, int lo, int hi)：对数组 a 中从索引 lo 到索引 hi 之间的元素进 3.private static void merge (int [] a, int lo, int mid, int hi): 从索引 lo 到所以 mid 为一个子组，从索引 mid+1 到索引 hi 为另一个子组，把数组 a 中的这两个子组的数据合并成一个有序的大组（从从索引 lo 到索引 hi）4.private static boolean less (int v,int w): 判断 v 是否小于 w</td>
+</tr>
+<tr>
+<td>成员变量</td>
+<td>1.private static int [] assist：完成归并操作需要的辅助数组</td>
+</tr>
+</tbody>
+</table>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215708.jpg" alt="image-20230126225716589.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215711.jpg" alt="image-20230126225744548.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907215713.jpg" alt="image-20230126225805681.png"></p>
+<h2 id="归并排序的时间复杂度和稳定性"><a class="markdownIt-Anchor" href="#归并排序的时间复杂度和稳定性">#</a> 归并排序的时间复杂度和稳定性</h2>
+<h3 id="归并排序时间复杂度"><a class="markdownIt-Anchor" href="#归并排序时间复杂度">#</a> 归并排序时间复杂度</h3>
+<p>归并排序的时间复杂度是 O (N*lgN)。</p>
+<p>假设被排序的数列中有 N 个数。遍历一趟的时间复杂度是 O (N)，需要遍历多少次呢？归并排序的形式就是一棵二叉树，它需要遍历的次数就是二叉树的深度，而根据完全二叉树的可以得出它的时间复杂度是 O (N*lgN)。</p>
+<h3 id="归并排序稳定性"><a class="markdownIt-Anchor" href="#归并排序稳定性">#</a> 归并排序稳定性</h3>
+<p>归并排序是稳定的算法，它满足稳定算法的定义。</p>
+<p><code>算法稳定性</code>  – 假设在数列中存在 a [i]=a [j]，若在排序之前，a [i] 在 a [j] 前面；并且排序之后，a [i] 仍然在 a [j] 前面。则这个排序算法是稳定的！</p>
+<p>代码实现：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>w<span class="token punctuation">.</span>winterVacation<span class="token punctuation">.</span>sort</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="4"></td><td><pre> * 归并排序</pre></td></tr><tr><td data-num="5"></td><td><pre> *</pre></td></tr><tr><td data-num="6"></td><td><pre> * @author wspstart</pre></td></tr><tr><td data-num="7"></td><td><pre> * @create 2023-01-26 17:05</pre></td></tr><tr><td data-num="8"></td><td><pre> */</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MergeSort</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">// 归并所需要的辅助数组</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> assist<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token comment">/*</pre></td></tr><tr><td data-num="15"></td><td><pre>        比较 v 是否小于 w</pre></td></tr><tr><td data-num="16"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">less</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token keyword">return</span> v <span class="token operator">&lt;=</span> w<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token comment">/*</pre></td></tr><tr><td data-num="23"></td><td><pre>    对数组中 arr 的元素进行排序</pre></td></tr><tr><td data-num="24"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token comment">// 1、初始化辅助数组 assist;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        assist <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token comment">// 2、定义一个 left 变量和 right 变量，分别记录数组中最小的索引和最大的索引</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token keyword">int</span> right <span class="token operator">=</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token comment">// 3、调用 sort 重载方法完成数组 arr 中，从索引 left 到索引 right 的元素的排序</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token comment">/*</pre></td></tr><tr><td data-num="36"></td><td><pre>    对数组 arr 中从 left 到 right 中的元素排序</pre></td></tr><tr><td data-num="37"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token comment">// 对传入的数据进行安全性校验</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>right <span class="token operator">&lt;=</span> left<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>            <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        <span class="token comment">// 对数据进行分组</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token keyword">int</span> mid <span class="token operator">=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token comment">// 对每一组数据进行排序</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>        <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>        <span class="token function">merge</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre></pre></td></tr><tr><td data-num="52"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="53"></td><td><pre>     * 归并，归并的过程中需要对数据进行排序</pre></td></tr><tr><td data-num="54"></td><td><pre>     *</pre></td></tr><tr><td data-num="55"></td><td><pre>     * @param arr   排序的原始数组</pre></td></tr><tr><td data-num="56"></td><td><pre>     * @param left  左边有序序列的初始索引</pre></td></tr><tr><td data-num="57"></td><td><pre>     * @param right 右边索引</pre></td></tr><tr><td data-num="58"></td><td><pre>     * @param mid   中间索引</pre></td></tr><tr><td data-num="59"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="60"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">,</span> <span class="token keyword">int</span> mid<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>        <span class="token comment">// 定义三个指针</span></pre></td></tr><tr><td data-num="62"></td><td><pre>        <span class="token keyword">int</span> i <span class="token operator">=</span> left<span class="token punctuation">;</span> <span class="token comment">// 表示 assist 数组中已有的有效数据的索引</span></pre></td></tr><tr><td data-num="63"></td><td><pre>        <span class="token keyword">int</span> p1 <span class="token operator">=</span> left<span class="token punctuation">;</span> <span class="token comment">// 左子组的第一个位置</span></pre></td></tr><tr><td data-num="64"></td><td><pre>        <span class="token keyword">int</span> p2 <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 右子组的第一个位置</span></pre></td></tr><tr><td data-num="65"></td><td><pre></pre></td></tr><tr><td data-num="66"></td><td><pre>        <span class="token comment">// 遍历，移动 p1 指针和 p2 指针，比较对应的索引处的值，找出小的那个，放到辅助数组的对应索引处</span></pre></td></tr><tr><td data-num="67"></td><td><pre>        <span class="token keyword">while</span> <span class="token punctuation">(</span>p1 <span class="token operator">&lt;=</span> mid <span class="token operator">&amp;&amp;</span> p2 <span class="token operator">&lt;=</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>            <span class="token comment">// 比较对应索引处的值</span></pre></td></tr><tr><td data-num="69"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">less</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>p1<span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>                assist<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>p1<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="71"></td><td><pre>            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>                assist<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>p2<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>        <span class="token comment">// 出了第一个循环之后，两个子组中的某一个子组中的元素已经遍历完成了。</span></pre></td></tr><tr><td data-num="76"></td><td><pre></pre></td></tr><tr><td data-num="77"></td><td><pre>        <span class="token comment">// 遍历，如果 p2 的指针没有走完，那么顺序移动 p2 指针，把对应的元素放到辅助数组的对应索引处 (下面两个循环只会走一个)</span></pre></td></tr><tr><td data-num="78"></td><td><pre>        <span class="token keyword">while</span> <span class="token punctuation">(</span>p1 <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>            assist<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>p1<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="80"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>        <span class="token keyword">while</span> <span class="token punctuation">(</span>p2 <span class="token operator">&lt;=</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="82"></td><td><pre>            assist<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>p2<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>        <span class="token comment">// 把辅助数组中的元素拷贝到原数组中</span></pre></td></tr><tr><td data-num="85"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> index <span class="token operator">=</span> left<span class="token punctuation">;</span> index <span class="token operator">&lt;=</span> right<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>            arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> assist<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="87"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="89"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>lx0815 <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序">https://zrgzs.github.io/guide/2023/09/07/java基础/数据结构与算法/归并排序/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-34.jpg" title="冒泡排序">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 数据结构与算法</span>
+  <h3>冒泡排序</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%B3%A8%E8%A7%A3/@SuppressWarnings/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-31.jpg" title="@SuppressWarnings">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 注解</span>
+  <h3>@SuppressWarnings</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8Fmerge-sort"><span class="toc-number">1.</span> <span class="toc-text"> 排序 - 归并排序 (Merge Sort)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 归并排序介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%8B%E5%BE%80%E4%B8%8A%E7%9A%84%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 从下往上的归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B%E7%9A%84%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 从上往下的归并排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 归并排序实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B%E7%9A%84%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F-2"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 从上往下的归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%8B%E5%BE%80%E4%B8%8A%E7%9A%84%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F-2"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 从下往上的归并排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text"> 排序原理：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8Fapi%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 归并排序 API 设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text"> 归并排序的时间复杂度和稳定性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 归并排序时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 归并排序稳定性</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/B-Tree/" rel="bookmark" title="B-Tree">B-Tree</a></li><li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/RB-Tree/" rel="bookmark" title="RB-Tree">RB-Tree</a></li><li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/byte%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" rel="bookmark" title="byte到底是什么？">byte到底是什么？</a></li><li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/shell%E6%8E%92%E5%BA%8F/" rel="bookmark" title="shell排序">shell排序</a></li><li class="active"><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" rel="bookmark" title="归并排序">归并排序</a></li><li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="bookmark" title="冒泡排序">冒泡排序</a></li><li><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" rel="bookmark" title="插入排序">插入排序</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%B3%A8%E8%A7%A3/@SuppressWarnings/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/Hutool%E7%9A%84BeanUtil.copyProperties%E7%9A%84ignoreNullValue%E4%B8%8D%E7%94%9F%E6%95%88/" title="Hutool的BeanUtil.copyProperties的ignoreNullValue不生效">Hutool的BeanUtil.copyProperties的ignoreNullValue不生效</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" title="分类于 分布式存储社团一体化平台">分布式存储社团一体化平台</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0/" title="开发随记">开发随记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/IDEA%20%E4%B8%8E%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91/" title="IDEA 与 服务器开发">IDEA 与 服务器开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="分类于 中间件">中间件</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/" title="分类于 redis">redis</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/" title="乐观锁和悲观锁">乐观锁和悲观锁</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="Nacos注册中心">Nacos注册中心</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%97%A5%E5%B8%B8/" title="分类于 日常">日常</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%97%A5%E5%B8%B8/Win10%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%BE%8E%E5%8C%96/" title="Win10任务栏美化">Win10任务栏美化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/" title="分类于 核心技术卷">核心技术卷</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%BA%8C(1.2%20_%203.9)/" title="卷二(1.2 _ 3.9)">卷二(1.2 _ 3.9)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序">归并排序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" title="分类于 分布式存储社团一体化平台">分布式存储社团一体化平台</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/@Valid%20%E5%92%8C%20@Validated%20%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" title="@Valid 和 @Validated 的底层原理">@Valid 和 @Validated 的底层原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/%E4%BD%BF%E7%94%A8Hash%E7%BB%93%E6%9E%84%E7%BC%93%E5%AD%98%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98%EF%BC%9F/" title="使用Hash结构缓存对象，如何解决缓存穿透问题？">使用Hash结构缓存对象，如何解决缓存穿透问题？</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/java基础/数据结构与算法/归并排序/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

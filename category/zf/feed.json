@@ -1,0 +1,16 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "卓软信息工作室 • All posts by \"zf\" category",
+    "description": "",
+    "home_page_url": "https://zrgzs.github.io/guide",
+    "items": [
+        {
+            "id": "https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/zf/%E5%89%8D%E5%90%8E%E7%AB%AF%E8%A7%84%E7%BA%A6/",
+            "url": "https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/zf/%E5%89%8D%E5%90%8E%E7%AB%AF%E8%A7%84%E7%BA%A6/",
+            "title": "前后端规约",
+            "date_published": "2023-09-07T09:59:14.000Z",
+            "content_html": "<h1 id=\"错误码规约\"><a class=\"markdownIt-Anchor\" href=\"#错误码规约\">#</a> 错误码规约</h1>\n<table>\n<thead>\n<tr>\n<th>错误码</th>\n<th>描述</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>200</td>\n<td>操作成功</td>\n</tr>\n<tr>\n<td>404</td>\n<td>操作失败，但无异常</td>\n</tr>\n<tr>\n<td>500</td>\n<td>服务器异常</td>\n</tr>\n</tbody>\n</table>\n<h1 id=\"controller-参数校验规约\"><a class=\"markdownIt-Anchor\" href=\"#controller-参数校验规约\">#</a> Controller 参数校验规约</h1>\n<p>Controller 参数校验统一使用 spring-boot-starter-validation 以进行注解式的校验。使用文档详见：<span class=\"exturl\" data-url=\"aHR0cHM6Ly9kZXZlbG9wZXIuYWxpeXVuLmNvbS9hcnRpY2xlLzc4NjcxOQ==\">SpringBoot 如何进行参数校验，老鸟们都这么玩的！- 阿里云开发者社区</span></p>\n",
+            "tags": []
+        }
+    ]
+}

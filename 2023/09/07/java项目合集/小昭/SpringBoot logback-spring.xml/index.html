@@ -1,0 +1,523 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/">
+
+
+
+  <title>
+SpringBoot logback-spring.xml - 小昭 - java项目合集 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">SpringBoot logback-spring.xml
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>lx0815</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-61.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-26.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-4.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-50.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-56.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-1.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" itemprop="item" rel="index" title="分类于 java项目合集"><span itemprop="name">java项目合集</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" itemprop="item" rel="index" title="分类于 小昭"><span itemprop="name">小昭</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>网上 CV 的一个配置，感觉很不错，收藏一下</p>
+<figure class="highlight xml"><figcaption data-lang="XML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">&lt;!--</pre></td></tr><tr><td data-num="3"></td><td><pre>scan：当此属性设置为 true 时，配置文件如果发生改变，将会被重新加载，默认值为 true。</pre></td></tr><tr><td data-num="4"></td><td><pre>scanPeriod：设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒当 scan 为 true 时，此属性生效。默认的时间间隔为 1 分钟。</pre></td></tr><tr><td data-num="5"></td><td><pre>debug：当此属性设置为 true 时，将打印出 logback 内部日志信息，实时查看 logback 运行状态。默认值为 false。</pre></td></tr><tr><td data-num="6"></td><td><pre>--></span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span> <span class="token attr-name">scan</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">scanPeriod</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>60 seconds<span class="token punctuation">"</span></span> <span class="token attr-name">debug</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">&lt;!-- 自定义颜色配置 此处 converterClass 引用的是日志颜色类的路径， 此匹配的是第二种控制台色彩输出方式 --></span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>conversionRule</span> <span class="token attr-name">conversionWord</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>customcolor<span class="token punctuation">"</span></span> <span class="token attr-name">converterClass</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.xiaozhao.xiaozhaoserver.common.config.LogbackColorConfig<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment">&lt;!-- 定义日志文件名称 --></span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>APP_NAME<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xiaozhao<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">&lt;!-- 定义日志的要保存的根目录 --></span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LOG_HOME<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;user.home&#125;/$&#123;APP_NAME&#125;/logs<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">&lt;!-- 第二种控制台色彩输出方式 --></span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSLOG<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.ConsoleAppender<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token comment">&lt;!--</pre></td></tr><tr><td data-num="18"></td><td><pre>        日志输出格式：</pre></td></tr><tr><td data-num="19"></td><td><pre>            % d 表示日期时间，</pre></td></tr><tr><td data-num="20"></td><td><pre>            % thread 表示线程名，</pre></td></tr><tr><td data-num="21"></td><td><pre>            %-5level：级别从左显示 5 个字符宽度</pre></td></tr><tr><td data-num="22"></td><td><pre>            % logger &#123;50&#125; 表示 logger 名字最长 50 个字符，否则按照句点分割。</pre></td></tr><tr><td data-num="23"></td><td><pre>            % msg：日志消息，</pre></td></tr><tr><td data-num="24"></td><td><pre>            % n 是换行符</pre></td></tr><tr><td data-num="25"></td><td><pre>        --></span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.classic.encoder.PatternLayoutEncoder<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="27"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">></span></span>%red(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;) %green([%thread]) %customcolor(%-5level) %boldMagenta(%logger) -</pre></td></tr><tr><td data-num="28"></td><td><pre>                %msg%n</pre></td></tr><tr><td data-num="29"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token comment">&lt;!-- 如果线上 log 日志出现中文乱码，下面这句有关编码设置的要删除或注释掉，原因不明 --></span></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token comment">&lt;!--        &lt;charset>UTF-8&lt;/charset>--></span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token comment">&lt;!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件   --></span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token comment">&lt;!-- 该配置表示每天生成一个日志文件，保存 30 天的日志文件。--></span></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appLogAppender<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.RollingFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token comment">&lt;!-- 指定日志文件的名称 --></span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span><span class="token punctuation">></span></span>$&#123;LOG_HOME&#125;/$&#123;APP_NAME&#125;.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rollingPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="40"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fileNamePattern</span><span class="token punctuation">></span></span>$&#123;LOG_HOME&#125;/$&#123;APP_NAME&#125;-%d&#123;yyyy-MM-dd&#125;-%i.zip<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fileNamePattern</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="41"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MaxHistory</span><span class="token punctuation">></span></span>120<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MaxHistory</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="42"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxFileSize</span><span class="token punctuation">></span></span>100MB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxFileSize</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="43"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>totalSizeCap</span><span class="token punctuation">></span></span>5GB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>totalSizeCap</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rollingPolicy</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token comment">&lt;!-- 日志输出格式： --></span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layout</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.classic.PatternLayout<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="47"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">></span></span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [ %thread ] - [ %-5level ] [ %logger&#123;50&#125; : %line ] - %msg%n<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="48"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>layout</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="50"></td><td><pre>    <span class="token comment">&lt;!-- 开发、测试环境 --></span></pre></td></tr><tr><td data-num="51"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dev,test<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="52"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springframework.web<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>INFO<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="53"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springboot.sample<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>INFO<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="54"></td><td><pre>        <span class="token comment">&lt;!-- com.xiaozhao.xiaozhaoserver.mapper 是本项目的 dao 层的包，日志级别调成 DEBUG 级别可以看到 sql 执行 --></span></pre></td></tr><tr><td data-num="55"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.xiaozhao.xiaozhaoserver.*<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DEBUG<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="56"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="57"></td><td><pre></pre></td></tr><tr><td data-num="58"></td><td><pre>    <span class="token comment">&lt;!-- 生产环境 --></span></pre></td></tr><tr><td data-num="59"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prod<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="60"></td><td><pre>        <span class="token comment">&lt;!--logger 用来设置某一个包或者具体的某一个类的日志打印级别 --></span></pre></td></tr><tr><td data-num="61"></td><td><pre>        <span class="token comment">&lt;!--name 用来指定受此 loger 约束的某一个包或者具体的某一个类 --></span></pre></td></tr><tr><td data-num="62"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springframework.web<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ERROR<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="63"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springboot.sample<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ERROR<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="64"></td><td><pre>        <span class="token comment">&lt;!--com.fristapp 为项目类的全路径  日志级别调成 DEBUG 级别可以看到 sql 执行 --></span></pre></td></tr><tr><td data-num="65"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.xiaozhao.xiaozhaoserver.*<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ERROR<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="66"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="67"></td><td><pre></pre></td></tr><tr><td data-num="68"></td><td><pre>    <span class="token comment">&lt;!-- level 用来设置打印级别，大小写无关 --></span></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="70"></td><td><pre>        <span class="token comment">&lt;!-- 控制台输出日志 --></span></pre></td></tr><tr><td data-num="71"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSLOG<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="72"></td><td><pre>        <span class="token comment">&lt;!-- 打印错误日志 每天 --></span></pre></td></tr><tr><td data-num="73"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appLogAppender<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="74"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="75"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="76"></td><td><pre></pre></td></tr><tr><td data-num="77"></td><td><pre>        <span class="token comment">&lt;!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出</pre></td></tr><tr><td data-num="78"></td><td><pre>            第一种控制台色彩输出方式：这种控制台输出不用方式不用去引用日志颜色类</pre></td></tr><tr><td data-num="79"></td><td><pre>        &lt;appender name="CONSLOG" class="ch.qos.logback.core.ConsoleAppender"></pre></td></tr><tr><td data-num="80"></td><td><pre>            &lt;encoder></pre></td></tr><tr><td data-num="81"></td><td><pre>                &lt;pattern>% red (% d &#123;yyyy-MM-dd HH:mm:ss.SSS&#125;) % green ([% thread]) % highlight (%-5level) % boldMagenta (% logger) -</pre></td></tr><tr><td data-num="82"></td><td><pre>                    % msg% n</pre></td></tr><tr><td data-num="83"></td><td><pre>                &lt;/pattern></pre></td></tr><tr><td data-num="84"></td><td><pre>        --></span></pre></td></tr><tr><td data-num="85"></td><td><pre>                <span class="token comment">&lt;!-- 如果线上 log 日志出现中文乱码，下面这句有关编码设置的要删除或注释掉，原因不明 --></span></pre></td></tr><tr><td data-num="86"></td><td><pre>        <span class="token comment">&lt;!--</pre></td></tr><tr><td data-num="87"></td><td><pre>                &lt;charset>UTF-8&lt;/charset></pre></td></tr><tr><td data-num="88"></td><td><pre>            &lt;/encoder></pre></td></tr><tr><td data-num="89"></td><td><pre>        &lt;/appender></pre></td></tr><tr><td data-num="90"></td><td><pre>        --></span></pre></td></tr></table></figure>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>lx0815 <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/" title="SpringBoot logback-spring.xml">https://zrgzs.github.io/guide/2023/09/07/java项目合集/小昭/SpringBoot logback-spring.xml/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-19.jpg" title="SpringBoot 整合 七牛云存储">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 小昭</span>
+  <h3>SpringBoot 整合 七牛云存储</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/@MultiParameterBody%20%E6%B3%A8%E8%A7%A3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-17.jpg" title="@MultiParameterBody 注解">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 小昭</span>
+  <h3>@MultiParameterBody 注解</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/'text_plain'%20WebClient/" rel="bookmark" title="'text_plain' WebClient">'text_plain' WebClient</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/IDEA%20%E4%B8%8E%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="IDEA 与 服务器开发">IDEA 与 服务器开发</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/ServiceLoader%E7%B1%BB%20%E4%B8%8E%20SPI%20%E6%9C%BA%E5%88%B6/" rel="bookmark" title="ServiceLoader类 与 SPI 机制">ServiceLoader类 与 SPI 机制</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/@MultiParameterBody%20%E6%B3%A8%E8%A7%A3/" rel="bookmark" title="@MultiParameterBody 注解">@MultiParameterBody 注解</a></li><li class="active"><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/" rel="bookmark" title="SpringBoot logback-spring.xml">SpringBoot logback-spring.xml</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" rel="bookmark" title="SpringBoot 整合 七牛云存储">SpringBoot 整合 七牛云存储</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/" rel="bookmark" title="SpringBoot 整合 腾讯云 API">SpringBoot 整合 腾讯云 API</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" rel="bookmark" title="SpringBoot 调用第三方接口时的公私钥管理">SpringBoot 调用第三方接口时的公私钥管理</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0/" rel="bookmark" title="开发随记">开发随记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/@MultiParameterBody%20%E6%B3%A8%E8%A7%A3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="分类于 中间件">中间件</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/" title="分类于 redis">redis</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/" title="缓存更新策略">缓存更新策略</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/" title="分类于 冷知识合集">冷知识合集</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/%E5%85%88%E9%97%AE%E5%90%8E%E7%AD%94/" title="先问后答">先问后答</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/" title="分类于 核心技术卷">核心技术卷</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%B8%80(7.3%20_%209.5.3)/" title="卷一(7.3 _ 9.5.3)">卷一(7.3 _ 9.5.3)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E6%8B%A6%E6%88%AA%E5%99%A8%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%81Servlet%EF%BC%9F/" title="简要说明一下什么是拦截器、过滤器、Servlet？">简要说明一下什么是拦截器、过滤器、Servlet？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/" title="分类于 核心技术卷">核心技术卷</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%BA%8C(1.2%20_%203.9)/" title="卷二(1.2 _ 3.9)">卷二(1.2 _ 3.9)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20Java%20%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" title="第二章 Java 内存区域与内存溢出异常">第二章 Java 内存区域与内存溢出异常</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/MySQL%E5%BB%BA%E8%A1%A8%E6%8A%A5%E9%94%99Invalid%20default%20value%20for%20%E2%80%98begin_time%E2%80%98/" title="MySQL建表报错Invalid default value for ‘begin_time‘">MySQL建表报错Invalid default value for ‘begin_time‘</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/Gateway%20%E7%9A%84%20GlobalFilter%20%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8D%E7%94%9F%E6%95%88/" title="Gateway 的 GlobalFilter 过滤器不生效">Gateway 的 GlobalFilter 过滤器不生效</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0/" title="开发随记">开发随记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="Ribbon负载均衡">Ribbon负载均衡</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/java项目合集/小昭/SpringBoot logback-spring.xml/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

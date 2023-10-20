@@ -1,0 +1,16 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "卓软信息工作室 • All posts by \"注解\" category",
+    "description": "",
+    "home_page_url": "https://zrgzs.github.io/guide",
+    "items": [
+        {
+            "id": "https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%B3%A8%E8%A7%A3/@SuppressWarnings/",
+            "url": "https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%B3%A8%E8%A7%A3/@SuppressWarnings/",
+            "title": "@SuppressWarnings",
+            "date_published": "2023-09-07T09:59:14.000Z",
+            "content_html": "<p>例如：抑制多类型的警告：@SuppressWarnings (“unchecked”,“rawtypes”)</p>\n<table>\n<thead>\n<tr>\n<th><strong>all</strong></th>\n<th><strong>抑制所有警告</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>boxing</td>\n<td>抑制装箱、拆箱操作时候的警告</td>\n</tr>\n<tr>\n<td>cast</td>\n<td>抑制映射相关的警告</td>\n</tr>\n<tr>\n<td><strong>ConstantConditions</strong></td>\n<td><strong>抑制返回值可能为 null 的警告</strong></td>\n</tr>\n<tr>\n<td>dep-ann</td>\n<td>抑制启用注释的警告</td>\n</tr>\n<tr>\n<td><strong>deprecation</strong></td>\n<td><strong>抑制过期方法警告</strong></td>\n</tr>\n<tr>\n<td>fallthrough</td>\n<td>抑制在 switch 中缺失 breaks 的警告</td>\n</tr>\n<tr>\n<td>finally</td>\n<td>抑制 finally 模块没有返回的警告</td>\n</tr>\n<tr>\n<td>hiding</td>\n<td>抑制相对于隐藏变量的局部变量的警告</td>\n</tr>\n<tr>\n<td>incomplete-switch</td>\n<td>忽略不完整的 switch 语句</td>\n</tr>\n<tr>\n<td>nls</td>\n<td>忽略非 nls 格式的字符</td>\n</tr>\n<tr>\n<td>null</td>\n<td>忽略对 null 的操作</td>\n</tr>\n<tr>\n<td>path</td>\n<td>在类路径、源文件路径等中有不存在的路径时的警告</td>\n</tr>\n<tr>\n<td>rawtypes</td>\n<td>使用 generics 时忽略没有指定相应的类型</td>\n</tr>\n<tr>\n<td>resource</td>\n<td>忽略泛型未指定类型的警告</td>\n</tr>\n<tr>\n<td>restriction</td>\n<td>忽略制禁止使用劝阻或禁止引用的警告</td>\n</tr>\n<tr>\n<td>serial</td>\n<td>忽略在 serializable 类中没有声明 serialVersionUID 变量</td>\n</tr>\n<tr>\n<td>static-access</td>\n<td>抑制不正确的静态访问方式警告</td>\n</tr>\n<tr>\n<td>synthetic-access</td>\n<td>抑制子类没有按最优方法访问内部类的警告</td>\n</tr>\n<tr>\n<td>try</td>\n<td>没有 catch 时的警告</td>\n</tr>\n<tr>\n<td><strong>unchecked</strong></td>\n<td><strong>抑制没有进行类型检查操作的警告</strong></td>\n</tr>\n<tr>\n<td>unqualified-field-access</td>\n<td>抑制没有权限访问的域的警告</td>\n</tr>\n<tr>\n<td>unused</td>\n<td>抑制没被使用过的代码的警告</td>\n</tr>\n</tbody>\n</table>\n",
+            "tags": []
+        }
+    ]
+}

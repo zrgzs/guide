@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>卓软信息工作室 • Posts by &#34;操作系统&#34; category</title>
+        <link>https://zrgzs.github.io/guide</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 07 Sep 2023 17:59:14 +0800</pubDate>
+        <lastBuildDate>Thu, 07 Sep 2023 17:59:14 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://zrgzs.github.io/guide/2023/09/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+            <title>Linux常用命令</title>
+            <link>https://zrgzs.github.io/guide/2023/09/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+            <pubDate>Thu, 07 Sep 2023 17:59:14 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;cat 命令：可创建文件操作文件&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC85MTg3MDA3MA==&#34;&gt; Linux 中的 13 个基本 Cat 命令示例&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;sudo 命令：&lt;strong&gt;Sudo&lt;/strong&gt; 的全称为：&lt;strong&gt;super user do&lt;/strong&gt;。 顾名思义：干超级用户才能干的事！所以 Sudo 最常用的功能就是提升一个命名的执行权限。&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMzczMzI2NDQ=&#34;&gt;秒懂 Linux 的 sudo 命令&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;windows PowerShell 远程连接 Linux 命令 ssh root@101.42.152.244 远程访问端口能否可用:wget  ip: 端口&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://zrgzs.github.io/guide/2023/09/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/</guid>
+            <title>操作系统笔记</title>
+            <link>https://zrgzs.github.io/guide/2023/09/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/</link>
+            <pubDate>Thu, 07 Sep 2023 17:59:14 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;1-计算机操作系统概述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-计算机操作系统概述&#34;&gt;#&lt;/a&gt; 1、计算机操作系统概述&lt;/h1&gt;
+&lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h2&gt;
+&lt;h3 id=&#34;什么是操作系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是操作系统&#34;&gt;#&lt;/a&gt; 什么是操作系统？&lt;/h3&gt;
+&lt;p&gt;操作系统（Operating Ststem，简称 OS）是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境，它是计算机系统中最基本的系统软件。&lt;/p&gt;
+&lt;h3 id=&#34;操作系统在计算机系统中的位置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作系统在计算机系统中的位置&#34;&gt;#&lt;/a&gt; 操作系统在计算机系统中的位置&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220435.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;操作系统的功能和目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作系统的功能和目标&#34;&gt;#&lt;/a&gt; 操作系统的功能和目标&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220441.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;系统资源的管理者&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#系统资源的管理者&#34;&gt;#&lt;/a&gt; 系统资源的管理者&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;文件管理&lt;/li&gt;
+&lt;li&gt;内存管理&lt;/li&gt;
+&lt;li&gt;处理机（CPU）的管理&lt;/li&gt;
+&lt;li&gt;设备（计算机硬件，例如摄像头）管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;用户和计算机硬件之间的接口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#用户和计算机硬件之间的接口&#34;&gt;#&lt;/a&gt; 用户和计算机硬件之间的接口&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220443.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;对硬件机器的拓展&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#对硬件机器的拓展&#34;&gt;#&lt;/a&gt; 对硬件机器的拓展&lt;/h4&gt;
+&lt;h3 id=&#34;操作系统的四个特征&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作系统的四个特征&#34;&gt;#&lt;/a&gt; 操作系统的四个特征&lt;/h3&gt;
+&lt;h4 id=&#34;并发&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#并发&#34;&gt;#&lt;/a&gt; 并发&lt;/h4&gt;
+&lt;p&gt;并发是指两个或多个事件在同一时间间隔内发生。这些事件在宏观上是同时发生的，在微观上是交替发生的。易混淆，并行：两个或多个事件在同一时刻同时发生&lt;/p&gt;
+&lt;h4 id=&#34;共享&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#共享&#34;&gt;#&lt;/a&gt; 共享&lt;/h4&gt;
+&lt;p&gt;共享即资源共享，是指系统中的资源内存中多个并发执行的进程共同使用。&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220447.jpg&#34; alt=&#34;image.png&#34;&gt; 但所谓的 “同时” 往往是宏观上的，而在微观上，这些进程可能是交替的资源进行访问（即分时共享）例如：互斥共享方式：使用 QQ 和微信视频，同一时间段内摄像头只能分配给其中一个进程。同时共享方式：使用 QQ 发送文件 A, 同时使用微信发送文件 B。宏观上看，两边都在同时读取并发送文件，说明两个进程都在访问硬盘资源，从中读取数据。微观上看，两个进程是交替着访问硬盘的。补充:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;并发性是指计算机系统中同时存在着多个运行着的程序。&lt;/li&gt;
+&lt;li&gt;共享性是指系统中的资源可供内存中多个并发执行的进程共同使用。&lt;/li&gt;
+&lt;li&gt;并发性和共享性互为存在条件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;虚拟&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#虚拟&#34;&gt;#&lt;/a&gt; 虚拟&lt;/h4&gt;
+&lt;p&gt;虚拟是指把一个物理上的实体变为若干个逻辑上的对应物。物理实体（前者）是实际存在的，而逻辑上的对应物（后者）是用户感受到的。&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220452.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;异步&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#异步&#34;&gt;#&lt;/a&gt; 异步&lt;/h4&gt;
+&lt;p&gt;异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性。补充：如果失去了并发性，则系统只能串行地处理各个进程，每个进程的执行会一贯到底。只有系统拥有并发性，才有可能导致异步性。&lt;/p&gt;
+&lt;h2 id=&#34;操作系统的运行机制和体系结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作系统的运行机制和体系结构&#34;&gt;#&lt;/a&gt; 操作系统的运行机制和体系结构&lt;/h2&gt;
+&lt;p&gt;指令&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220456.jpg&#34; alt=&#34;image.png&#34;&gt;CPU 如何判断是否可以执行特权指令？&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220458.jpg&#34; alt=&#34;image.png&#34;&gt;PSW 表示寄存器程序&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220503.jpg&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,542 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/">
+
+
+
+  <title>
+SpringBoot 整合 腾讯云 API - 小昭 - java项目合集 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">SpringBoot 整合 腾讯云 API
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>4 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>lx0815</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-43.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-96.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-40.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-26.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-34.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-85.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" itemprop="item" rel="index" title="分类于 java项目合集"><span itemprop="name">java项目合集</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" itemprop="item" rel="index" title="分类于 小昭"><span itemprop="name">小昭</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="springboot-整合-腾讯云-api"><a class="markdownIt-Anchor" href="#springboot-整合-腾讯云-api">#</a> SpringBoot 整合 腾讯云 API</h1>
+<p>此处假设腾讯云方面的配置大家都配置完毕了，下面直接开始与代码相关的。</p>
+<h2 id="0-腾讯云-sdk-文档"><a class="markdownIt-Anchor" href="#0-腾讯云-sdk-文档">#</a> 0. 腾讯云 SDK 文档</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kb2N1bWVudC9zZGsvSmF2YQ==">Java-SDK 中心 - 腾讯云 (tencent.com)</span></p>
+<h2 id="1-引入依赖"><a class="markdownIt-Anchor" href="#1-引入依赖">#</a> 1. 引入依赖</h2>
+<figure class="highlight xml"><figcaption data-lang="XML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.tencentcloudapi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>tencentcloud-sdk-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>     <span class="token comment">&lt;!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. --></span></pre></td></tr><tr><td data-num="5"></td><td><pre>     <span class="token comment">&lt;!-- 请到 https://search.maven.org/search?q=tencentcloud-sdk-java 查询所有版本，最新版本如下 --></span></pre></td></tr><tr><td data-num="6"></td><td><pre>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.1.322<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="2-在环境变量中配置-secretid-和-secretkey"><a class="markdownIt-Anchor" href="#2-在环境变量中配置-secretid-和-secretkey">#</a> 2. 在环境变量中配置 secretId 和 secretKey</h2>
+<p>不知道如何配置的参见 <span class="exturl" data-url="aHR0cDovL2F3aW5kLnNwYWNlL2FyY2hpdmVzLzE2NzE0NjIxMDExMzU=">SpringBoot 环境变量管理</span></p>
+<h2 id="3-根据调用文档中的参数创建-tencentapipublicproperties-类"><a class="markdownIt-Anchor" href="#3-根据调用文档中的参数创建-tencentapipublicproperties-类">#</a> 3. 根据调用文档中的参数，创建 TencentApiPublicProperties 类</h2>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>configProp</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Value</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="8"></td><td><pre> * @description: 腾讯云接口的公共请求参数</pre></td></tr><tr><td data-num="9"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="10"></td><td><pre> * @version: 1.0</pre></td></tr><tr><td data-num="11"></td><td><pre> * @createTime: 2022-12-08 9:42:33</pre></td></tr><tr><td data-num="12"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="13"></td><td><pre> */</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token annotation punctuation">@Data</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token annotation punctuation">@Component</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TencentApiPublicProperties</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;tencent.domainName&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> domainName<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;tencent.region&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> region<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;XIAO_ZHAO_DEFAULT_TENCENT_SECRET_ID&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> secretId<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;XIAO_ZHAO_DEFAULT_TENCENT_SECRET_KEY&#125;"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">String</span> secretKey<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="新建一个工具类用于请求-api"><a class="markdownIt-Anchor" href="#新建一个工具类用于请求-api">#</a> 新建一个工具类用于请求 API</h2>
+<p>为什么不像配置七牛云的时候一样创建一个  <code>Service</code>  ？腾讯云接口太多了，每个接口都来一个  <code>Service</code>  的话太多类了。但是感觉实际中的话，还是需要创建一个 <code>Service</code>  的吧，调接口的时候</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>tencentcloudapi<span class="token punctuation">.</span>common<span class="token punctuation">.</span></span><span class="token class-name">AbstractModel</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>tencentcloudapi<span class="token punctuation">.</span>common<span class="token punctuation">.</span></span><span class="token class-name">Credential</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>tencentcloudapi<span class="token punctuation">.</span>common<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">TencentCloudSDKException</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>tencentcloudapi<span class="token punctuation">.</span>common<span class="token punctuation">.</span>profile<span class="token punctuation">.</span></span><span class="token class-name">ClientProfile</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>tencentcloudapi<span class="token punctuation">.</span>iai<span class="token punctuation">.</span>v20200303<span class="token punctuation">.</span></span><span class="token class-name">IaiClient</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>configProp<span class="token punctuation">.</span></span><span class="token class-name">TencentApiPublicProperties</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>xiaozhao<span class="token punctuation">.</span>xiaozhaoserver<span class="token punctuation">.</span>service<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">BadParameterException</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">InvocationTargetException</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Method</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">LinkedList</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="19"></td><td><pre> * @description:</pre></td></tr><tr><td data-num="20"></td><td><pre> * @author: Ding</pre></td></tr><tr><td data-num="21"></td><td><pre> * @version: 1.0</pre></td></tr><tr><td data-num="22"></td><td><pre> * @createTime: 2022-12-08 8:59:48</pre></td></tr><tr><td data-num="23"></td><td><pre> * @modify:</pre></td></tr><tr><td data-num="24"></td><td><pre> */</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token annotation punctuation">@Slf4j</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TencentApiUtils</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">TencentApiUtils</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Method</span><span class="token punctuation">></span></span> iaiClientMethodList<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token comment">/*</pre></td></tr><tr><td data-num="34"></td><td><pre>      加载该类的所有请求方法</pre></td></tr><tr><td data-num="35"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"开始添加 iaiClient method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        iaiClientMethodList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token class-name">Method</span><span class="token punctuation">[</span><span class="token punctuation">]</span> methods <span class="token operator">=</span> <span class="token class-name">IaiClient</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        iaiClientMethodList <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>methods<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"添加了 "</span> <span class="token operator">+</span> methods<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token string">" 个 iaiClient method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="43"></td><td><pre></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="45"></td><td><pre>     * 向腾讯云接口提交请求</pre></td></tr><tr><td data-num="46"></td><td><pre>     * @param abstractModel 请求模型</pre></td></tr><tr><td data-num="47"></td><td><pre>     * @param responseClass 响应类的类对象</pre></td></tr><tr><td data-num="48"></td><td><pre>     * @param tencentApiPublicProperties 腾讯云接口的相关请求参数</pre></td></tr><tr><td data-num="49"></td><td><pre>     * @return 返回请求得到的响应对象</pre></td></tr><tr><td data-num="50"></td><td><pre>     * @param &lt;T> 响应对象</pre></td></tr><tr><td data-num="51"></td><td><pre>     * @throws TencentCloudSDKException 调用腾讯云接口时抛出异常</pre></td></tr><tr><td data-num="52"></td><td><pre>     */</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">"unchecked"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token class-name">T</span> <span class="token function">executeIciClientRequest</span><span class="token punctuation">(</span><span class="token class-name">AbstractModel</span> abstractModel<span class="token punctuation">,</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> responseClass<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="55"></td><td><pre>                                                   <span class="token class-name">TencentApiPublicProperties</span> tencentApiPublicProperties<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">TencentCloudSDKException</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="56"></td><td><pre></pre></td></tr><tr><td data-num="57"></td><td><pre>        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>            <span class="token comment">// 实例化一个认证对象，入参需要传入腾讯云账户 secretId，secretKey, 此处还需注意密钥对的保密</span></pre></td></tr><tr><td data-num="59"></td><td><pre>            <span class="token comment">// 密钥可前往 https://console.cloud.tencent.com/cam/capi 网站进行获取</span></pre></td></tr><tr><td data-num="60"></td><td><pre>            <span class="token class-name">Credential</span> cred <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Credential</span><span class="token punctuation">(</span>tencentApiPublicProperties<span class="token punctuation">.</span><span class="token function">getSecretId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="61"></td><td><pre>                    tencentApiPublicProperties<span class="token punctuation">.</span><span class="token function">getSecretKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>            <span class="token comment">// 实例化一个 client 选项，可选的，没有特殊需求可以跳过</span></pre></td></tr><tr><td data-num="63"></td><td><pre>            <span class="token class-name">ClientProfile</span> clientProfile <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ClientProfile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>            clientProfile<span class="token punctuation">.</span><span class="token function">setDebug</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>            <span class="token comment">// 实例化要请求产品的 client 对象，clientProfile 是可选的</span></pre></td></tr><tr><td data-num="66"></td><td><pre>            <span class="token class-name">IaiClient</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IaiClient</span><span class="token punctuation">(</span>cred<span class="token punctuation">,</span> tencentApiPublicProperties<span class="token punctuation">.</span><span class="token function">getRegion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> clientProfile<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="67"></td><td><pre></pre></td></tr><tr><td data-num="68"></td><td><pre>            <span class="token comment">// 返回的 resp 是一个 CreatePersonResponse 的实例，与请求对象对应</span></pre></td></tr><tr><td data-num="69"></td><td><pre>            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Method</span> method <span class="token operator">:</span> iaiClientMethodList<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>                <span class="token keyword">if</span> <span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> abstractModel<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="71"></td><td><pre>                    <span class="token class-name">Object</span> responseObj <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>client<span class="token punctuation">,</span> abstractModel<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>                    <span class="token keyword">if</span> <span class="token punctuation">(</span>responseObj<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> responseClass<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>                        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">)</span> responseObj<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>                    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>                        <span class="token comment">// 删除刚刚创建的东西</span></pre></td></tr><tr><td data-num="76"></td><td><pre>                        <span class="token comment">// 此处就不做实现了，主要是不会</span></pre></td></tr><tr><td data-num="77"></td><td><pre>                        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BadParameterException</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"方法 %s 的返回值为 %s ，而收到的类型为 %s"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="78"></td><td><pre>                                method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> method<span class="token punctuation">.</span><span class="token function">getReturnType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> responseClass<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>                    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="80"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="82"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InvocationTargetException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>            <span class="token keyword">throw</span> <span class="token punctuation">(</span><span class="token class-name">TencentCloudSDKException</span><span class="token punctuation">)</span> e<span class="token punctuation">.</span><span class="token function">getTargetException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IllegalAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="87"></td><td><pre>        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"IaiClient 中没用可用的方法以发送 "</span> <span class="token operator">+</span> abstractModel<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="89"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="优化"><a class="markdownIt-Anchor" href="#优化">#</a> 优化：</h2>
+<ul>
+<li></li>
+</ul>
+<p>可以改成一个服务类，更符合其身份。</p>
+<ul>
+<li></li>
+</ul>
+<p>可以在这里面统一的打印日志信息，处理异常</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>lx0815 <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/" title="SpringBoot 整合 腾讯云 API">https://zrgzs.github.io/guide/2023/09/07/java项目合集/小昭/SpringBoot 整合 腾讯云 API/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-74.jpg" title="SpringBoot 调用第三方接口时的公私钥管理">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 小昭</span>
+  <h3>SpringBoot 调用第三方接口时的公私钥管理</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-77.jpg" title="SpringBoot 整合 七牛云存储">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 小昭</span>
+  <h3>SpringBoot 整合 七牛云存储</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springboot-%E6%95%B4%E5%90%88-%E8%85%BE%E8%AE%AF%E4%BA%91-api"><span class="toc-number">1.</span> <span class="toc-text"> SpringBoot 整合 腾讯云 API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E8%85%BE%E8%AE%AF%E4%BA%91-sdk-%E6%96%87%E6%A1%A3"><span class="toc-number">1.1.</span> <span class="toc-text"> 0. 腾讯云 SDK 文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-number">1.2.</span> <span class="toc-text"> 1. 引入依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9C%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%AD%E9%85%8D%E7%BD%AE-secretid-%E5%92%8C-secretkey"><span class="toc-number">1.3.</span> <span class="toc-text"> 2. 在环境变量中配置 secretId 和 secretKey</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A0%B9%E6%8D%AE%E8%B0%83%E7%94%A8%E6%96%87%E6%A1%A3%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0%E5%88%9B%E5%BB%BA-tencentapipublicproperties-%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text"> 3. 根据调用文档中的参数，创建 TencentApiPublicProperties 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%94%A8%E4%BA%8E%E8%AF%B7%E6%B1%82-api"><span class="toc-number">1.5.</span> <span class="toc-text"> 新建一个工具类用于请求 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96"><span class="toc-number">1.6.</span> <span class="toc-text"> 优化：</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/'text_plain'%20WebClient/" rel="bookmark" title="'text_plain' WebClient">'text_plain' WebClient</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/IDEA%20%E4%B8%8E%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="IDEA 与 服务器开发">IDEA 与 服务器开发</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/ServiceLoader%E7%B1%BB%20%E4%B8%8E%20SPI%20%E6%9C%BA%E5%88%B6/" rel="bookmark" title="ServiceLoader类 与 SPI 机制">ServiceLoader类 与 SPI 机制</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/@MultiParameterBody%20%E6%B3%A8%E8%A7%A3/" rel="bookmark" title="@MultiParameterBody 注解">@MultiParameterBody 注解</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/" rel="bookmark" title="SpringBoot logback-spring.xml">SpringBoot logback-spring.xml</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" rel="bookmark" title="SpringBoot 整合 七牛云存储">SpringBoot 整合 七牛云存储</a></li><li class="active"><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/" rel="bookmark" title="SpringBoot 整合 腾讯云 API">SpringBoot 整合 腾讯云 API</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" rel="bookmark" title="SpringBoot 调用第三方接口时的公私钥管理">SpringBoot 调用第三方接口时的公私钥管理</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0/" rel="bookmark" title="开发随记">开发随记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" title="SpringBoot 整合 七牛云存储">SpringBoot 整合 七牛云存储</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" title="分类于 分布式存储社团一体化平台">分布式存储社团一体化平台</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/SSM+Shiro+Redis+%20%E7%BA%AF%E6%B3%A8%E8%A7%A3%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="SSM+Shiro+Redis+ 纯注解环境搭建">SSM+Shiro+Redis+ 纯注解环境搭建</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/" title="分类于 冷知识合集">冷知识合集</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E8%B0%83%E7%94%A8%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95/" title="如何正确的调用泛型方法">如何正确的调用泛型方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/MySQL%E5%BB%BA%E8%A1%A8%E6%8A%A5%E9%94%99Invalid%20default%20value%20for%20%E2%80%98begin_time%E2%80%98/" title="MySQL建表报错Invalid default value for ‘begin_time‘">MySQL建表报错Invalid default value for ‘begin_time‘</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" title="冒泡排序">冒泡排序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="Ribbon负载均衡">Ribbon负载均衡</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" title="分类于 分布式存储社团一体化平台">分布式存储社团一体化平台</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/Web%20%E5%9F%BA%E7%A1%80%20Filter%20%E4%B8%AD%20urlPattern%20%E7%9A%84%E6%A0%BC%E5%BC%8F/" title="Web 基础 Filter 中 urlPattern 的格式">Web 基础 Filter 中 urlPattern 的格式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/IDEA%20%E4%B8%8E%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91/" title="IDEA 与 服务器开发">IDEA 与 服务器开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/Gateway%20%E7%9A%84%20GlobalFilter%20%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8D%E7%94%9F%E6%95%88/" title="Gateway 的 GlobalFilter 过滤器不生效">Gateway 的 GlobalFilter 过滤器不生效</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/README/" title="README">README</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/java项目合集/小昭/SpringBoot 整合 腾讯云 API/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

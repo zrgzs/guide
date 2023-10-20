@@ -1,0 +1,599 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/">
+
+
+
+  <title>
+Nacos注册中心 - 微服务 - 框架 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Nacos注册中心
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2.8k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>wspstart</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-68.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-7.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-97.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-41.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-71.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-96.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="分类于 框架"><span itemprop="name">框架</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="item" rel="index" title="分类于 微服务"><span itemprop="name">微服务</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="一-配置"><a class="markdownIt-Anchor" href="#一-配置">#</a> 一、配置</h2>
+<h3 id="下载安装"><a class="markdownIt-Anchor" href="#下载安装">#</a> 下载安装</h3>
+<p>自我感觉哈，Nacos 注册中心的使用比 Eureka 注册中心要简单一些。简要说明一下 Nacos 注册中心的配置以及使用：首先需要安装 Nacos，这里为了方便使用，在本地安装了 Nacos。去 Nacos 官方网址去下载 Nacos<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220738.jpg" alt="image.png">window 下载 zip 版本，linux 下载 tar 版本。当前推荐下载安装 2.1.1 稳点版本	。（注意路径不能存在中文）下载解压后<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220740.jpg" alt="image.png"> 在 conf 目录下中找到 application.properties 可配置端口号，默认端口号为 8848 然后打开 bin 目录，bin 目录下为执行脚本，在当前目录下执行 cmd 打开命令行窗口，执行 startup.cmd -m standlone 可单模式下启动，集群配置后面再搞吧。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220743.jpg" alt="image.png"> 随后我们可以访问给的网址，我们输入账号密码即可登录可视化工具，账号密码初始值都为：nacos。</p>
+<h3 id="服务配置"><a class="markdownIt-Anchor" href="#服务配置">#</a> 服务配置</h3>
+<p>我们在 idea 中继续来配置服务。我们需要在父工程中引入管理依赖：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>nacos管理依赖<span class="token operator">--</span><span class="token operator">></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">></span></span>com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>cloud<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">></span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">></span></span>spring<span class="token operator">-</span>cloud<span class="token operator">-</span>alibaba<span class="token operator">-</span>dependencies<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">></span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">></span></span><span class="token number">2.2</span><span class="token number">.5</span><span class="token punctuation">.</span><span class="token constant">RELEASE</span><span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">></span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token generics"><span class="token punctuation">&lt;</span>type<span class="token punctuation">></span></span>pom<span class="token operator">&lt;</span><span class="token operator">/</span>type<span class="token operator">></span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token generics"><span class="token punctuation">&lt;</span>scope<span class="token punctuation">></span></span><span class="token keyword">import</span><span class="token operator">&lt;</span><span class="token operator">/</span>scope<span class="token operator">></span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">></span></pre></td></tr></table></figure><p>然后再其服务模块中引入：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">></span></span>com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>cloud<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">></span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">></span></span>spring<span class="token operator">-</span>cloud<span class="token operator">-</span>starter<span class="token operator">-</span>alibaba<span class="token operator">-</span>nacos<span class="token operator">-</span>discovery<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">></span></pre></td></tr></table></figure><p>之后，我们再服务模块的 application.yml 文件中配置：</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 配置 nacos</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">spring</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token key atrule">cloud</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token key atrule">nacos</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8848</span> <span class="token comment"># nacos 服务地址，其实默认的也是 localhost:8848</span></pre></td></tr></table></figure><p>启动项目，我们打开 nacos 可视化界面中，查看服务：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220745.jpg" alt="image.png"> 可见，我们的配置成功了。</p>
+<h2 id="二-nacos服务分级存储模型"><a class="markdownIt-Anchor" href="#二-nacos服务分级存储模型">#</a> 二、Nacos 服务分级存储模型</h2>
+<h3 id="概念"><a class="markdownIt-Anchor" href="#概念">#</a> 概念</h3>
+<p>一个服务可包含多个实例服务 --&gt; 集群  --&gt; 实例<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220747.jpg" alt="image.png"> 服务跨集群调用问题服务调用尽可能选择本地集群的服务，跨集群调用延迟较高本地集群不可访问时，再去访问其它集群。因为本地访问速度相对较快。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220750.jpg" alt="image.png"></p>
+<h3 id="服务集群配置"><a class="markdownIt-Anchor" href="#服务集群配置">#</a> 服务集群配置：</h3>
+<p>1、修改 application.yml，添加如下内容：</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 配置 nacos</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">spring</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token key atrule">cloud</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">nacos</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8848</span> <span class="token comment"># nacos 服务地址</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token key atrule">discovery</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token key atrule">cluster-name</span><span class="token punctuation">:</span> JS <span class="token comment"># 配置集群地址 (可自定义)</span></pre></td></tr></table></figure><p>2、可在 nacos 控制台查看<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220753.jpg" alt="image.png"></p>
+<p>Nacos 服务分级存储模型</p>
+<ul>
+<li>一级是服务，例如 userservice</li>
+<li>二级是集群，例如杭州或上海</li>
+<li>三级是实例，例如杭州机房的某台部署了 userservice 的服务器</li>
+</ul>
+<p>如何设置实例的集群属性</p>
+<ul>
+<li>修改 application.yml 文件，添加 spring.cloud.nacos.discovery.cluster-name 属性即可</li>
+</ul>
+<h3 id="服务集群属性配置"><a class="markdownIt-Anchor" href="#服务集群属性配置">#</a> 服务集群属性配置：</h3>
+<p>我们可以在集群为 XZ 的配置多个实例，在集群为 LYG 的配置一个实例作为服务者，我们在一个消费者，当前消费者在 LYG, 我们如何能做到让消费者访问服务优先访问 LYG 集群内的实例而不访问集群为 XZ 的实例呢？这时我们就需要在消费者中配置 Nacos 的服务访问规则。（设置负载均衡的 IRule 为 NacosRule，这个规则优先会寻找与自己同集群的服务）</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#  配置服务访问规则</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">userservice</span><span class="token punctuation">:</span> <span class="token comment"># 消费者服务</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token key atrule">ribbon</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">NFLoadBalancerRuleClassName</span><span class="token punctuation">:</span> com.alibaba.cloud.nacos.ribbon.NacosRule</pre></td></tr></table></figure><p>这里的配置并非全局配置，只针对 userservice 服务有效，访问的是同一个集群下的实例，但如果当前集群下有多个实例，则按照随机的方式来访问。如果当前集群下的服务全部宕机，当前消费者还是得访问其他集群下的服务，但是这样会报一个警告。为跨集群访问，以便运维人员来重启服务。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220756.jpg" alt="image.png"></p>
+<h3 id="nacosrule负载均衡策略"><a class="markdownIt-Anchor" href="#nacosrule负载均衡策略">#</a> NacosRule 负载均衡策略</h3>
+<ul>
+<li>优先选择同集群服务实例列表</li>
+<li>本地集群找不到提供者，才去其它集群寻找，并且会报警告</li>
+<li>确定了可用实例列表后，再采用随机负载均衡挑选实例</li>
+</ul>
+<h2 id="三-naco权重负载均衡"><a class="markdownIt-Anchor" href="#三-naco权重负载均衡">#</a> 三、Naco 权重负载均衡</h2>
+<p>实际部署中会出现这样的场景：服务器设备性能有差异，部分实例所在机器性能较好，另一些较差，我们希望性能好的机器承担更多的用户请求 Nacos 提供了权重配置来控制访问频率，权重越大则访问频率越高。那么，我们如何来配置权重呢？简单的是，这一步根部不需要写代码就可以来实现，因为运维人员他们可以在 nacos 控制台来进行配置权重。</p>
+<h3 id="配置"><a class="markdownIt-Anchor" href="#配置">#</a> 配置</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220758.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220800.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220804.jpg" alt="image.png"> 权重范围是  0~1 ，权重为 0 的，就相当于等于停机了，用户请求无法访问到当前服务上来，配置为 1，使用请求都能打过来，相较于其他的服务，1 是最大的才能满足所以请求都打到本台服务上来。</p>
+<h3 id="总结实例的权重控制"><a class="markdownIt-Anchor" href="#总结实例的权重控制">#</a> 总结：（实例的权重控制）</h3>
+<ul>
+<li>Nacos 控制台可以设置实例的权重值，0~1 之间</li>
+<li>同集群内的多个实例，权重越高被访问的频率越高</li>
+<li>权重设置为 0 则完全不会被访问</li>
+</ul>
+<h2 id="四-环境隔离-namespace"><a class="markdownIt-Anchor" href="#四-环境隔离-namespace">#</a> 四、环境隔离 - namespace</h2>
+<h3 id="配置-2"><a class="markdownIt-Anchor" href="#配置-2">#</a> 配置</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220806.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220809.jpg" alt="image.png"> 复制命名空间的 ID<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220811.jpg" alt="image.png"> 在代码中配置：</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">spring</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token key atrule">cloud</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token key atrule">nacos</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8848</span> <span class="token comment"># nacos 服务地址</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token key atrule">discovery</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>          <span class="token key atrule">cluster-name</span><span class="token punctuation">:</span> XZ <span class="token comment"># 配置集群名称</span></pre></td></tr><tr><td data-num="7"></td><td><pre>          <span class="token key atrule">namespace</span><span class="token punctuation">:</span> fe5ad009<span class="token punctuation">-</span>268c<span class="token punctuation">-</span>46e7<span class="token punctuation">-</span>8d90<span class="token punctuation">-</span>968f160e850c  <span class="token comment"># dev 环境</span></pre></td></tr></table></figure><p>重启服务后，观察控制台：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220813.jpg" alt="image.png"> 可发现在 dev 命名空间中存在该服务了。继续访问的话，报错 500<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220815.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220817.jpg" alt="image.png"> 报错为：没有可用服务，相当于两个服务被隔离起来，要相访问必须在同一个命名空间下。</p>
+<h3 id="总结nacos环境隔离"><a class="markdownIt-Anchor" href="#总结nacos环境隔离">#</a> 总结：（Nacos 环境隔离）</h3>
+<ul>
+<li>每个 namespace 都有唯一 id</li>
+<li>服务设置 namespace 时要写 id 而不是名称</li>
+<li>不同 namespace 下的服务互相不可见</li>
+</ul>
+<h2 id="nacos和eureka的区别以及共同点"><a class="markdownIt-Anchor" href="#nacos和eureka的区别以及共同点">#</a> Nacos 和 Eureka 的区别以及共同点</h2>
+<h3 id="nacos与eureka的共同点"><a class="markdownIt-Anchor" href="#nacos与eureka的共同点">#</a> Nacos 与 eureka 的共同点</h3>
+<ul>
+<li>都支持服务注册和服务拉取</li>
+<li>都支持服务提供者心跳方式做健康检测</li>
+</ul>
+<h3 id="nacos与eureka的区别"><a class="markdownIt-Anchor" href="#nacos与eureka的区别">#</a> Nacos 与 Eureka 的区别</h3>
+<ul>
+<li>Nacos 支持服务端主动检测提供者状态：临时实例采用心跳模式，非临时实例采用主动检测模式</li>
+<li>临时实例心跳不正常会被剔除，非临时实例则不会被剔除</li>
+<li>Nacos 支持服务列表变更的消息推送模式，服务列表更新更及时</li>
+<li>Nacos 集群默认采用 AP 方式，当集群中存在非临时实例时，采用 CP 模式；Eureka 采用 AP 方式</li>
+</ul>
+<p>Nacos 配置非临时实例：</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">spring</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token key atrule">cloud</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>		<span class="token key atrule">nacos</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>			<span class="token key atrule">discovery</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="5"></td><td><pre>				 <span class="token key atrule">ephemeral</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 设置为非临时实例</span></pre></td></tr></table></figure><p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220819.jpg" alt="image.png"></p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>wspstart <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="Nacos注册中心">https://zrgzs.github.io/guide/2023/09/07/框架/微服务/Nacos注册中心/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-85.jpg" title="Ribbon负载均衡">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微服务</span>
+  <h3>Ribbon负载均衡</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Gateway%E7%BD%91%E5%85%B3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-65.jpg" title="Gateway网关">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微服务</span>
+  <h3>Gateway网关</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text"> 一、配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text"> 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text"> 服务配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-nacos%E6%9C%8D%E5%8A%A1%E5%88%86%E7%BA%A7%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text"> 二、Nacos 服务分级存储模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text"> 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> 服务集群配置：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E9%9B%86%E7%BE%A4%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text"> 服务集群属性配置：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nacosrule%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5"><span class="toc-number">2.4.</span> <span class="toc-text"> NacosRule 负载均衡策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-naco%E6%9D%83%E9%87%8D%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">3.</span> <span class="toc-text"> 三、Naco 权重负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text"> 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%AE%9E%E4%BE%8B%E7%9A%84%E6%9D%83%E9%87%8D%E6%8E%A7%E5%88%B6"><span class="toc-number">3.2.</span> <span class="toc-text"> 总结：（实例的权重控制）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB-namespace"><span class="toc-number">4.</span> <span class="toc-text"> 四、环境隔离 - namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-2"><span class="toc-number">4.1.</span> <span class="toc-text"> 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93nacos%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text"> 总结：（Nacos 环境隔离）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nacos%E5%92%8Ceureka%E7%9A%84%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text"> Nacos 和 Eureka 的区别以及共同点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nacos%E4%B8%8Eeureka%E7%9A%84%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-number">5.1.</span> <span class="toc-text"> Nacos 与 eureka 的共同点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nacos%E4%B8%8Eeureka%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.2.</span> <span class="toc-text"> Nacos 与 Eureka 的区别</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Docker安装以及使用">Docker安装以及使用</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" rel="bookmark" title="Eureka注册中心">Eureka注册中心</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Gateway%E7%BD%91%E5%85%B3/" rel="bookmark" title="Gateway网关">Gateway网关</a></li><li class="active"><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" rel="bookmark" title="Nacos注册中心">Nacos注册中心</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="bookmark" title="Ribbon负载均衡">Ribbon负载均衡</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="bookmark" title="Nacos配置管理">Nacos配置管理</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/http%E5%AE%A2%E6%88%B7%E7%AB%AFFeign/" rel="bookmark" title="http客户端Feign">http客户端Feign</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80/" rel="bookmark" title="微服务基础">微服务基础</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E4%BB%A5%E5%8F%8A%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="bookmark" title="服务拆分以及远程调用">服务拆分以及远程调用</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6RebitMQ%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/" rel="bookmark" title="消息中间件RebitMQ食用教程">消息中间件RebitMQ食用教程</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Gateway%E7%BD%91%E5%85%B3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E8%85%BE%E8%AE%AF%E4%BA%91%20API/" title="SpringBoot 整合 腾讯云 API">SpringBoot 整合 腾讯云 API</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" title="分类于 分布式存储社团一体化平台">分布式存储社团一体化平台</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/javax.mail.MessagingException_%20Got%20bad%20greeting%20from%20SMTP%20host/" title="javax.mail.MessagingException_ Got bad greeting from SMTP host">javax.mail.MessagingException_ Got bad greeting from SMTP host</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" title="冒泡排序">冒泡排序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="分类于 中间件">中间件</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/" title="分类于 redis">redis</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%E5%9F%BA%E7%A1%80/" title="Redis基础">Redis基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/springboottest%20ClassNotFoundException_%20org.springframework.test.context.TestContextAnnotationUtils/" title="springboottest ClassNotFoundException_ org.springframework.test.context.TestContextAnnotationUtils">springboottest ClassNotFoundException_ org.springframework.test.context.TestContextAnnotationUtils</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/" title="分类于 核心技术卷">核心技术卷</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/%E5%8D%B7%E4%BA%8C(1.2%20_%203.9)/" title="卷二(1.2 _ 3.9)">卷二(1.2 _ 3.9)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="Ribbon负载均衡">Ribbon负载均衡</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序">归并排序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/http%E5%AE%A2%E6%88%B7%E7%AB%AFFeign/" title="http客户端Feign">http客户端Feign</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" title="分类于 分布式存储社团一体化平台">分布式存储社团一体化平台</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/Redis%20%E4%BF%9D%E5%AD%98%E7%9A%84%E5%80%BC%E4%B8%AD%E5%8C%85%E5%90%AB%20_x00/" title="Redis 保存的值中包含 _x00">Redis 保存的值中包含 _x00</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/框架/微服务/Nacos注册中心/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

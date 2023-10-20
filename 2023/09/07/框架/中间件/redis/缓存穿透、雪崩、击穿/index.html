@@ -1,0 +1,583 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF/">
+
+
+
+  <title>
+缓存穿透、雪崩、击穿 - redis - 中间件 - 框架 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">缓存穿透、雪崩、击穿
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>1.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>1 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>wspstart</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-41.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-87.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-83.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-69.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-14.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-76.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="分类于 框架"><span itemprop="name">框架</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/" itemprop="item" rel="index" title="分类于 中间件"><span itemprop="name">中间件</span></a>
+<meta itemprop="position" content="2" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/" itemprop="item" rel="index" title="分类于 redis"><span itemprop="name">redis</span></a>
+<meta itemprop="position" content="3" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="1-缓存穿透"><a class="markdownIt-Anchor" href="#1-缓存穿透">#</a> 1、缓存穿透</h2>
+<h3 id="1-定义"><a class="markdownIt-Anchor" href="#1-定义">#</a> 1、定义</h3>
+<p>缓存穿透是指客户端请求的数据在缓存中和数据库中都不存在，这样缓存永远不会生效，这些请求都会被打到数据库上。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220559.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220601.jpg" alt="image.png"></p>
+<h3 id="2-产生原因"><a class="markdownIt-Anchor" href="#2-产生原因">#</a> 2、产生原因</h3>
+<ol>
+<li>自身业务代码问题</li>
+<li>恶意攻击，爬虫造成空命中</li>
+</ol>
+<h3 id="3-常见的两种解决方案"><a class="markdownIt-Anchor" href="#3-常见的两种解决方案">#</a> 3、常见的两种解决方案</h3>
+<h4 id="缓存空对象"><a class="markdownIt-Anchor" href="#缓存空对象">#</a> 缓存空对象</h4>
+<p>优点：实现简单，维护方便缺点：① 额外的内存消耗② 可能造成短期的不一致<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220603.jpg" alt="image.png"></p>
+<h4 id="布隆过滤器"><a class="markdownIt-Anchor" href="#布隆过滤器">#</a> 布隆过滤器</h4>
+<p>优点：内存占用较少，没有多余 Key 缺点：① 实现复杂② 存在误判可能<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220606.jpg" alt="image.png"> 补充：布隆过滤器，当再布隆过滤器中获取数据说是不存在时，那一定是不存在的，但是如果说是存在的话，数据实际上说不定是不存在的。所以使用布隆过滤器也可能会出现缓存穿透问题。</p>
+<h4 id="增强id的复杂度避免被猜测id规律"><a class="markdownIt-Anchor" href="#增强id的复杂度避免被猜测id规律">#</a> 增强 id 的复杂度避免被猜测 id 规律</h4>
+<h4 id="做好数据的基础格式校验"><a class="markdownIt-Anchor" href="#做好数据的基础格式校验">#</a> 做好数据的基础格式校验</h4>
+<h4 id="加强用户权限校验"><a class="markdownIt-Anchor" href="#加强用户权限校验">#</a> 加强用户权限校验</h4>
+<h4 id="做好热点参数的限流"><a class="markdownIt-Anchor" href="#做好热点参数的限流">#</a> 做好热点参数的限流</h4>
+<h2 id="2-缓存雪崩"><a class="markdownIt-Anchor" href="#2-缓存雪崩">#</a> 2、缓存雪崩</h2>
+<h3 id="1-定义-2"><a class="markdownIt-Anchor" href="#1-定义-2">#</a> 1、定义</h3>
+<p>缓存雪崩是指在同一时段大量的缓存 Key 同时失效或者 Redis 服务宕机，导致大量请求到达数据库，带来巨大压力。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220608.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220610.jpg" alt="image.png"></p>
+<h4 id="2-解决方案"><a class="markdownIt-Anchor" href="#2-解决方案">#</a> 2、解决方案</h4>
+<ul>
+<li>给不同的 Key 的 TTL 添加随机值</li>
+<li>利用 Redis 集群提高服务的可用性</li>
+<li>给缓存业务添加降级限流策略</li>
+<li>给业务添加多级缓存</li>
+</ul>
+<h2 id="3-缓存击穿"><a class="markdownIt-Anchor" href="#3-缓存击穿">#</a> 3、缓存击穿</h2>
+<h3 id="1-定义-3"><a class="markdownIt-Anchor" href="#1-定义-3">#</a> 1、定义</h3>
+<p>缓存击穿问题也叫做热点 Key 问题，就是一个高并发访问并且缓存重建业务比较复杂的 Key 突然失效了，无数的请求访问会在瞬间给数据库带来巨大的冲击。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220613.jpg" alt="image.png"> 如上图所示的，线程 1 查询缓存但是缓存并没有命中，就开始查询数据库了，然后线程 2、3、4 也陆续查询了缓存没有命中，都去查询数据库并重建缓存。导致 db 的压力猛增，造成 dp 有可能会宕机。</p>
+<h3 id="2-解决方案-2"><a class="markdownIt-Anchor" href="#2-解决方案-2">#</a> 2、解决方案</h3>
+<h4 id="1-互斥锁"><a class="markdownIt-Anchor" href="#1-互斥锁">#</a> ① 互斥锁</h4>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220615.jpg" alt="image.png"> 如上图所示：线程 1 和线程 2，线程 1 先查询缓存，但是没有命中，然后线程 1 获取互斥锁，后进行查询数据库重建数据缓存，期间线程 2 查询缓存，同样没有命中，接着线程 2 获取互斥锁，但是并没有获取到锁，所以线程 2 就在等待并重试，直到线程 1 重建数据缓存并写入缓存结束后释放互斥锁，然后线程 2 获取到互斥锁缓存命中获取到数据就可以返回了。</p>
+<h4 id="2-逻辑过期"><a class="markdownIt-Anchor" href="#2-逻辑过期">#</a> ② 逻辑过期</h4>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220617.jpg" alt="image.png"> 上图为逻辑过期的处理流程：线程 1 查询缓存，发现逻辑过期时间已经过期了，后获取互斥锁，然后开启新的线程：线程 2，而线程 1 直接拿旧的数据返回了，线程 2 重建数据并设置逻辑过期时间，在此时间之内线程 3 查询缓存发现逻辑过期时间过期了，并且获取互斥锁失败，那么就证明有线程在重建数据了，线程 3 就拿旧的数据返回。这时线程 2 重构数据成功，并释放了互斥锁。线程 4 过来直接直接命中缓存并且没有逻辑过期，就返回了。</p>
+<h4 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结：</h4>
+<p>两种方式各有优缺点：</p>
+<table>
+<thead>
+<tr>
+<th><strong>解决方案</strong></th>
+<th><strong>优点</strong></th>
+<th><strong>缺点</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>互斥锁</strong></td>
+<td>没有额外的内存消耗保证一致性实现简单</td>
+<td>线程需要等待，性能受影响可能有死锁风险</td>
+</tr>
+<tr>
+<td><strong>逻辑过期</strong></td>
+<td>线程无需等待，性能较好</td>
+<td>不保证一致性有额外内存消耗实现复杂</td>
+</tr>
+</tbody>
+</table>
+<p>建议再看一篇这个文章，写的比我好多了：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGhyZWUtZmlnaHRlci9wLzE1MjUzNDUxLmh0bWw=">十分钟彻底掌握缓存击穿、缓存穿透、缓存雪崩 - 三分恶 - 博客园</span></p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>wspstart <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF/" title="缓存穿透、雪崩、击穿">https://zrgzs.github.io/guide/2023/09/07/框架/中间件/redis/缓存穿透、雪崩、击穿/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-23.jpg" title="黑马点评">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> redis</span>
+  <h3>黑马点评</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-61.jpg" title="缓存更新策略">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> redis</span>
+  <h3>缓存更新策略</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-number">1.</span> <span class="toc-text"> 1、缓存穿透</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text"> 1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.2.</span> <span class="toc-text"> 2、产生原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.3.</span> <span class="toc-text"> 3、常见的两种解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 缓存空对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 布隆过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E5%BC%BAid%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%81%BF%E5%85%8D%E8%A2%AB%E7%8C%9C%E6%B5%8Bid%E8%A7%84%E5%BE%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 增强 id 的复杂度避免被猜测 id 规律</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9A%E5%A5%BD%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A0%BC%E5%BC%8F%E6%A0%A1%E9%AA%8C"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 做好数据的基础格式校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E5%BC%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C"><span class="toc-number">1.3.5.</span> <span class="toc-text"> 加强用户权限校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9A%E5%A5%BD%E7%83%AD%E7%82%B9%E5%8F%82%E6%95%B0%E7%9A%84%E9%99%90%E6%B5%81"><span class="toc-number">1.3.6.</span> <span class="toc-text"> 做好热点参数的限流</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-number">2.</span> <span class="toc-text"> 2、缓存雪崩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-2"><span class="toc-number">2.1.</span> <span class="toc-text"> 1、定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 2、解决方案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-number">3.</span> <span class="toc-text"> 3、缓存击穿</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-3"><span class="toc-number">3.1.</span> <span class="toc-text"> 1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-2"><span class="toc-number">3.2.</span> <span class="toc-text"> 2、解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">3.2.1.</span> <span class="toc-text"> ① 互斥锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%BB%E8%BE%91%E8%BF%87%E6%9C%9F"><span class="toc-number">3.2.2.</span> <span class="toc-text"> ② 逻辑过期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 总结：</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Redis基础">Redis基础</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/" rel="bookmark" title="乐观锁和悲观锁">乐观锁和悲观锁</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80ID/" rel="bookmark" title="全局唯一ID">全局唯一ID</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/" rel="bookmark" title="缓存更新策略">缓存更新策略</a></li><li class="active"><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF/" rel="bookmark" title="缓存穿透、雪崩、击穿">缓存穿透、雪崩、击穿</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84/" rel="bookmark" title="黑马点评">黑马点评</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0/" title="开发随记">开发随记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="Nacos注册中心">Nacos注册中心</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" title="SpringBoot 调用第三方接口时的公私钥管理">SpringBoot 调用第三方接口时的公私钥管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20Java%20%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" title="第二章 Java 内存区域与内存溢出异常">第二章 Java 内存区域与内存溢出异常</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/" title="操作系统笔记">操作系统笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/'text_plain'%20WebClient/" title="&#39;text_plain&#39; WebClient">'text_plain' WebClient</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/Linux%E8%BF%90%E7%BB%B4/" title="分类于 Linux运维">Linux运维</a>
+</div>
+
+    <span><a href="/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/" title="CentOS 环境安装">CentOS 环境安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20logback-spring.xml/" title="SpringBoot logback-spring.xml">SpringBoot logback-spring.xml</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" title="Nacos配置管理">Nacos配置管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%A3%9E%E4%B9%A6/" title="分类于 飞书">飞书</a>
+</div>
+
+    <span><a href="/guide/2023/10/07/%E9%A3%9E%E4%B9%A6/GitHub2FeishuWebhook/" title="在飞书中添加自定义指令监听 GitHub 事件">在飞书中添加自定义指令监听 GitHub 事件</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/框架/中间件/redis/缓存穿透、雪崩、击穿/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

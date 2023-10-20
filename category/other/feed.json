@@ -1,0 +1,16 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "卓软信息工作室 • All posts by \"other\" category",
+    "description": "",
+    "home_page_url": "https://zrgzs.github.io/guide",
+    "items": [
+        {
+            "id": "https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/other/%E5%88%AB%E4%BA%BA%E5%AE%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/",
+            "url": "https://zrgzs.github.io/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/other/%E5%88%AB%E4%BA%BA%E5%AE%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/",
+            "title": "别人家的学习笔记",
+            "date_published": "2023-09-07T09:59:14.000Z",
+            "content_html": "<ul>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9icmlnaHQtYm95LmdpdGVlLmlvL3RlY2huaWNhbC1ub3Rlcy8jL3N0YXJ0Lw==\">夕颜笔记</span></li>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9qYXZhZ3VpZGUuY24vaG9tZS5odG1s\">JavaGuide 指南</span></li>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9wZGFpLnRlY2gv\">https://pdai.tech/</span></li>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly93YXJkc2VwdGVtYmVyLmdpdGh1Yi5pby9ub3Rlcy8jLw==\">https://wardseptember.github.io/notes/#/</span></li>\n</ul>\n",
+            "tags": []
+        }
+    ]
+}

@@ -1,0 +1,570 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6RebitMQ%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+
+
+  <title>
+消息中间件RebitMQ食用教程 - 微服务 - 框架 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">消息中间件RebitMQ食用教程
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2.8k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>wspstart</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-83.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-75.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-6.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-55.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-31.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-4.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="分类于 框架"><span itemprop="name">框架</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="item" rel="index" title="分类于 微服务"><span itemprop="name">微服务</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6RebitMQ%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="一-初识mq"><a class="markdownIt-Anchor" href="#一-初识mq">#</a> 一、初识 MQ</h2>
+<p>同步调用的问题微服务间基于 Feign 的调用就属于同步方式，存在一些问题。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220922.jpg" alt="image.png"><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220926.jpg" alt="image.png"></p>
+<h3 id="同步调用的优点"><a class="markdownIt-Anchor" href="#同步调用的优点">#</a> 同步调用的优点：</h3>
+<p>时效性较强，可以立即得到结果</p>
+<h3 id="同步调用的问题"><a class="markdownIt-Anchor" href="#同步调用的问题">#</a> 同步调用的问题：</h3>
+<p>耦合度高性能和吞吐能力下降有额外的资源消耗有级联失败问题</p>
+<p>故此异步调用方案产生：异步调用常见实现就是事件驱动模式<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220931.jpg" alt="image.png"></p>
+<h3 id="事件驱动的优势"><a class="markdownIt-Anchor" href="#事件驱动的优势">#</a> 事件驱动的优势：</h3>
+<p>优势一：服务解耦<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220936.jpg" alt="image.png"> 优势二：性能提升，吞吐量提高<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220940.jpg" alt="image.png"> 优势三：服务没有强依赖，不担心级联失败问题<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220944.jpg" alt="image.png"> 优势四：流量削峰<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220949.jpg" alt="image.png"></p>
+<h3 id="异步通信的优点"><a class="markdownIt-Anchor" href="#异步通信的优点">#</a> 异步通信的优点：</h3>
+<p>耦合度低吞吐量提升故障隔离流量削峰</p>
+<h4 id="异步通信的缺点"><a class="markdownIt-Anchor" href="#异步通信的缺点">#</a> 异步通信的缺点：</h4>
+<p>依赖于 Broker 的可靠性、安全性、吞吐能力架构复杂了，业务没有明显的流程线，不好追踪管理<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220953.jpg" alt="image.png"></p>
+<h2 id="二-rabbitmq快速入门"><a class="markdownIt-Anchor" href="#二-rabbitmq快速入门">#</a> 二、RabbitMQ 快速入门</h2>
+<h3 id="安装rabbitmq"><a class="markdownIt-Anchor" href="#安装rabbitmq">#</a> 安装 RabbitMQ</h3>
+<p>在线拉取：docker pull rabbitmq:3-management</p>
+<p>启动命令： （注释去掉）docker run \ -e RABBITMQ_DEFAULT_USER=lyggwsp \ -e RABBITMQ_DEFAULT_PASS=wyr0307 \ --name mq \ --hostname mq1 \ -p 15672:15672 \  # 管理访问端口 -p 5672:5672 \  # 通讯端口 -d \ rabbitmq:3-management</p>
+<p>我们访问主机地址 + 15672 端口任然无效，是因为我们插件没开：进入容器内部：docker exec -it mq bash 修改插件：rabbitmq-plugins enable rabbitmq_management 这样我们访问就有效了。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220957.jpg" alt="image.png"></p>
+<p>rabbitmq 的结构和概念：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221001.jpg" alt="image.png"></p>
+<h3 id="rabbitmq中的几个概念"><a class="markdownIt-Anchor" href="#rabbitmq中的几个概念">#</a> RabbitMQ 中的几个概念：</h3>
+<p>channel：操作 MQ 的工具 exchange：路由消息到队列中 queue：缓存消息 virtual host：虚拟主机，是对 queue、exchange 等资源的逻辑分组</p>
+<p>常见的消息模型：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221005.jpg" alt="image.png"> 官方的 HelloWorld 是基于最基础的消息队列模型来实现的，只包括三个角色：</p>
+<ul>
+<li>publisher：消息发布者，将消息发送到队列</li>
+<li>queuequeue：消息队列，负责接受并缓存消息</li>
+<li>consumer：订阅队列，处理队列中的消息</li>
+</ul>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221009.jpg" alt="image.png"></p>
+<h3 id="基本消息队列的消息发送流程"><a class="markdownIt-Anchor" href="#基本消息队列的消息发送流程">#</a> 基本消息队列的消息发送流程：</h3>
+<p>建立 connection 创建 channel 利用 channel 声明队列利用 channel 向队列发送消息基本消息队列的消息接收流程：建立 connection 创建 channel 利用 channel 声明队列定义 consumer 的消费行为 handleDelivery () 利用 channel 将消费者与队列绑定</p>
+<h2 id="三-springamqp"><a class="markdownIt-Anchor" href="#三-springamqp">#</a> 三、SpringAMQP</h2>
+<p>步骤 1：引入 AMQP 依赖因为 publisher 和 consumer 服务都需要 amqp 依赖，因此这里把依赖直接放到父工程 mq-demo 中：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221013.jpg" alt="image.png"> 步骤 2：在 publisher 中编写测试方法，向 simple.queue 发送消息</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">spring</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment"># 主机名</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">host</span><span class="token punctuation">:</span> 101.42.152.244</pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">5672</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">#虚拟主机</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token key atrule">virtual-host</span><span class="token punctuation">:</span> <span class="token string">"/"</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment"># 用户名</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token key atrule">username</span><span class="token punctuation">:</span> lyggwsp</pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment"># 密码</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token key atrule">password</span><span class="token punctuation">:</span> wyr0307</pre></td></tr></table></figure><figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span><span class="token class-name">SpringRunner</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token annotation punctuation">@SpringBootTest</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringAMOPTest</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token annotation punctuation">@Autowired</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">private</span> <span class="token class-name">RabbitTemplate</span> rabbitTemplate<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token annotation punctuation">@Test</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token class-name">String</span> queueName <span class="token operator">=</span> <span class="token string">"simple.queue"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token class-name">String</span> message <span class="token operator">=</span> <span class="token string">"hello,my name is publisher"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        rabbitTemplate<span class="token punctuation">.</span><span class="token function">convertAndSend</span><span class="token punctuation">(</span>queueName<span class="token punctuation">,</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="什么是amqp"><a class="markdownIt-Anchor" href="#什么是amqp">#</a> 什么是 AMQP？</h4>
+<p>应用间消息通信的一种协议，与语言和平台无关。</p>
+<h4 id="springamqp如何发送消息"><a class="markdownIt-Anchor" href="#springamqp如何发送消息">#</a> SpringAMQP 如何发送消息？</h4>
+<p>引入 amqp 的 starter 依赖配置 RabbitMQ 地址利用 RabbitTemplate 的 convertAndSend 方法</p>
+<p>步骤 3：在 consumer 中编写消费逻辑，监听 simple.queue</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">spring</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment"># 主机名</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">host</span><span class="token punctuation">:</span> 101.42.152.244</pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">5672</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">#虚拟主机</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token key atrule">virtual-host</span><span class="token punctuation">:</span> <span class="token string">"/"</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment"># 用户名</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token key atrule">username</span><span class="token punctuation">:</span> lyggwsp</pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment"># 密码</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token key atrule">password</span><span class="token punctuation">:</span> wyr0307</pre></td></tr></table></figure><p>这是一个组件一个组件！！！！</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token annotation punctuation">@Component</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringAMOPA</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token annotation punctuation">@RabbitListener</span><span class="token punctuation">(</span>queues <span class="token operator">=</span> <span class="token string">"simple.queue"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token class-name">String</span> msg<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"接收到的消息是："</span> <span class="token operator">+</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>SpringAMQP 如何接收消息？引入 amqp 的 starter 依赖配置 RabbitMQ 地址定义类，添加 @Component 注解类中声明方法，添加 @RabbitListener 注解，方法参数就时消息注意：消息一旦消费就会从队列删除，RabbitMQ 没有消息回溯功能</p>
+<p>Work Queue 工作队列 Work queue，工作队列，可以提高消息处理速度，避免队列消息堆积<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221016.jpg" alt="image.png"> 模拟 WorkQueue，实现一个队列绑定多个消费者</p>
+<p>基本思路如下：在 publisher 服务中定义测试方法，每秒产生 50 条消息，发送到 simple.queue 在 consumer 服务中定义两个消息监听者，都监听 simple.queue 队列消费者 1 每秒处理 50 条消息，消费者 2 每秒处理 10 条消息</p>
+<p>这玩意讲的也就是一个重点：（在监听者 yml 配置文件中多配置一下 prefetch：）</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">spring</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment"># 主机名</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">host</span><span class="token punctuation">:</span> 101.42.152.244</pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">5672</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">#虚拟主机</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token key atrule">virtual-host</span><span class="token punctuation">:</span> <span class="token string">"/"</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment"># 用户名</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token key atrule">username</span><span class="token punctuation">:</span> lyggwsp</pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment"># 密码</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token key atrule">password</span><span class="token punctuation">:</span> wyr0307</pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment"># 控制预取消息的上限</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token key atrule">listener</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token key atrule">simple</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token key atrule">prefetch</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 每次只能获取一条消息，处理完成之后才能获取下一条</span></pre></td></tr></table></figure><h3 id="work模型的使用"><a class="markdownIt-Anchor" href="#work模型的使用">#</a> Work 模型的使用：</h3>
+<p>多个消费者绑定到一个队列，同一条消息只会被一个消费者处理通过设置 prefetch 来控制消费者预取的消息数量</p>
+<p>发布（ Publish ）、订阅（ Subscribe ）发布订阅模式与之前案例的区别就是允许将同一消息发送给多个消费者。实现方式是加入了 exchange（交换机）。常见 exchange 类型包括：Fanout：广播 Direct：路由 Topic：话题<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221020.jpg" alt="image.png"> 注意：exchange 负责消息路由，而不是存储，路由失败则消息丢失</p>
+<h4 id="发布订阅-fanout-exchange"><a class="markdownIt-Anchor" href="#发布订阅-fanout-exchange">#</a> 发布订阅 - Fanout Exchange</h4>
+<p>Fanout Exchange 会将接收到的消息广播到每一个跟其绑定的 queue<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907221024.jpg" alt="image.png"></p>
+<h3 id="basic-queue-简单队列模型"><a class="markdownIt-Anchor" href="#basic-queue-简单队列模型">#</a> Basic Queue 简单队列模型</h3>
+<h3 id="work-queue-工作队列模型"><a class="markdownIt-Anchor" href="#work-queue-工作队列模型">#</a> Work Queue 工作队列模型</h3>
+<h3 id="发布-订阅模型-fanout"><a class="markdownIt-Anchor" href="#发布-订阅模型-fanout">#</a> 发布、订阅模型 - Fanout</h3>
+<h3 id="发布-订阅模型-direct"><a class="markdownIt-Anchor" href="#发布-订阅模型-direct">#</a> 发布、订阅模型 - Direct</h3>
+<h3 id="发布-订阅模型-topic"><a class="markdownIt-Anchor" href="#发布-订阅模型-topic">#</a> 发布、订阅模型 - Topic</h3>
+<h3 id="消息转换器"><a class="markdownIt-Anchor" href="#消息转换器">#</a> 消息转换器</h3>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>wspstart <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6RebitMQ%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/" title="消息中间件RebitMQ食用教程">https://zrgzs.github.io/guide/2023/09/07/框架/微服务/消息中间件RebitMQ食用教程/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-44.jpg" title="Redis基础">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> redis</span>
+  <h3>Redis基础</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E4%BB%A5%E5%8F%8A%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-1.jpg" title="服务拆分以及远程调用">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微服务</span>
+  <h3>服务拆分以及远程调用</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%88%9D%E8%AF%86mq"><span class="toc-number">1.</span> <span class="toc-text"> 一、初识 MQ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E8%B0%83%E7%94%A8%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text"> 同步调用的优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E8%B0%83%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text"> 同步调用的问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">1.3.</span> <span class="toc-text"> 事件驱动的优势：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-number">1.4.</span> <span class="toc-text"> 异步通信的优点：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 异步通信的缺点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-rabbitmq%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">2.</span> <span class="toc-text"> 二、RabbitMQ 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85rabbitmq"><span class="toc-number">2.1.</span> <span class="toc-text"> 安装 RabbitMQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rabbitmq%E4%B8%AD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="toc-number">2.2.</span> <span class="toc-text"> RabbitMQ 中的几个概念：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E6%B5%81%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text"> 基本消息队列的消息发送流程：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-springamqp"><span class="toc-number">3.</span> <span class="toc-text"> 三、SpringAMQP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFamqp"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 什么是 AMQP？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#springamqp%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF"><span class="toc-number">3.0.2.</span> <span class="toc-text"> SpringAMQP 如何发送消息？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#work%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text"> Work 模型的使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85-fanout-exchange"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 发布订阅 - Fanout Exchange</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-queue-%E7%AE%80%E5%8D%95%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.2.</span> <span class="toc-text"> Basic Queue 简单队列模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#work-queue-%E5%B7%A5%E4%BD%9C%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text"> Work Queue 工作队列模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83-%E8%AE%A2%E9%98%85%E6%A8%A1%E5%9E%8B-fanout"><span class="toc-number">3.4.</span> <span class="toc-text"> 发布、订阅模型 - Fanout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83-%E8%AE%A2%E9%98%85%E6%A8%A1%E5%9E%8B-direct"><span class="toc-number">3.5.</span> <span class="toc-text"> 发布、订阅模型 - Direct</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83-%E8%AE%A2%E9%98%85%E6%A8%A1%E5%9E%8B-topic"><span class="toc-number">3.6.</span> <span class="toc-text"> 发布、订阅模型 - Topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">3.7.</span> <span class="toc-text"> 消息转换器</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Docker安装以及使用">Docker安装以及使用</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" rel="bookmark" title="Eureka注册中心">Eureka注册中心</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Gateway%E7%BD%91%E5%85%B3/" rel="bookmark" title="Gateway网关">Gateway网关</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" rel="bookmark" title="Nacos注册中心">Nacos注册中心</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="bookmark" title="Ribbon负载均衡">Ribbon负载均衡</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="bookmark" title="Nacos配置管理">Nacos配置管理</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/http%E5%AE%A2%E6%88%B7%E7%AB%AFFeign/" rel="bookmark" title="http客户端Feign">http客户端Feign</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80/" rel="bookmark" title="微服务基础">微服务基础</a></li><li><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E4%BB%A5%E5%8F%8A%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="bookmark" title="服务拆分以及远程调用">服务拆分以及远程调用</a></li><li class="active"><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6RebitMQ%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/" rel="bookmark" title="消息中间件RebitMQ食用教程">消息中间件RebitMQ食用教程</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%E5%9F%BA%E7%A1%80/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E4%BB%A5%E5%8F%8A%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E8%B0%83%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%97%B6%E7%9A%84%E5%85%AC%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" title="SpringBoot 调用第三方接口时的公私钥管理">SpringBoot 调用第三方接口时的公私钥管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/" title="分类于 复习资料">复习资料</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/%E6%97%A5%E5%BF%97%E6%8A%A5%E9%94%99_WARNING_%20An%20illegal%20reflective%20access%20operation%20has%20occurred/" title="日志报错_WARNING_ An illegal reflective access operation has occurred">日志报错_WARNING_ An illegal reflective access operation has occurred</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%A3%9E%E4%B9%A6/" title="分类于 飞书">飞书</a>
+</div>
+
+    <span><a href="/guide/2023/10/07/%E9%A3%9E%E4%B9%A6/GitHub2FeishuWebhook/" title="在飞书中添加自定义指令监听 GitHub 事件">在飞书中添加自定义指令监听 GitHub 事件</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="分类于 数据结构与算法">数据结构与算法</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/RB-Tree/" title="RB-Tree">RB-Tree</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/ServiceLoader%E7%B1%BB%20%E4%B8%8E%20SPI%20%E6%9C%BA%E5%88%B6/" title="ServiceLoader类 与 SPI 机制">ServiceLoader类 与 SPI 机制</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%97%A5%E5%B8%B8/" title="分类于 日常">日常</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%97%A5%E5%B8%B8/Win10%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%BE%8E%E5%8C%96/" title="Win10任务栏美化">Win10任务栏美化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/" title="分类于 冷知识合集">冷知识合集</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/%E5%85%88%E9%97%AE%E5%90%8E%E7%AD%94/" title="先问后答">先问后答</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/Linux%E8%BF%90%E7%BB%B4/" title="分类于 Linux运维">Linux运维</a>
+</div>
+
+    <span><a href="/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/" title="CentOS 环境安装">CentOS 环境安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/@MultiParameterBody%20%E6%B3%A8%E8%A7%A3/" title="@MultiParameterBody 注解">@MultiParameterBody 注解</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/框架/微服务/消息中间件RebitMQ食用教程/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

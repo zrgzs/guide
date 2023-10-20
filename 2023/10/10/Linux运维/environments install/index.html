@@ -1,0 +1,593 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/">
+
+
+
+  <title>
+CentOS 环境安装 - Linux运维 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">CentOS 环境安装
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-10 23:00:24">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-10T23:00:24+08:00">2023-10-10</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>7.6k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>7 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>lx0815</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-14.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-84.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-35.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-71.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-42.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-30.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/Linux%E8%BF%90%E7%BB%B4/" itemprop="item" rel="index" title="分类于 Linux运维"><span itemprop="name">Linux运维</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="centos-环境安装"><a class="markdownIt-Anchor" href="#centos-环境安装">#</a> CentOS 环境安装</h1>
+<p>系统：CentOS 7.6</p>
+<h2 id="1-更新-yum"><a class="markdownIt-Anchor" href="#1-更新-yum">#</a> 1 更新 yum</h2>
+<p><code>yum update -y</code></p>
+<h2 id="2-安装-java"><a class="markdownIt-Anchor" href="#2-安装-java">#</a> 2 安装 Java</h2>
+<p><strong>访问 Orcal 官网</strong></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9kb3dubG9hZHMv">Java Downloads | Oracle</span></p>
+<p><strong>下载合适的版本</strong></p>
+<p><code>arch</code>  或  <code>uname -m</code>  命令可查看服务器架构类型</p>
+<p><strong>通过 scp 命令将 jdk 上传到 服务器</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span><span class="token number">12</span>:46<span class="token punctuation">]</span>  Shell                                                                                                             95ms</pre></td></tr><tr><td data-num="2"></td><td><pre> ~<span class="token punctuation">\</span>Downloads</pre></td></tr><tr><td data-num="3"></td><td><pre>❯ <span class="token function">scp</span> <span class="token parameter variable">-i</span> D:<span class="token punctuation">\</span>developmentEnvironment<span class="token punctuation">\</span>server<span class="token punctuation">\</span>tencentcloud<span class="token punctuation">\</span>zrgzs_root.pem .<span class="token punctuation">\</span>jdk-8u381-linux-x64.tar.gz root@115.159.49.90:/root/jdk-8u381.tar.gz</pre></td></tr><tr><td data-num="4"></td><td><pre>jdk-8u381-linux-i586.tar.gz                                                                     <span class="token number">100</span>%  136MB  <span class="token number">11</span>.2MB/s   00:12</pre></td></tr></table></figure><p><strong>然后把 jdk 移动到  <code>/usr</code>  下</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># mv jdk-8u381.tar.gz /usr/local/java.tar.gz</span></pre></td></tr></table></figure><p>** 解压 jdk **</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># cd /usr/local</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos usr<span class="token punctuation">]</span><span class="token comment"># tar -xvzf java.tar.gz</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos usr<span class="token punctuation">]</span><span class="token comment"># mv jdk1.8.0_381/ java</span></pre></td></tr></table></figure><p><strong>配置环境变量</strong></p>
+<p>执行  <code>vim /etc/profile.d/java.sh</code></p>
+<p>添加内容如下：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token shebang important">#!/bin/bash</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># @description: Java 环境</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># @author: Ding</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/local/java</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span>.:<span class="token variable">$JAVA_HOME</span>/lib/dt.jar:<span class="token variable">$JAVA_HOME</span>/lib/tools.jar</pre></td></tr></table></figure><p><strong>然后重新加载环境变量并检查 java 版本</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos java<span class="token punctuation">]</span><span class="token comment"># source /etc/profile</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos java<span class="token punctuation">]</span><span class="token comment"># java -version</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">java</span> version <span class="token string">"1.8.0_381"</span></pre></td></tr><tr><td data-num="4"></td><td><pre>Java<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> SE Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_381-b09<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.381</span>-b09, mixed mode<span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="3-安装-nvm"><a class="markdownIt-Anchor" href="#3-安装-nvm">#</a> 3 安装 nvm</h2>
+<p>nvm：管理 node 环境</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL252bS1zaC9udm0=">nvm-sh/nvm: Node Version Manager</span></p>
+<p><strong>下载 nvm install 脚本并运行</strong></p>
+<p><code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash</code></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">=</span><span class="token operator">></span> Downloading nvm as script to <span class="token string">'/root/.nvm'</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token operator">=</span><span class="token operator">></span> nvm <span class="token builtin class-name">source</span> string already <span class="token keyword">in</span> /root/.bashrc</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token operator">=</span><span class="token operator">></span> bash_completion <span class="token builtin class-name">source</span> string already <span class="token keyword">in</span> /root/.bashrc</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token operator">=</span><span class="token operator">></span> Close and reopen your terminal to start using nvm or run the following to use it now:</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment"># This loads nvm</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment"># This loads nvm bash_completion</span></pre></td></tr></table></figure><p><strong>重新加载环境变量</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># source ~/.bashrc</span></pre></td></tr></table></figure><p><strong>检查是否安装成功</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># nvm -v</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token number">0.39</span>.5</pre></td></tr></table></figure><p><strong>安装需要的 node 版本</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># nvm install 16</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Downloading and installing <span class="token function">node</span> v16.20.2<span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="3"></td><td><pre>Downloading https://nodejs.org/dist/v16.20.2/node-v16.20.2-linux-x64.tar.xz<span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">######################################################################## 100.0%</span></pre></td></tr><tr><td data-num="5"></td><td><pre>Computing checksum with sha256sum</pre></td></tr><tr><td data-num="6"></td><td><pre>Checksums matched<span class="token operator">!</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Now using <span class="token function">node</span> v16.20.2 <span class="token punctuation">(</span>npm v8.19.4<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>Creating default alias: default -<span class="token operator">></span> <span class="token number">16</span> <span class="token punctuation">(</span>-<span class="token operator">></span> v16.20.2<span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong>查看 node、npm 版本</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># node -v</span></pre></td></tr><tr><td data-num="2"></td><td><pre>v16.20.2</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># npm -v</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">8.19</span>.4</pre></td></tr></table></figure><p>到这一步就安装完成了！</p>
+<p>但个人觉得把环境变量都以 sh 脚本的方式放到  <code>/etc/profile.d/</code>  目录下面会更合适，所以开始转移环境变量配置。</p>
+<p>通过 vim 新增脚本文件</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/profile.d/nvm.sh</span></pre></td></tr></table></figure><p><span class="exturl" data-url="aHR0cDovL252bS5zaA==">nvm.sh</span> 内容如下：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token shebang important">#!/bin/bash</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># @description: nvm 加载脚本</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># @author: Ding</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment"># This loads nvm</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment"># This loads nvm</span></pre></td></tr></table></figure><p>移除原来写在  <code>.bashrc</code>  文件中的内容</p>
+<h2 id="4-安装-docker"><a class="markdownIt-Anchor" href="#4-安装-docker">#</a> 4 安装 Docker</h2>
+<p><strong>查看版本</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos java<span class="token punctuation">]</span><span class="token comment"># yum list docker-ce --showduplicates | sort -r</span></pre></td></tr></table></figure><p><strong>下载一个版本</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>yum <span class="token parameter variable">-y</span> <span class="token function">install</span> docker-ce-18.03.1.ce</pre></td></tr></table></figure><p><strong>查看 docker 版本</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos java<span class="token punctuation">]</span><span class="token comment"># docker -v</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Docker version <span class="token number">18.03</span>.1-ce, build 9ee9f40</pre></td></tr></table></figure><p><strong>启动 docker</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># systemctl start docker</span></pre></td></tr></table></figure><h2 id="5-安装-rustdesk"><a class="markdownIt-Anchor" href="#5-安装-rustdesk">#</a> 5 安装 RustDesk</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ydXN0ZGVzay5jb20vZG9jcy9lbi9zZWxmLWhvc3QvcnVzdGRlc2stc2VydmVyLW9zcy9kb2NrZXIv">Docker ：： RustDesk 的文档</span></p>
+<p><strong>拉取镜像</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#===================================== 拉取 thtom/rustdesk-server 镜像 ========================================</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">docker</span> pull thtom/rustdesk-server</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">#=========================== 将 rustdesk/rustdesk-server 都替换成 thtom/rustdesk-server======================</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">sudo</span> <span class="token function">docker</span> run <span class="token parameter variable">--name</span> hbbs <span class="token parameter variable">-p</span> <span class="token number">21115</span>:21115 <span class="token parameter variable">-p</span> <span class="token number">21116</span>:21116 <span class="token parameter variable">-p</span> <span class="token number">21116</span>:21116/udp <span class="token parameter variable">-p</span> <span class="token number">21118</span>:21118 <span class="token parameter variable">-v</span> <span class="token string">'pwd'</span>:/root <span class="token parameter variable">-td</span> <span class="token parameter variable">--net</span><span class="token operator">=</span>host thtom/rustdesk-server hbbs <span class="token parameter variable">-r</span> XXX.XXX.XXX.XXX</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">sudo</span> <span class="token function">docker</span> run <span class="token parameter variable">--name</span> hbbr <span class="token parameter variable">-p</span> <span class="token number">21117</span>:21117 <span class="token parameter variable">-p</span> <span class="token number">21119</span>:21119 <span class="token parameter variable">-v</span> <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>:/root <span class="token parameter variable">-td</span> <span class="token parameter variable">--net</span><span class="token operator">=</span>host thtom/rustdesk-server hbbr</pre></td></tr></table></figure><p><strong>开启端口</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>TCP<span class="token punctuation">(</span><span class="token number">21115</span>, <span class="token number">21116</span>, <span class="token number">21117</span>, <span class="token number">21118</span>, <span class="token number">21119</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>UDP<span class="token punctuation">(</span><span class="token number">21116</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="6-安装-nginx"><a class="markdownIt-Anchor" href="#6-安装-nginx">#</a> 6 安装 Nginx</h2>
+<p><strong>安装依赖环境</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># yum install gcc-c++ </span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># yum install -y openssl openssl-devel</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># yum install -y pcre pcre-devel</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># yum install -y zlib zlib-devel</span></pre></td></tr></table></figure><p><span class="exturl" data-url="aHR0cHM6Ly9uZ2lueC5vcmcvZW4vZG93bmxvYWQuaHRtbA==">nginx：下载</span></p>
+<p><strong>下载 nginx</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># wget https://nginx.org/download/nginx-1.24.0.tar.gz</span></pre></td></tr><tr><td data-num="2"></td><td><pre>--2023-10-11 <span class="token number">22</span>:08:33--  https://nginx.org/download/nginx-1.24.0.tar.gz</pre></td></tr><tr><td data-num="3"></td><td><pre>Resolving nginx.org <span class="token punctuation">(</span>nginx.org<span class="token punctuation">)</span><span class="token punctuation">..</span>. <span class="token number">3.125</span>.197.172, <span class="token number">52.58</span>.199.22, 2a05:d014:edb:5702::6, <span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="4"></td><td><pre>Connecting to nginx.org <span class="token punctuation">(</span>nginx.org<span class="token punctuation">)</span><span class="token operator">|</span><span class="token number">3.125</span>.197.172<span class="token operator">|</span>:443<span class="token punctuation">..</span>. connected.</pre></td></tr><tr><td data-num="5"></td><td><pre>HTTP request sent, awaiting response<span class="token punctuation">..</span>. <span class="token number">200</span> OK</pre></td></tr><tr><td data-num="6"></td><td><pre>Length: <span class="token number">1112471</span> <span class="token punctuation">(</span><span class="token number">1</span>.1M<span class="token punctuation">)</span> <span class="token punctuation">[</span>application/octet-stream<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Saving to: ‘nginx-1.24.0.tar.gz’</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token number">100</span>%<span class="token punctuation">[</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">></span><span class="token punctuation">]</span> <span class="token number">1,112</span>,471   <span class="token number">19</span>.2KB/s   <span class="token keyword">in</span> 53s</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token number">2023</span>-10-11 <span class="token number">22</span>:09:27 <span class="token punctuation">(</span><span class="token number">20.6</span> KB/s<span class="token punctuation">)</span> - ‘nginx-1.24.0.tar.gz’ saved <span class="token punctuation">[</span><span class="token number">1112471</span>/1112471<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>解压 nginx</strong> <strong>安装程序</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># tar -xvzf nginx-1.24.0.tar.gz</span></pre></td></tr></table></figure><p><strong>使用默认配置</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># cd nginx-1.24.0/</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos nginx-1.24.0<span class="token punctuation">]</span><span class="token comment"># ./configure --prefix=/opt/nginx</span></pre></td></tr><tr><td data-num="3"></td><td><pre>checking <span class="token keyword">for</span> OS</pre></td></tr><tr><td data-num="4"></td><td><pre> + Linux <span class="token number">3.10</span>.0-1160.88.1.el7.x86_64 x86_64</pre></td></tr><tr><td data-num="5"></td><td><pre>。。。</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Configuration summary</pre></td></tr><tr><td data-num="8"></td><td><pre>  + using system PCRE library</pre></td></tr><tr><td data-num="9"></td><td><pre>  + OpenSSL library is not used</pre></td></tr><tr><td data-num="10"></td><td><pre>  + using system zlib library</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  nginx path prefix: <span class="token string">"/opt/nginx"</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  nginx binary file: <span class="token string">"/opt/nginx/sbin/nginx"</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  nginx modules path: <span class="token string">"/opt/nginx/modules"</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  nginx configuration prefix: <span class="token string">"/opt/nginx/conf"</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  nginx configuration file: <span class="token string">"/opt/nginx/conf/nginx.conf"</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  nginx pid file: <span class="token string">"/opt/nginx/logs/nginx.pid"</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  nginx error log file: <span class="token string">"/opt/nginx/logs/error.log"</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  nginx http access log file: <span class="token string">"/opt/nginx/logs/access.log"</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  nginx http client request body temporary files: <span class="token string">"client_body_temp"</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  nginx http proxy temporary files: <span class="token string">"proxy_temp"</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  nginx http fastcgi temporary files: <span class="token string">"fastcgi_temp"</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  nginx http uwsgi temporary files: <span class="token string">"uwsgi_temp"</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  nginx http scgi temporary files: <span class="token string">"scgi_temp"</span></pre></td></tr></table></figure><p><strong>编译安装</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">make</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">make</span> <span class="token function">install</span></pre></td></tr></table></figure><p><strong>查看是否安装完成</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos nginx-1.24.0<span class="token punctuation">]</span><span class="token comment"># ll /opt/ | grep nginx</span></pre></td></tr><tr><td data-num="2"></td><td><pre>drwxr-xr-x   <span class="token number">6</span> root root <span class="token number">4096</span> Oct <span class="token number">11</span> <span class="token number">22</span>:16 nginx</pre></td></tr></table></figure><p><strong>配置 nginx 服务</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos nginx-1.24.0<span class="token punctuation">]</span><span class="token comment"># vim /usr/lib/systemd/system/nginx.service</span></pre></td></tr></table></figure><p>内容如下：</p>
+<pre><code>[Unit]
+Description=nginx web service
+Documentation=http://nginx.org/en/docs/
+After=network.target
+ 
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
+PrivateTmp=true
+ 
+[Install]
+WantedBy=default.target
+</code></pre>
+<p><strong>设置权限</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">chmod</span> <span class="token number">755</span> /usr/lib/systemd/system/nginx.service</pre></td></tr></table></figure><p><strong>启动 nginx</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos nginx-1.24.0<span class="token punctuation">]</span><span class="token comment"># systemctl start nginx</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos nginx-1.24.0<span class="token punctuation">]</span><span class="token comment"># systemctl status nginx</span></pre></td></tr><tr><td data-num="3"></td><td><pre>● nginx.service - nginx web <span class="token function">service</span></pre></td></tr><tr><td data-num="4"></td><td><pre>   Loaded: loaded <span class="token punctuation">(</span>/usr/lib/systemd/system/nginx.service<span class="token punctuation">;</span> disabled<span class="token punctuation">;</span> vendor preset: disabled<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>   Active: active <span class="token punctuation">(</span>running<span class="token punctuation">)</span> since Wed <span class="token number">2023</span>-10-11 <span class="token number">22</span>:21:50 CST<span class="token punctuation">;</span> 8s ago</pre></td></tr><tr><td data-num="6"></td><td><pre>     Docs: http://nginx.org/en/docs/</pre></td></tr><tr><td data-num="7"></td><td><pre>  Process: <span class="token number">24735</span> <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/local/nginx/sbin/nginx <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">0</span>/SUCCESS<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  Process: <span class="token number">24733</span> <span class="token assign-left variable">ExecStartPre</span><span class="token operator">=</span>/usr/local/nginx/sbin/nginx <span class="token parameter variable">-t</span> <span class="token parameter variable">-c</span> /usr/local/nginx/conf/nginx.conf <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">0</span>/SUCCESS<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre> Main PID: <span class="token number">24737</span> <span class="token punctuation">(</span>nginx<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    Tasks: <span class="token number">2</span></pre></td></tr><tr><td data-num="11"></td><td><pre>   Memory: <span class="token number">988</span>.0K</pre></td></tr><tr><td data-num="12"></td><td><pre>   CGroup: /system.slice/nginx.service</pre></td></tr><tr><td data-num="13"></td><td><pre>           ├─24737 nginx: master process /usr/local/nginx/sbin/nginx</pre></td></tr><tr><td data-num="14"></td><td><pre>           └─24738 nginx: worker process</pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>Oct <span class="token number">11</span> <span class="token number">22</span>:21:50 VM-4-17-centos systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Starting nginx web service<span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="17"></td><td><pre>Oct <span class="token number">11</span> <span class="token number">22</span>:21:50 VM-4-17-centos nginx<span class="token punctuation">[</span><span class="token number">24733</span><span class="token punctuation">]</span>: nginx: the configuration <span class="token function">file</span> /usr/local/nginx/conf/nginx.conf syntax is ok</pre></td></tr><tr><td data-num="18"></td><td><pre>Oct <span class="token number">11</span> <span class="token number">22</span>:21:50 VM-4-17-centos nginx<span class="token punctuation">[</span><span class="token number">24733</span><span class="token punctuation">]</span>: nginx: configuration <span class="token function">file</span> /usr/local/nginx/conf/nginx.conf <span class="token builtin class-name">test</span> is successful</pre></td></tr><tr><td data-num="19"></td><td><pre>Oct <span class="token number">11</span> <span class="token number">22</span>:21:50 VM-4-17-centos systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Started nginx web service.</pre></td></tr></table></figure><h2 id="7-安装-redis"><a class="markdownIt-Anchor" href="#7-安装-redis">#</a> 7 安装 Redis</h2>
+<p><strong>docker 拉取镜像</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">docker</span> pull redis</pre></td></tr></table></figure><p><strong>复制配置文件</strong></p>
+<p>配置文件地址：<span class="exturl" data-url="aHR0cHM6Ly9yZWRpcy5pby9kb2NzL21hbmFnZW1lbnQvY29uZmlnLWZpbGUv">Redis 配置文件示例 | 雷迪斯</span></p>
+<p><strong>存放配置文件</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># mkdir -p /opt/redis/conf</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># touch /opt/redis/conf/redis.conf</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># vim /opt/redis/conf/redis.conf</span></pre></td></tr></table></figure><p><strong>修改配置文件</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>requirepass 你的密码   <span class="token comment">#给 redis 设置密码</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token builtin class-name">bind</span> * -::* <span class="token comment"># 允许外部访问</span></pre></td></tr></table></figure><p><strong>docker run</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># docker run -d --name redis -p 5268:6379 -v /opt/redis/data:/data -v /opt/redis/conf/redis.conf:/etc/redis/redis.conf redis redis-server /etc/redis/redis.conf</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>root@VM-4-17-centos ~<span class="token punctuation">]</span><span class="token comment"># docker start redis</span></pre></td></tr><tr><td data-num="3"></td><td><pre>redis</pre></td></tr></table></figure><h2 id="8-安装-nacos"><a class="markdownIt-Anchor" href="#8-安装-nacos">#</a> 8 安装 Nacos</h2>
+<p>Nacos 版本：2.2.0</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9uYWNvcy5pby96aC1jbi9kb2NzL3F1aWNrLXN0YXJ0LWRvY2tlci5odG1s">Nacos Docker 快速开始</span></p>
+<p>service 配置</p>
+<figure class="highlight text"><figcaption data-lang="text"></figcaption><table><tr><td data-num="1"></td><td><pre>[Unit]</pre></td></tr><tr><td data-num="2"></td><td><pre>Description=nacos</pre></td></tr><tr><td data-num="3"></td><td><pre>After=network.target</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>[Service]</pre></td></tr><tr><td data-num="6"></td><td><pre># java安装位置</pre></td></tr><tr><td data-num="7"></td><td><pre>Environment="JAVA_HOME=/usr/local/java"</pre></td></tr><tr><td data-num="8"></td><td><pre>Type=forking</pre></td></tr><tr><td data-num="9"></td><td><pre>#standalone 是单机，默认是集群cluster； nacos启动文件位置</pre></td></tr><tr><td data-num="10"></td><td><pre>ExecStart=/opt/nacos/bin/startup.sh -m standalone</pre></td></tr><tr><td data-num="11"></td><td><pre>ExecReload=/opt/nacos/bin/shutdown.sh &amp;&amp; /opt/nacos/bin/startup.sh</pre></td></tr><tr><td data-num="12"></td><td><pre>ExecStop=/opt/nacos/bin/shutdown.sh</pre></td></tr><tr><td data-num="13"></td><td><pre>PrivateTmp=true</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>[Install]</pre></td></tr><tr><td data-num="16"></td><td><pre>WantedBy=multi-user.target</pre></td></tr></table></figure>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-10-20 18:28:26" itemprop="dateModified" datetime="2023-10-20T18:28:26+08:00">2023-10-20</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>lx0815 <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/" title="CentOS 环境安装">https://zrgzs.github.io/guide/2023/10/10/Linux运维/environments install/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/10/07/%E9%A3%9E%E4%B9%A6/GitHub2FeishuWebhook/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-69.jpg" title="在飞书中添加自定义指令监听 GitHub 事件">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 飞书</span>
+  <h3>在飞书中添加自定义指令监听 GitHub 事件</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#centos-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> CentOS 环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9B%B4%E6%96%B0-yum"><span class="toc-number">1.1.</span> <span class="toc-text"> 1 更新 yum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85-java"><span class="toc-number">1.2.</span> <span class="toc-text"> 2 安装 Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85-nvm"><span class="toc-number">1.3.</span> <span class="toc-text"> 3 安装 nvm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85-docker"><span class="toc-number">1.4.</span> <span class="toc-text"> 4 安装 Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%89%E8%A3%85-rustdesk"><span class="toc-number">1.5.</span> <span class="toc-text"> 5 安装 RustDesk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85-nginx"><span class="toc-number">1.6.</span> <span class="toc-text"> 6 安装 Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%AE%89%E8%A3%85-redis"><span class="toc-number">1.7.</span> <span class="toc-text"> 7 安装 Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%AE%89%E8%A3%85-nacos"><span class="toc-number">1.8.</span> <span class="toc-text"> 8 安装 Nacos</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/guide/2023/10/10/Linux%E8%BF%90%E7%BB%B4/environments%20install/" rel="bookmark" title="CentOS 环境安装">CentOS 环境安装</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/" title="分类于 冷知识合集">冷知识合集</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/Serializable%20%E5%92%8C%20Externalizable/" title="Serializable 和 Externalizable">Serializable 和 Externalizable</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="分类于 中间件">中间件</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/" title="分类于 redis">redis</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84/" title="黑马点评">黑马点评</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/ServiceLoader%E7%B1%BB%20%E4%B8%8E%20SPI%20%E6%9C%BA%E5%88%B6/" title="ServiceLoader类 与 SPI 机制">ServiceLoader类 与 SPI 机制</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="Docker安装以及使用">Docker安装以及使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-day06/" title="设计模式-day06">设计模式-day06</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/%E4%BD%BF%E7%94%A8StringRedisTemplate%E6%8A%A5%E9%94%99%EF%BC%9Ajava.lang.ClassCastException_%20java.lang.Long%20cannot%20be%20cast%20to%20java.lang.String/" title="使用StringRedisTemplate报错：java.lang.ClassCastException_ java.lang.Long cannot be cast to java.lang.String">使用StringRedisTemplate报错：java.lang.ClassCastException_ java.lang.Long cannot be cast to java.lang.String</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" title="分类于 分布式存储社团一体化平台">分布式存储社团一体化平台</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/Web%20%E5%9F%BA%E7%A1%80%20Filter%20%E4%B8%AD%20urlPattern%20%E7%9A%84%E6%A0%BC%E5%BC%8F/" title="Web 基础 Filter 中 urlPattern 的格式">Web 基础 Filter 中 urlPattern 的格式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-day05/" title="设计模式-day05">设计模式-day05</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" title="SpringBoot 整合 七牛云存储">SpringBoot 整合 七牛云存储</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/Gateway%20%E7%9A%84%20GlobalFilter%20%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8D%E7%94%9F%E6%95%88/" title="Gateway 的 GlobalFilter 过滤器不生效">Gateway 的 GlobalFilter 过滤器不生效</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/10/10/Linux运维/environments install/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

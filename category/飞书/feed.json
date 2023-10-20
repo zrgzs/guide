@@ -1,0 +1,16 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "卓软信息工作室 • All posts by \"飞书\" category",
+    "description": "",
+    "home_page_url": "https://zrgzs.github.io/guide",
+    "items": [
+        {
+            "id": "https://zrgzs.github.io/guide/2023/10/07/%E9%A3%9E%E4%B9%A6/GitHub2FeishuWebhook/",
+            "url": "https://zrgzs.github.io/guide/2023/10/07/%E9%A3%9E%E4%B9%A6/GitHub2FeishuWebhook/",
+            "title": "在飞书中添加自定义指令监听 GitHub 事件",
+            "date_published": "2023-10-06T16:00:00.000Z",
+            "content_html": "<h1 id=\"1-新建指令\"><a class=\"markdownIt-Anchor\" href=\"#1-新建指令\">#</a> 1 新建指令</h1>\n<p>在飞书机器人助手中，新建机器人指令。</p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/202310071028295.png\" alt=\"新建指令\"></p>\n<h1 id=\"2-设置流程\"><a class=\"markdownIt-Anchor\" href=\"#2-设置流程\">#</a> 2 设置流程</h1>\n<h2 id=\"21-设置触发器\"><a class=\"markdownIt-Anchor\" href=\"#21-设置触发器\">#</a> 2.1 设置触发器</h2>\n<ol>\n<li>触发器选择 webhook</li>\n<li>复制 webhook 地址到 GitHub 仓库 -&gt; setting -&gt; webhook</li>\n<li>参数填写如下内容：<figure class=\"highlight text\"><figcaption data-lang=\"text\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>&#123;</pre></td></tr><tr><td data-num=\"2\"></td><td><pre>    \"ref\": \"\",</pre></td></tr><tr><td data-num=\"3\"></td><td><pre>    \"after\": \"\",</pre></td></tr><tr><td data-num=\"4\"></td><td><pre>    \"pusher\": &#123;</pre></td></tr><tr><td data-num=\"5\"></td><td><pre>        \"name\": \"\",</pre></td></tr><tr><td data-num=\"6\"></td><td><pre>        \"email\": \"\"</pre></td></tr><tr><td data-num=\"7\"></td><td><pre>    &#125;,</pre></td></tr><tr><td data-num=\"8\"></td><td><pre>    \"head_commit\": &#123;</pre></td></tr><tr><td data-num=\"9\"></td><td><pre>        \"id\": \"\",</pre></td></tr><tr><td data-num=\"10\"></td><td><pre>        \"message\": \"\",</pre></td></tr><tr><td data-num=\"11\"></td><td><pre>        \"timestamp\": \"\",</pre></td></tr><tr><td data-num=\"12\"></td><td><pre>        \"url\": \"\"</pre></td></tr><tr><td data-num=\"13\"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num=\"14\"></td><td><pre>&#125;</pre></td></tr></table></figure></li>\n</ol>\n<h2 id=\"22-添加下一个操作筛选\"><a class=\"markdownIt-Anchor\" href=\"#22-添加下一个操作筛选\">#</a> 2.2 添加下一个操作：筛选</h2>\n<p>并在条件组 1 中添加一个条件：</p>\n<p><code>Webhook.触发.ref 等于 refs/heads/develop</code></p>\n<p>这是表示，获取 webhook 中的 json 参数中的 ref 字段的值，然后判断是否等于  <code>refs/heads/develop</code></p>\n<p>当 ref 字段的值为  <code>refs/heads/develop</code>  时，即 develop 分支上发生了事件</p>\n<h2 id=\"23-添加下一个操作通过官方机器人发消息\"><a class=\"markdownIt-Anchor\" href=\"#23-添加下一个操作通过官方机器人发消息\">#</a> 2.3 添加下一个操作：通过官方机器人发消息</h2>\n<p>发送的消息就可以根据情况自定义了，这里不再赘述。</p>\n<h1 id=\"3-github-配置\"><a class=\"markdownIt-Anchor\" href=\"#3-github-配置\">#</a> 3 GitHub 配置</h1>\n<p>刚刚复制了 webhook 地址过来之后</p>\n<p>Content type 选择 application/json</p>\n<p>Secret 不用填</p>\n<p>监听的事件可以根据情况选择，这里只监听推送事件，所以就只选择了  <code>Just the push event.</code></p>\n",
+            "tags": []
+        }
+    ]
+}

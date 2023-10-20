@@ -1,0 +1,579 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/guide/imageshttps:/cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/guide/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="卓软信息工作室" href="https://zrgzs.github.io/guide/atom.xml" />
+<link rel="alternate" type="application/json" title="卓软信息工作室" href="https://zrgzs.github.io/guide/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/guide/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E4%BD%BF%E7%94%A8SpringSecurity%E5%81%9A%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E5%92%8C%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/">
+
+
+
+  <title>
+使用SpringSecurity做用户认证和权限校验 - 分布式存储社团一体化平台 - java项目合集 |
+卓软信息工作室</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">使用SpringSecurity做用户认证和权限校验
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-07 17:59:14">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-07T17:59:14+08:00">2023-09-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>4 分钟</span>
+  </span>
+  <span class="item" title="本文作者：">
+    <span class="icon">
+      <i class="ic i-user"></i>
+    </span>
+    <span class="text">本文作者：</span>
+    <span>wspstart</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/guide/" rel="start">卓软信息工作室</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-61.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-27.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-91.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-5.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-78.jpg"></li>
+          <li class="item" data-background-image="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230908214056-37.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/guide/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" itemprop="item" rel="index" title="分类于 java项目合集"><span itemprop="name">java项目合集</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/" itemprop="item" rel="index" title="分类于 分布式存储社团一体化平台"><span itemprop="name">分布式存储社团一体化平台</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E4%BD%BF%E7%94%A8SpringSecurity%E5%81%9A%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E5%92%8C%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/guide/images/avatar.png">
+    <meta itemprop="name" content="zrgzs">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="卓软信息工作室">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="基础"><a class="markdownIt-Anchor" href="#基础">#</a> 基础：</h2>
+<p>Spring Security 是一个专注于为 Java 应用程序提供身份认证和授权的框架。推荐使用权限认证方式配置：SSM + Shiro;Springboot+SpringSecurity</p>
+<ul>
+<li>身份认证（authentication），即验证用户身份的合法性，以判断用户能否登录。</li>
+<li>授权（authorization），即验证用户是否有权限访问某些资源或者执行某些操作。</li>
+</ul>
+<h2 id="实质"><a class="markdownIt-Anchor" href="#实质">#</a> 实质：</h2>
+<p>实质上 SpringSecurity 在进行身份认证方面主要通过一系列的过滤器链来实现的，我们加入 SpringSecurity 项目的时候可以看到控制台会输出 DefaultSecurityFilterChain 打印出来默认的过滤器链。如果我们想要对相应的地方做修改，只需修改过滤器即可，在过滤器链完成过程中加入我们的业务代码逻辑即可。</p>
+<h2 id="springsecurity核心过滤器链"><a class="markdownIt-Anchor" href="#springsecurity核心过滤器链">#</a> SpringSecurity 核心过滤器链</h2>
+<p>我们看视频常会看到说有 15 个基本过滤器链 (Filter)，但是我们常用的也就那几个。</p>
+<h2 id="浅要说一下什么是过滤器链"><a class="markdownIt-Anchor" href="#浅要说一下什么是过滤器链">#</a> 浅要说一下：什么是过滤器链？</h2>
+<p>Filter 可以在服务器作出响应前拦截用户请求，并在拦截后修改 request 和 response，可实现一次编码、多处应用。Filter 主要有以下两点作用：</p>
+<ul>
+<li>拦截请求：在 HttpServletRequest 到达 Servlet 之前进行拦截，查看和修改 HttpServletRequest 的 Header 和数据。</li>
+<li>拦截响应：在 HttpServletResponse 到达客户端之前完成拦截，查看和修改 HttpServletResponse 的 Header 和数据。</li>
+</ul>
+<p>过滤器链作为 SpringSecurity 的核心，我从网上找来一个图，可以很好的解释一下过滤器链的执行流程：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220233.jpg" alt=""></p>
+<h2 id="springsecuity-部分过滤器的执行流程"><a class="markdownIt-Anchor" href="#springsecuity-部分过滤器的执行流程">#</a> SpringSecuity 部分过滤器的执行流程：</h2>
+<ul>
+<li><strong>SecurityContextPersistenceFilter</strong>：整个 Spring Security 过滤器链的开端。主要有两点作用：（1）当请求到来时，检查 Session 中是否存在 SecurityContext，若不存在，则创建一个新的 SecurityContext；（2）在请求结束时，将 SecurityContext 放入 Session 中，并清空 SecurityContextHolder。</li>
+<li><strong>UsernamePasswordAuthenticationFilte</strong>r：继承自抽象类 AbstractAuthenticationProcessingFilter。当进行表单登录时，该 Filter 将用户名和密码封装成 UsernamePasswordAuthenticationToken 进行验证。</li>
+<li><strong>AnonymousAuthenticationFilter</strong>：匿名身份过滤器，一般用于匿名登录。当前面的 Filter 认证后依然没有用户信息时，该 Filter 会生成一个匿名身份 AnonymousAuthenticationToken。</li>
+<li><strong>ExceptionTranslationFilter</strong>：异常转换过滤器，用于处理 FilterSecurityInterceptor 抛出的异常。但是只会处理两类异常：AuthenticationException 和 AccessDeniedException，其它的异常它会继续抛出。</li>
+</ul>
+<h2 id="了解了springsecurity的执行流程之后我们先来认识一下其中的核心组件"><a class="markdownIt-Anchor" href="#了解了springsecurity的执行流程之后我们先来认识一下其中的核心组件">#</a> 了解了 SpringSecurity 的执行流程之后，我们先来认识一下其中的核心组件：</h2>
+<ul>
+<li><strong>SecurityContextHolder</strong>：用于获取 <strong>SecurityContext</strong> 的静态工具类，是 Spring Security 存储身份验证者详细信息的位置。</li>
+<li><strong>SecurityContext：</strong> 上下文对象，Authentication 对象会放在里面。</li>
+<li><strong>Authentication：</strong> 认证接口，定义了认证对象的数据形式。</li>
+<li><strong>AuthenticationManager：</strong> 用于校验 Authentication，返回一个认证完成后的 Authentication 对象。</li>
+</ul>
+<p>我们可以随时获取 SecurityContext 上下文对象，这样我们可以更改其中的权限认证信息，这是很重要的，当时写社团在线平台就不知道这个想了好久。离大谱。</p>
+<p>SecurityContextHolder 用于存储安全上下文（SecurityContext）的信息。而如何保证用户信息的安全，Spring Security 采用 “用户信息和线程绑定” 的策略，SecurityContextHolder 默认采用 ThreadLocal 机制保存用户的 SecurityContext，在使用中可以通过 SecurityContextHolder 工具轻松获取用户安全上下文。这意味着，只要是针对某个使用者的逻辑执行都是在同一个线程中进行，Spring Security 会在用户登录时自动绑定认证信息到当前线程，在用户退出时也会自动清除当前线程的认证信息。<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220235.jpg" alt="">其中，getAuthentication () 返回认证信息，getPrincipal () 返回身份信息。 SecurityContext 是从 SecurityContextHolder 获得的。SecurityContext 包含一个 Authentication 对象。</p>
+<h2 id="springsecurity的认证流程"><a class="markdownIt-Anchor" href="#springsecurity的认证流程">#</a> SpringSecurity 的认证流程<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220237.jpg" alt=""></h2>
+<p>根据这张图，这样来看我的代码，就能很清晰了，我们需要实现 UserDetailsSerivce 的 loadUserByUsername () 方法，我们在这个方法里面进行查询数据库，判断用户是否存在来进行登录认证操作，同时我们的返回的 UserDetails 实体类是 Security 框架自带的，我们可以继承他，然后返回我们自己的实体类，注意返回的 UserDetails.</p>
+<h3 id="官方话如下"><a class="markdownIt-Anchor" href="#官方话如下">#</a> 官方话如下：</h3>
+<p>结合上面的时序图，让我们先熟悉下 Spring Security 的认证流程：</p>
+<ol>
+<li>用户进行认证，用户名和密码被 SecurityFilterChain 中的 UsernamePasswordAuthenticationFilter 过滤器拦截，并将请求封装为 Authentication，其默认实现类是 UsernamePasswordAuthenticationToken。</li>
+<li>将封装的 UsernamePasswordAuthenticationToken 提交至 AuthenticationManager（认证管理器）进行认证。</li>
+<li>认证成功后， AuthenticationManager（身份管理器）会返回一个包含用户身份信息的 Authentication 实例（包括身份信息，细节信息，但密码通常会被移除）。</li>
+<li>SecurityContextHolder （安全上下文容器）将认证成功的 Authentication 存储到 SecurityContext（安全上下文）中。</li>
+</ol>
+<blockquote>
+<p>其中，AuthenticationManager 接口是认证相关的核心接口，ProviderManager 是它的实现类。因为 Spring Security 支持多种认证方式，所以 ProviderManager 维护着一个 List<AuthenticationProvider> 列表，包含多种认证方式，最终实际的认证工作就是由列表中的 AuthenticationProvider 完成的。其中最常见的 web 表单认证的对应的 AuthenticationProvider 实现类为 DaoAuthenticationProvider，它的内部又维护着一个 UserDetailsService 负责获取 UserDetails。最终 AuthenticationProvider 将 UserDetails 填充至 Authentication。</p>
+</blockquote>
+<h2 id="用户密码过滤器usernamepasswordauthenticationfilter"><a class="markdownIt-Anchor" href="#用户密码过滤器usernamepasswordauthenticationfilter">#</a> 用户密码过滤器（UsernamePasswordAuthenticationFilter）：</h2>
+<p>以用户名密码认证为例 ，请求被 UsernamePasswordAuthenticationFilter 过滤器拦截，UsernamePasswordAuthenticationFilter 根据 Request 中提交的用户名和密码创建一个 Token (UsernamePasswordAuthenticationToken)。</p>
+<h2 id="usernamepasswordauthenticationtoken这玩意是啥"><a class="markdownIt-Anchor" href="#usernamepasswordauthenticationtoken这玩意是啥">#</a> UsernamePasswordAuthenticationToken 这玩意是啥？</h2>
+<p>实质上：UsernamePasswordAuthenticationToken 的核心就是两个构造方法，分别用于初始化未认证和认证的 Token。</p>
+<h3 id="官方话"><a class="markdownIt-Anchor" href="#官方话">#</a> 官方话：</h3>
+<p>这一步是身份认证的核心，下面进行详细讲解：</p>
+<ol>
+<li>未认证的 UsernamePasswordAuthenticationToken（携带用户名、密码信息）被提交给 AuthenticationManager。AuthenticationManager 的实现类 ProviderManager 负责对认证请求链 AuthenticationProviders 进行管理。</li>
+<li>ProviderManager 通过循环的方式，发现 DaoAuthenticationProvider 的类型符合，使用 DaoAuthenticationProvider 进行认证。</li>
+<li>DaoAuthenticationProvider 从 UserDetailsService 中查找 UserDetails。</li>
+<li>DaoAuthenticationProvider 使用 PasswordEncoder 验证上一步返回的 UserDetails 中的用户密码。</li>
+<li>当身份验证成功， Authentication 返回一个已认证的 UsernamePasswordAuthenticationToken ，其中包含 UserDetailsService 返回的 UserDetails 信息。最终，认证成功的 UsernamePasswordAuthenticationToken 添加到 SecurityContextHolder 完成账号密码的身份认证。</li>
+</ol>
+<p>看下这图就了解差不多了：<img data-src="https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/20230907220239.jpg" alt=""></p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-09-08 14:17:19" itemprop="dateModified" datetime="2023-09-08T14:17:19+08:00">2023-09-08</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>wspstart <i class="ic i-at"><em>@</em></i>卓软信息工作室
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zrgzs.github.io/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E4%BD%BF%E7%94%A8SpringSecurity%E5%81%9A%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E5%92%8C%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/" title="使用SpringSecurity做用户认证和权限校验">https://zrgzs.github.io/guide/2023/09/07/java项目合集/分布式存储社团一体化平台/使用SpringSecurity做用户认证和权限校验/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEorg.mybatis.spring.annotation.MapperScan/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-59.jpg" title="无法访问org.mybatis.spring.annotation.MapperScan">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 分布式存储社团一体化平台</span>
+  <h3>无法访问org.mybatis.spring.annotation.MapperScan</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/resultMap%20%E4%B8%AD%20type%20%E7%88%86%E7%BA%A2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;zrgzs&#x2F;images@main&#x2F;images&#x2F;20230908214056-56.jpg" title="resultMap 中 type 爆红">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 分布式存储社团一体化平台</span>
+  <h3>resultMap 中 type 爆红</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text"> 基础：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B4%A8"><span class="toc-number">2.</span> <span class="toc-text"> 实质：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springsecurity%E6%A0%B8%E5%BF%83%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE"><span class="toc-number">3.</span> <span class="toc-text"> SpringSecurity 核心过滤器链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E8%A6%81%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE"><span class="toc-number">4.</span> <span class="toc-text"> 浅要说一下：什么是过滤器链？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springsecuity-%E9%83%A8%E5%88%86%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text"> SpringSecuity 部分过滤器的执行流程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E4%BA%86springsecurity%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E4%B9%8B%E5%90%8E%E6%88%91%E4%BB%AC%E5%85%88%E6%9D%A5%E8%AE%A4%E8%AF%86%E4%B8%80%E4%B8%8B%E5%85%B6%E4%B8%AD%E7%9A%84%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text"> 了解了 SpringSecurity 的执行流程之后，我们先来认识一下其中的核心组件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springsecurity%E7%9A%84%E8%AE%A4%E8%AF%81%E6%B5%81%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text"> SpringSecurity 的认证流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E8%AF%9D%E5%A6%82%E4%B8%8B"><span class="toc-number">7.1.</span> <span class="toc-text"> 官方话如下：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81%E8%BF%87%E6%BB%A4%E5%99%A8usernamepasswordauthenticationfilter"><span class="toc-number">8.</span> <span class="toc-text"> 用户密码过滤器（UsernamePasswordAuthenticationFilter）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usernamepasswordauthenticationtoken%E8%BF%99%E7%8E%A9%E6%84%8F%E6%98%AF%E5%95%A5"><span class="toc-number">9.</span> <span class="toc-text"> UsernamePasswordAuthenticationToken 这玩意是啥？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E8%AF%9D"><span class="toc-number">9.1.</span> <span class="toc-text"> 官方话：</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/@Valid%20%E5%92%8C%20@Validated%20%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" rel="bookmark" title="@Valid 和 @Validated 的底层原理">@Valid 和 @Validated 的底层原理</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/Jackson%20%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B3%9B%E5%9E%8B%E5%88%97%E8%A1%A8%E5%AF%BC%E8%87%B4%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%82%E5%B8%B8/" rel="bookmark" title="Jackson 反序列化泛型列表导致类型转换异常">Jackson 反序列化泛型列表导致类型转换异常</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/Access%20denied%20for%20user%20'15074'@'106.110.88.69'%20(using%20password_%20YES)/" rel="bookmark" title="Access denied for user '15074'@'106.110.88.69' (using password_ YES)">Access denied for user '15074'@'106.110.88.69' (using password_ YES)</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/SSM+Shiro+Redis+%20%E7%BA%AF%E6%B3%A8%E8%A7%A3%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="bookmark" title="SSM+Shiro+Redis+ 纯注解环境搭建">SSM+Shiro+Redis+ 纯注解环境搭建</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/Redis%20%E4%BF%9D%E5%AD%98%E7%9A%84%E5%80%BC%E4%B8%AD%E5%8C%85%E5%90%AB%20_x00/" rel="bookmark" title="Redis 保存的值中包含 _x00">Redis 保存的值中包含 _x00</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/ServletOutputStream%E4%B8%8D%E8%A6%81%E6%89%8B%E5%8A%A8%E5%85%B3%E9%97%AD/" rel="bookmark" title="ServletOutputStream不要手动关闭">ServletOutputStream不要手动关闭</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/bugs/" rel="bookmark" title="bugs">bugs</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/javax.mail.MessagingException_%20Got%20bad%20greeting%20from%20SMTP%20host/" rel="bookmark" title="javax.mail.MessagingException_ Got bad greeting from SMTP host">javax.mail.MessagingException_ Got bad greeting from SMTP host</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/Web%20%E5%9F%BA%E7%A1%80%20Filter%20%E4%B8%AD%20urlPattern%20%E7%9A%84%E6%A0%BC%E5%BC%8F/" rel="bookmark" title="Web 基础 Filter 中 urlPattern 的格式">Web 基础 Filter 中 urlPattern 的格式</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/resultMap%20%E4%B8%AD%20type%20%E7%88%86%E7%BA%A2/" rel="bookmark" title="resultMap 中 type 爆红">resultMap 中 type 爆红</a></li><li class="active"><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E4%BD%BF%E7%94%A8SpringSecurity%E5%81%9A%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E5%92%8C%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/" rel="bookmark" title="使用SpringSecurity做用户认证和权限校验">使用SpringSecurity做用户认证和权限校验</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEorg.mybatis.spring.annotation.MapperScan/" rel="bookmark" title="无法访问org.mybatis.spring.annotation.MapperScan">无法访问org.mybatis.spring.annotation.MapperScan</a></li><li><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0/" rel="bookmark" title="开发随记">开发随记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zrgzs"
+      data-src="/guide/images/avatar.png">
+  <p class="name" itemprop="name">zrgzs</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/guide/archives/">
+        <span class="count">93</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/guide/categories/">
+        <span class="count">26</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pyZ3pz" title="https:&#x2F;&#x2F;github.com&#x2F;zrgzs"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/guide/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/join-us/" rel="section"><i class="ic i-qq"></i>加入我们</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/guide/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEorg.mybatis.spring.annotation.MapperScan/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%A4%BE%E5%9B%A2%E4%B8%80%E4%BD%93%E5%8C%96%E5%B9%B3%E5%8F%B0/resultMap%20%E4%B8%AD%20type%20%E7%88%86%E7%BA%A2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/" title="分类于 java基础">java基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-day04/" title="设计模式-day04">设计模式-day04</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/%E6%97%A5%E5%BF%97%E6%8A%A5%E9%94%99_WARNING_%20An%20illegal%20reflective%20access%20operation%20has%20occurred/" title="日志报错_WARNING_ An illegal reflective access operation has occurred">日志报错_WARNING_ An illegal reflective access operation has occurred</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/" title="分类于 小昭">小昭</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E5%B0%8F%E6%98%AD/SpringBoot%20%E6%95%B4%E5%90%88%20%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" title="SpringBoot 整合 七牛云存储">SpringBoot 整合 七牛云存储</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/" title="分类于 框架">框架</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="分类于 微服务">微服务</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E4%BB%A5%E5%8F%8A%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" title="服务拆分以及远程调用">服务拆分以及远程调用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="分类于 面试问题">面试问题</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/Session%E5%92%8CCookie%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" title="Session和Cookie的区别？">Session和Cookie的区别？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/zf/" title="分类于 zf">zf</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/zf/%E5%89%8D%E5%90%8E%E7%AB%AF%E8%A7%84%E7%BA%A6/" title="前后端规约">前后端规约</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/" title="分类于 冷知识合集">冷知识合集</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E5%86%B7%E7%9F%A5%E8%AF%86%E5%90%88%E9%9B%86/Serializable%20%E5%92%8C%20Externalizable/" title="Serializable 和 Externalizable">Serializable 和 Externalizable</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/JVM/" title="分类于 JVM">JVM</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/JVM/README/" title="README">README</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" title="分类于 报错信息">报错信息</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/%E4%BD%BF%E7%94%A8Hash%E7%BB%93%E6%9E%84%E7%BC%93%E5%AD%98%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98%EF%BC%9F/" title="使用Hash结构缓存对象，如何解决缓存穿透问题？">使用Hash结构缓存对象，如何解决缓存穿透问题？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/" title="分类于 java项目合集">java项目合集</a>
+<i class="ic i-angle-right"></i>
+<a href="/guide/categories/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/" title="分类于 ”宜优“">”宜优“</a>
+</div>
+
+    <span><a href="/guide/2023/09/07/java%E9%A1%B9%E7%9B%AE%E5%90%88%E9%9B%86/%E2%80%9D%E5%AE%9C%E4%BC%98%E2%80%9C/%E4%BB%8E0%E5%88%B0N%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%89/" title="从0到N搭建微服务项目（保姆级教程）">从0到N搭建微服务项目（保姆级教程）</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zrgzs @ 卓软信息工作室</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">389k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/07/java项目合集/分布式存储社团一体化平台/使用SpringSecurity做用户认证和权限校验/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/guide/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
