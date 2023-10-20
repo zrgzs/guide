@@ -1,0 +1,42 @@
+alternate:
+
+menu:
+  home: / || home
+#  posts:
+#    default: / || feather
+#  archives: /archives/ || list-alt
+  categories: /categories/ || th
+  join-us: /join-us/ || qq
+  about: /about/ || user
+#    tags: /tags/ || tags
+  # friends: /friends/ || heart
+  # links: /links/ || magic
+
+social:
+  github: https://github.com/zrgzs || github || "#191717"
+
+favicon:
+  apple_touch_icon: https://cdn.jsdelivr.net/gh/zrgzs/images@main/images/202309081739436.png
+
+sidebar:
+  # Sidebar Position.
+  position: left
+  #position: right
+  # Replace the default avatar image and set the url here.
+  avatar: avatar.png
+widgets:
+  random_posts: true # 显示随机文章
+  recent_comments: false # 显示最近评论
+# 页尾全站统计
+footer:
+  since: 2023
+  count: true
+
+# 文章界面统计
+post:
+  count: true
+
+# 打赏
+reward:
+  # If true, reward will be displayed in every article by default.
+  enable: false
